@@ -1,0 +1,382 @@
+[
+  {
+    "category": "Cotton - Sowing",
+    "crop": "Cotton (કપાસ)",
+    "questions": {
+      "gujarati": "કપાસ ક્યારે વાવવો જોઈએ?",
+      "hindi": "कपास कब बोना चाहिए?",
+      "english": "When should I sow cotton?"
+    },
+    "answer": "Cotton should be sown during Kharif season, from the 2nd week of June to the 2nd week of July. In irrigated areas, early sowing can be done from the last week of May to the 1st week of June, but early sowing increases pest and disease incidence.",
+    "source_pdf": "PDF 15",
+    "tags": [
+      "cotton",
+      "kapas",
+      "sowing",
+      "kharif",
+      "timing"
+    ],
+    "id": "FAQ001",
+    "question": "When should I sow cotton?",
+    "question_gu": "કપાસ ક્યારે વાવવો જોઈએ?",
+    "answer_gu": "કપાસ ચોમાસામાં વાવવો જોઈએ. સામાન્ય રીતે જૂનના બીજા અઠવાડિયા (June 2nd week) થી જૂલાઈના બીજા અઠવાડિયા (July 2nd week) સુધી વાવેતર કરવું. જ્યાં પિયત (irrigation) ની સગવડ હોય ત્યાં મે માસના છેલ્લા અઠવાડિયા થી જૂનના પ્રથમ અઠવાડિયા સુધી આગોતરું વાવેતર કરી શકાય, પરંતુ વહેલા વાવેતરથી રોગ-જીવાત વધે છે."
+  },
+  {
+    "category": "Cotton - Spacing",
+    "crop": "Cotton (કપાસ)",
+    "questions": {
+      "gujarati": "કપાસ વાવવામાં બે ચાસ અને બે છોડ વચ્ચે કેટલું અંતર રાખવું?",
+      "hindi": "कपास में दो पंक्तियों और दो पौधों के बीच कितनी दूरी रखनी चाहिए?",
+      "english": "What spacing should I maintain between rows and plants for cotton?"
+    },
+    "answer": "In irrigated areas: Maintain 120 cm between rows and 45 cm between plants. In rainfed (non-irrigated) areas: Maintain 90 cm between rows and 30 cm between plants.",
+    "source_pdf": "PDF 15",
+    "tags": [
+      "cotton",
+      "spacing",
+      "row spacing",
+      "plant spacing"
+    ],
+    "id": "FAQ002",
+    "question": "What spacing should I maintain between rows and plants for cotton?",
+    "question_gu": "કપાસ વાવવામાં બે ચાસ અને બે છોડ વચ્ચે કેટલું અંતર રાખવું?",
+    "answer_gu": "પિયત વિસ્તારમાં: બે ચાસ વચ્ચે 120 સે.મી. અને ચાસમાં બે છોડ વચ્ચે 45 સે.મી.નું અંતર રાખવું. બિનપિયત વિસ્તારમાં: બે ચાસ વચ્ચે 90 સે.મી. અને ચાસમાં બે છોડ વચ્ચે 30 સે.મી.નું અંતર રાખવું."
+  },
+  {
+    "category": "Cotton - Disease",
+    "crop": "Cotton (કપાસ)",
+    "questions": {
+      "gujarati": "મારા કપાસના પાન પીળા કેમ થઈ રહ્યા છે?",
+      "hindi": "मेरे कपास के पत्ते पीले क्यों हो रहे हैं?",
+      "english": "Why are my cotton leaves turning yellow?"
+    },
+    "answer": "Cotton leaves turning yellow can be due to: (1) Fusarium Wilt (Sukaro disease) - plant wilts from top. (2) Nitrogen deficiency - lower leaves yellow first. (3) Sucking pests like jassids, mites, or thrips. Solutions: (1) Check drainage and reduce waterlogging, (2) Apply nitrogenous fertilizer if deficient, (3) Spray Acephate 75% SP 15g or neem oil for sucking pest control.",
+    "source_pdf": "PDF 15",
+    "tags": [
+      "cotton",
+      "yellow leaves",
+      "kapas",
+      "disease",
+      "pest",
+      "wilt"
+    ],
+    "id": "FAQ003",
+    "question": "Why are my cotton leaves turning yellow?",
+    "question_gu": "મારા કપાસના પાન પીળા કેમ થઈ રહ્યા છે?",
+    "answer_gu": "કપાસના પાન પીળા થવાના ઘણા કારણ હોઈ શકે: (1) સૂકારો (Fusarium Wilt) - ફૂગ (Fungus) દ્વારા થાય, ઉપરથી સૂકાય. (2) ભેળ જ ́ ́ - ઘઇ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ - ́ ́ ́ ́ (nitrogen deficiency). (3) ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ (Sucking pests like jassids). ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́: (1) ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́, (2) ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́."
+  },
+  {
+    "category": "Cotton - Bollworm",
+    "crop": "Cotton (કપાસ)",
+    "questions": {
+      "gujarati": "ભૂરી ઈયળ (Pink Bollworm) ને ઓળખવી અને કાબૂ કેવી રીતે કરવો?",
+      "hindi": "गुलाबी इल्ली (Pink Bollworm) को कैसे पहचानें और नियंत्रित करें?",
+      "english": "How to identify and control Pink Bollworm in cotton?"
+    },
+    "answer": "Identification: Rosette-shaped flowers (lock flowers), boll dropping, pink larvae inside bolls. ETL: 1 rosette flower per plant. Control: 1) Install pheromone traps (5-10/hectare), 2) NPV (450 LE/ha) spray every 10-15 days at 4 PM, 3) Chemical: Quinalphos 20% EC 20ml/10L water only at ETL. Plant castor (Divela) and Galgota as trap crops around cotton field.",
+    "source_pdf": "PDF 15",
+    "tags": [
+      "cotton",
+      "pink bollworm",
+      "bhuri iyad",
+      "pheromone trap",
+      "NPV",
+      "IPM"
+    ],
+    "id": "FAQ004",
+    "question": "How to identify and control Pink Bollworm in cotton?",
+    "question_gu": "ભૂરી ઈયળ (Pink Bollworm) ને ઓળખવી અને કાબૂ કેવી રીતે કરવો?",
+    "answer_gu": "ઓળખ: ફૂલ ગુલાબ/ਮਲ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ (rosette), ́ ́ ́ ́ ́ ́ ́ ́ ́. ́ ́ ́: 1 ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́. ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́: ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́."
+  },
+  {
+    "category": "Cotton - Seed Treatment",
+    "crop": "Cotton (કપાસ)",
+    "questions": {
+      "gujarati": "કપાસ વાવવા પહેલા બીજ ઉપર કઈ દવા આપવી?",
+      "hindi": "कपास की बुवाई से पहले बीज उपचार कैसे करें?",
+      "english": "What seed treatment should I do before sowing cotton?"
+    },
+    "answer": "1) Use delinted (bare) seed. 2) Seed treatment: Agrosane or Seresane (Parakote) 2-3g per kg seed. 3) For American and BT hybrid varieties: Imidacloprid (Gaucho) 7.5g per kg seed to protect from initial sucking pests. 4) Thiram 3g OR Thyram + Pyraclostrobin 3-4g per kg for fungal protection.",
+    "source_pdf": "PDF 15",
+    "tags": [
+      "cotton",
+      "seed treatment",
+      "bijo mavjat",
+      "imidacloprid",
+      "gaucho"
+    ],
+    "id": "FAQ005",
+    "question": "What seed treatment should I do before sowing cotton?",
+    "question_gu": "કપાસ વાવવા પહેલા બીજ ઉપર કઈ દવા આપવી?",
+    "answer_gu": "1) ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ (Delinted seed) ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́. 2) ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́: Agrosane/Seresane 2-3 grams per kg ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́. 3) ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ (BT ́ ́ ́): Imidacloprid (Gaucho) 7.5g ́ ́ ́ ́ ́."
+  },
+  {
+    "category": "Rice - Varieties",
+    "crop": "Rice (ડાંગર)",
+    "questions": {
+      "gujarati": "ઉનાળુ ડાંગર માટે કઈ જાત ઉત્ત ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́?",
+      "hindi": "गर्मी के धान के लिए कौन सी किस्म सबसे अच्छी है?",
+      "english": "Which rice varieties are best for summer (Unalu) cultivation in Gujarat?"
+    },
+    "answer": "For summer (Unalu) rice: Gujarat, Jaya, GR-11, GR-103 are recommended. Early maturing transplanting varieties: GR-3, GR-4, GR-6, GR-7, IR-28, NARRI-1, IR-66. Direct sowing: GR-5, GR-8, GR-9. High-yielding hybrids can give 5-6 tonnes/hectare.",
+    "source_pdf": "PDF 17",
+    "tags": [
+      "rice",
+      "dangar",
+      "varieties",
+      "summer rice",
+      "GR-11",
+      "hybrid"
+    ],
+    "id": "FAQ006",
+    "question": "Which rice varieties are best for summer (Unalu) cultivation in Gujarat?",
+    "question_gu": "ઉનાળુ ડાંગર માટે કઈ જાત ઉત્ત ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́?",
+    "answer_gu": "ઉનાળુ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́: Gujarat, Jaya, GR-11, GR-103. ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́: GR-3, GR-4, GR-6, GR-7, IR-28, NARRI-1, IR-66. ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́: GR-5, GR-8, GR-9."
+  },
+  {
+    "category": "Rice - Disease",
+    "crop": "Rice (ડાંગર)",
+    "questions": {
+      "gujarati": "ડાંગર ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́?",
+      "hindi": "धान में ब्लास्ट रोग का नियंत्रण कैसे करें?",
+      "english": "How to control Blast disease (Jhad) in rice?"
+    },
+    "answer": "Rice Blast identification: Diamond-shaped spots on leaves with gray center; neck rot causing white empty panicles. Seed treatment: Soak seeds in 600g Streptocycline + 12g Emisan-6 in 24L water for 8-10 hours. Chemical spray: Tricyclazole 75WP 6g OR Carbendazim 50WP 10g OR Hexaconazole 5EC 10ml per 10L water every 15 days. Remove infected tillers immediately, stop nitrogen fertilizer temporarily.",
+    "source_pdf": "PDF 17",
+    "tags": [
+      "rice",
+      "blast",
+      "jhad",
+      "Tricyclazole",
+      "fungal disease",
+      "neck rot"
+    ],
+    "id": "FAQ007",
+    "question": "How to control Blast disease (Jhad) in rice?",
+    "question_gu": "ડાંગર ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́?",
+    "answer_gu": "́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́. ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́: ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́. ́ ́ ́ ́ ́ ́: Tricyclazole 75 WP 6g ́ ́ ́ ́ ́ Carbendazim 50 WP 10g ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ 15 ́ ́."
+  },
+  {
+    "category": "Rice - Pest",
+    "crop": "Rice (ડાંગર)",
+    "questions": {
+      "gujarati": "ডাংগর ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́?",
+      "hindi": "धान में गाल मिज (Gall Midge) का नियंत्रण कैसे करें?",
+      "english": "How to control Gall Midge (Gabhmar) in rice?"
+    },
+    "answer": "Gall Midge identification: Hollow tubes (Silver shoots/onion leaf shaped tillers), plant unable to produce grain. Control: 15 days after transplanting, apply Carbofuran 3% granules 1 kg per 10m x 10m area. If infestation seen: Spray Rhizophos 40EC 12ml OR Cartap Hydrochloride 50SP 10g per 10 liters water. Clip top of seedlings before transplanting to destroy eggs.",
+    "source_pdf": "PDF 17",
+    "tags": [
+      "rice",
+      "gall midge",
+      "gabhmar",
+      "silver shoot",
+      "carbofuran"
+    ],
+    "id": "FAQ008",
+    "question": "How to control Gall Midge (Gabhmar) in rice?",
+    "question_gu": "ডাংগর ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́?",
+    "answer_gu": "́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́. ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́: ́ ́ ́ ́ ́ 15 ́ ́ ́ ́ ́ Carbofuran 3% ́ ́ ́ 1 ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́."
+  },
+  {
+    "category": "Wheat - Sowing Time",
+    "crop": "Wheat (ઘઉં)",
+    "questions": {
+      "gujarati": "ઘઉ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́?",
+      "hindi": "गेहूं की बुवाई का सही समय कब है?",
+      "english": "What is the best time to sow wheat in Gujarat?"
+    },
+    "answer": "The best time to sow wheat in Gujarat is November 15-25. If late sowing is necessary, it can be done up to December 10. Early sowing causes high temperatures during germination and tillering, reducing yield. Late sowing causes shriveled grains (chiriya/jiria) during grain filling due to high temperatures in March. Recommended varieties for optimal sowing: Lok-1, GW-496, GW-503, GW-273, GW-322, GW-366.",
+    "source_pdf": "PDF 18",
+    "tags": [
+      "wheat",
+      "ghau",
+      "sowing time",
+      "november",
+      "rabi",
+      "Gujarat"
+    ],
+    "id": "FAQ009",
+    "question": "What is the best time to sow wheat in Gujarat?",
+    "question_gu": "ઘઉ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́?",
+    "answer_gu": "́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́: ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ 15 ́ ́ ́ ́ ́ ́ 25 ́ ́ ́ ́ ́ ́ ́ ́ ́. ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ 10 ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́."
+  },
+  {
+    "category": "Wheat - Disease",
+    "crop": "Wheat (ઘઉં)",
+    "questions": {
+      "gujarati": "ĉ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́?",
+      "hindi": "गेहूं में गेरू रोग (Rust) कैसे पहचानें और नियंत्रित करें?",
+      "english": "How to identify and control Rust (Geru) disease in wheat?"
+    },
+    "answer": "Wheat Rust (Geru) identification: Orange-yellow powdery pustules on leaves and stems, premature leaf death. More prevalent in Saurashtra coastal areas and North/Central Gujarat. Control: Spray Zineb 0.2% OR Mancozeb 0.2% solution from first symptom appearance, 3 sprays at 15-day intervals. Use rust-resistant varieties when possible.",
+    "source_pdf": "PDF 18",
+    "tags": [
+      "wheat",
+      "rust",
+      "geru",
+      "Zineb",
+      "Mancozeb",
+      "fungal disease"
+    ],
+    "id": "FAQ010",
+    "question": "How to identify and control Rust (Geru) disease in wheat?",
+    "question_gu": "ĉ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́?",
+    "answer_gu": "ĉ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́. ́ ́ ́ ́ ́ ́: Zineb 0.2% ́ ́ ́ ́ ́ ́ Mancozeb 0.2% ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ 3 ́ ́ 15 ́ ́ ́ ́ ́ ́."
+  },
+  {
+    "category": "Wheat - Irrigation",
+    "crop": "Wheat (ઘઉં)",
+    "questions": {
+      "gujarati": "ĉ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́?",
+      "hindi": "गेहूं में पानी कब देना चाहिए?",
+      "english": "When and how many times should wheat be irrigated?"
+    },
+    "answer": "Wheat requires 4-6 irrigations. Critical stages: (1) Crown root initiation - 18-21 days, (2) Tillering - 30-35 days, (3) Jointing - 45-50 days, (4) Head emergence, (5) Flowering - 60-65 days, (6) Grain filling. DO NOT irrigate after grain hardening - this causes Poptia (chalky grains). Use sprinkler irrigation sets 12m x 12m apart, run for 2.5 hours per session.",
+    "source_pdf": "PDF 18",
+    "tags": [
+      "wheat",
+      "irrigation",
+      "piyat",
+      "sprinkler",
+      "critical stage"
+    ],
+    "id": "FAQ011",
+    "question": "When and how many times should wheat be irrigated?",
+    "question_gu": "ĉ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́?",
+    "answer_gu": "ĉ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́."
+  },
+  {
+    "category": "Castor - Disease",
+    "crop": "Castor (ĉ ́ ́)",
+    "questions": {
+      "gujarati": "ĉ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́?",
+      "hindi": "एरंड में सूकड़ा रोग (Wilt) का नियंत्रण कैसे करें?",
+      "english": "How to control Wilt disease (Sukaro) in castor?"
+    },
+    "answer": "Castor Wilt (Sukaro) control: (1) At least 3-year crop rotation, (2) Plant resistant varieties GCH-4, GCH-6, GCH-7, (3) Seed treatment: Thiram 3g OR Carbendazim 1g per kg seed, (4) Mix Trichoderma harzianum 5kg with 500kg castor shells and apply in furrows at sowing, (5) Remove and destroy infected plants immediately, (6) Avoid waterlogged fields for castor.",
+    "source_pdf": "PDF 20",
+    "tags": [
+      "castor",
+      "divela",
+      "wilt",
+      "sukaro",
+      "Trichoderma",
+      "GCH varieties"
+    ],
+    "id": "FAQ012",
+    "question": "How to control Wilt disease (Sukaro) in castor?",
+    "question_gu": "ĉ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́?",
+    "answer_gu": "ĉ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́. ́ ́ ́: ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́."
+  },
+  {
+    "category": "Grain Storage - Insects",
+    "crop": "Stored Grains (ĉ ́ ́ ́ ́ ́ ́ ́ ́)",
+    "questions": {
+      "gujarati": "ĉ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́?",
+      "hindi": "अनाज भंडारण में कीड़े न लगें इसके लिए क्या करें?",
+      "english": "How to prevent insect infestation in stored grain?"
+    },
+    "answer": "1) Dry grain to 10% or less moisture; sun dry 2-3 days. 2) Clean storage containers/bins thoroughly before use. 3) Mix neem leaves 2 kg per 100 kg grain, or store with castor/neem leaves. 4) For large storage: Aluminium Phosphide (Sulphas/Celphos) 1 tablet per 100 kg, seal airtight for 7 days. 5) Mix Malathion 0.1% spray on sacks before filling. 6) Store 100 kg wheat with 500g Neem leaves (Limdo).",
+    "source_pdf": "PDF 16",
+    "tags": [
+      "grain storage",
+      "insects",
+      "neem",
+      "Aluminium Phosphide",
+      "pest prevention"
+    ],
+    "id": "FAQ013",
+    "question": "How to prevent insect infestation in stored grain?",
+    "question_gu": "ĉ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́?",
+    "answer_gu": "ĉ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́."
+  },
+  {
+    "category": "Grain Storage - Rats",
+    "crop": "Stored Grains",
+    "questions": {
+      "gujarati": "ĉ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́?",
+      "hindi": "अनाज के भंडार में चूहों से कैसे बचाव करें?",
+      "english": "How to control rats in grain storage?"
+    },
+    "answer": "Prevention: Store grain in rat-proof containers; seal all cracks; cut trees touching roof; install 10cm metal strips at door base. Biological: Keep cats; install bamboo perches for owls in fields; use Dhaman snake (non-venomous). Traps: Wire cage traps with food bait - first 2 days with exit open, then close exit. Chemical: Zinc Phosphide 2% (1:49 ratio with food) - quick kill; or Bromadiolone 0.005% wax cakes 10g per burrow - slow poison.",
+    "source_pdf": "PDF 16",
+    "tags": [
+      "rats",
+      "rodent control",
+      "grain storage",
+      "zinc phosphide",
+      "bromadiolone",
+      "pinjro"
+    ],
+    "id": "FAQ014",
+    "question": "How to control rats in grain storage?",
+    "question_gu": "ĉ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́?",
+    "answer_gu": "ĉ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́."
+  },
+  {
+    "category": "Fodder Crops",
+    "questions": {
+      "gujarati": "ĉ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́?",
+      "hindi": "पशुओं के लिए पूरे साल हरा चारा कैसे उगाएं?",
+      "english": "Which fodder crops can provide green fodder throughout the year?"
+    },
+    "answer": "For year-round green fodder: Kharif (June 15-July 15): Jowar S-1049/Sudhiru, Gajraj Ghass (Hybrid Napier NB-21/Co-1), Giant Bajra GFBI-1, Maize (Ganga-5/African Tall), Cowpea GFCV-1,2,3. Rabi (Nov 15-Dec 15): Oats GHOO-822/Kent, Rajko Berseem (Anand-2, Anand-3, SS-627). Summer (Feb 15-Mar 15): Maize, Jowar Sweet Sudan, Giant Bajra.",
+    "source_pdf": "PDF 19",
+    "tags": [
+      "fodder",
+      "ghaschaaro",
+      "animal feed",
+      "jowar",
+      "napier",
+      "rajko",
+      "maize"
+    ],
+    "id": "FAQ015",
+    "question": "Which fodder crops can provide green fodder throughout the year?",
+    "question_gu": "ĉ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́?",
+    "answer_gu": "ĉ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́: (ĉ ́ ́ ́ ́) Jowar S-1049, Sudhiru, Gajraj Ghass, Rajka Bajri, Maize, Chola. (ĉ ́ ́ ́ ́) Oats GHO-822, Rajko Anand-2/3. (ĉ ́ ́ ́ ́) Maize, Jowar Sweet Sudan."
+  },
+  {
+    "category": "Irrigation - Drip",
+    "questions": {
+      "gujarati": "ĉ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́?",
+      "hindi": "ड्रिप सिंचाई के क्या फायदे हैं?",
+      "english": "What are the benefits of drip irrigation for cotton and castor?"
+    },
+    "answer": "Drip irrigation for cotton and castor provides: 1) 24% water savings, 2) 36% more yield. This is highly beneficial in water-scarce areas of Gujarat like Saurashtra, North Gujarat. Drip is especially useful for castor as it is sensitive to waterlogging.",
+    "source_pdf": "PDF 20, PDF 15",
+    "tags": [
+      "drip irrigation",
+      "water saving",
+      "yield increase",
+      "castor",
+      "cotton"
+    ],
+    "id": "FAQ016",
+    "question": "What are the benefits of drip irrigation for cotton and castor?",
+    "question_gu": "ĉ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́?",
+    "answer_gu": "ĉ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́."
+  },
+  {
+    "category": "Fertilizer - Organic",
+    "questions": {
+      "gujarati": "ĉ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́?",
+      "hindi": "जैविक खाद का उपयोग कैसे करें?",
+      "english": "How to use organic manure (FYM/Compost) in farming?"
+    },
+    "answer": "Organic manure recommendations: 1) Cotton - 10-15 tonnes well-decomposed FYM per hectare before sowing. 2) Wheat - 20 tonnes FYM or 60-75 kg green manure before land preparation. 3) Rice - 10 tonnes FYM per hectare mixed before transplanting. 4) Castor - 10 tonnes FYM or 2 tonnes castor cake per hectare. Cotton stalk can be composted with soil bacteria to create desi fertilizer.",
+    "source_pdf": "PDF 15, 17, 18, 20",
+    "tags": [
+      "FYM",
+      "organic manure",
+      "compost",
+      "bio-compost",
+      "desi khatar"
+    ],
+    "id": "FAQ017",
+    "question": "How to use organic manure (FYM/Compost) in farming?",
+    "question_gu": "ĉ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́?",
+    "answer_gu": "ĉ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́ ́."
+  }
+]

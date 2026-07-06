@@ -1,0 +1,8 @@
+torch
+torchvision
+pillow
+imagehash
+numpy
+scikit-learn
+tensorflowjs
+kagglehub

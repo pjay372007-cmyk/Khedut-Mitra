@@ -1,0 +1,598 @@
+[
+  {
+    "crop": [
+      "cotton (gossypium hirsutum / g. arboreum)"
+    ],
+    "crop_gujarati": "કpas (Kapas)",
+    "crop_hindi": "कपास",
+    "disease_name": {
+      "gujarati": "સૂparo (Sukaro) - wilt",
+      "hindi": "उकठा / सूखा रोग",
+      "english": "Cotton Wilt / Fusarium Wilt",
+      "scientific": "Fusarium oxysporum f.sp. vasinfectum"
+    },
+    "disease_type": "Fungal (Soil-borne)",
+    "affected_parts": [
+      "Roots",
+      "Vascular system",
+      "Entire plant"
+    ],
+    "symptoms": {
+      "early": {
+        "gujarati": "pCod uporthI pILo thava maMDe, nIchethI sukI jay",
+        "hindi": "ऊपर से पीला होना शुरू, नीचे से सूखना",
+        "english": "Yellowing of leaves starting from top, vascular discoloration"
+      },
+      "late": {
+        "gujarati": "puro CoDa sukI jay, nI vaeLI suki Jay, mulma kalo rang",
+        "hindi": "पूरा पौधा सूख जाता है, जड़ें काली हो जाती हैं",
+        "english": "Complete wilting and death of plant, brown to black root discoloration, stem shows vascular browning"
+      }
+    },
+    "favorable_conditions": {
+      "soil": "Heavy soil with poor drainage, light soil with poor water retention",
+      "weather": "Hot weather after waterlogging OR prolonged drought",
+      "other": "Early-season waterlogging restricts root development"
+    },
+    "causes": [
+      "Fusarium fungus in soil",
+      "Poor soil drainage leading to waterlogging",
+      "Light soil lacking water retention causing drought stress",
+      "Nutrient deficiency weakening plants"
+    ],
+    "prevention": {
+      "cultural": [
+        "Plant resistant/tolerant varieties",
+        "Ensure proper field drainage before sowing",
+        "Avoid waterlogging - make proper ridges/beds",
+        "Improve soil water retention with organic matter",
+        "Deep summer plowing to reduce soil-borne fungi"
+      ],
+      "biological": [
+        "Apply Trichoderma viride/harzianum in soil at sowing",
+        "Use well-decomposed FYM to improve soil microbiome"
+      ]
+    },
+    "chemical_treatment": {
+      "note": "No effective chemical cure once wilting appears; prevention is key",
+      "soil_treatment": "Carbendazim 50WP 2g/L water as soil drench around base of plant at early symptoms"
+    },
+    "organic_treatment": [
+      "Cotton stalk compost with beneficial microorganisms",
+      "Soil drenching with Trichoderma-enriched FYM slurry"
+    ],
+    "etl": "N/A - remove and destroy infected plants immediately",
+    "government_recommendation": "Use disease-resistant varieties; crop rotation (3 years minimum); improve soil drainage; apply Trichoderma at sowing",
+    "season": "Kharif (Monsoon)",
+    "region_specific": "More severe in waterlogged heavy black cotton soils of Saurashtra and North Gujarat",
+    "embedding_chunk": "Cotton Fusarium Wilt (Sukaro) is a soil-borne fungal disease causing yellowing and wilting from top down. Caused by Fusarium oxysporum in heavy soils with poor drainage. Prevention: resistant varieties, proper drainage, Trichoderma application. No cure after wilting - remove infected plants.",
+    "source_pdf": "PDF 15",
+    "id": "CDIS001",
+    "name": "Cotton Wilt / Fusarium Wilt",
+    "namegu": "સૂparo (Sukaro) - wilt"
+  },
+  {
+    "crop": [
+      "cotton"
+    ],
+    "crop_gujarati": "Kapas",
+    "disease_name": {
+      "gujarati": "BUrI IyaL (Bhuri Iyad) - Pink Bollworm",
+      "hindi": "गुलाबी सूंडी / गुलाबी इल्ली",
+      "english": "Pink Bollworm",
+      "scientific": "Pectinophora gossypiella"
+    },
+    "disease_type": "Insect Pest",
+    "affected_parts": [
+      "Flowers",
+      "Bolls",
+      "Seeds"
+    ],
+    "symptoms": {
+      "visual": {
+        "gujarati": "phUl gulabjevi Racha (rosette), DoDa khaRI paDe, DoDama chhidra",
+        "hindi": "गुलाब जैसे फूल (Rosette), टिंडे गिरना, टिंडे में छेद",
+        "english": "Rosette-shaped flowers (locked flowers), boll shedding, circular holes in bolls, pink larvae inside bolls"
+      }
+    },
+    "economic_threshold_level": {
+      "measurement": "1 rosette flower per plant OR 1 damaged boll per 10 bolls inspected",
+      "monitoring": "Pheromone traps: if average catch exceeds 8-10 moths per trap per night over 3 consecutive nights"
+    },
+    "life_cycle": {
+      "egg_to_adult": "30-35 days in summer",
+      "overwintering": "Pupae overwinter in soil and crop residue"
+    },
+    "favorable_conditions": "Late season (September-November); high humidity; continuous cotton cropping",
+    "monitoring": {
+      "pheromone_traps": "Install 5-10 traps per hectare for pink bollworm",
+      "field_inspection": "Check flowers and bolls weekly after flowering"
+    },
+    "management": {
+      "cultural": [
+        "Deep plowing in summer to destroy overwintering pupae",
+        "Crop rotation - avoid continuous cotton",
+        "Early and timely harvesting",
+        "Destroy all crop residue after harvest",
+        "Plant trap crop Galgota/Castor 1 row per 10 rows of cotton"
+      ],
+      "biological": [
+        "Install pheromone traps (5-10/ha) for monitoring and mass trapping",
+        "NPV (Nuclear Polyhedrosis Virus) spray: 450 LE/ha, spray in evening every 10-15 days",
+        "Trichogramma parasitic wasps release"
+      ],
+      "chemical": [
+        {
+          "pesticide": "Quinalphos 20% EC",
+          "dose_per_10L_water": "20 ml",
+          "active_ingredient": "Quinalphos",
+          "timing": "Only at or above ETL"
+        },
+        {
+          "pesticide": "Phosalone 35% EC",
+          "dose_per_10L_water": "20 ml",
+          "active_ingredient": "Phosalone"
+        },
+        {
+          "pesticide": "Acephate 75% SP",
+          "dose_per_10L_water": "15 g",
+          "active_ingredient": "Acephate"
+        }
+      ]
+    },
+    "government_recommendation": "IPM first: pheromone traps + NPV spray; chemical only if ETL exceeded; plant trap crops; destroy crop residue; deep summer plowing",
+    "season": "Kharif - peak October-November",
+    "embedding_chunk": "Pink Bollworm (Bhuri Iyad) in cotton - rosette-shaped flowers, boll shedding, pink larvae inside bolls. ETL: 1 rosette per plant. IPM: pheromone traps 5-10/ha, NPV 450 LE/ha evening spray. Chemical: Quinalphos 20ml/10L or Acephate 15g/10L only at ETL. Cultural: deep summer plow, destroy crop residue.",
+    "source_pdf": "PDF 15",
+    "id": "CDIS002",
+    "name": "Pink Bollworm",
+    "namegu": "BUrI IyaL (Bhuri Iyad) - Pink Bollworm"
+  },
+  {
+    "crop": [
+      "cotton"
+    ],
+    "disease_name": {
+      "gujarati": "lIlI IyaL (American Bollworm)",
+      "hindi": "हरी इल्ली / अमेरिकन इल्ली",
+      "english": "American Bollworm / Helicoverpa",
+      "scientific": "Helicoverpa armigera"
+    },
+    "disease_type": "Insect Pest",
+    "affected_parts": [
+      "Flower buds",
+      "Flowers",
+      "Bolls"
+    ],
+    "symptoms": {
+      "visual": {
+        "english": "Circular holes bored into bolls, larvae visible at boll entry with frass (droppings), flower bud shedding, larvae feed on tender plant parts"
+      }
+    },
+    "etl": "2 larvae per 10 plants in vegetative stage; 1 larva per plant in flowering stage",
+    "management": {
+      "biological": [
+        "HaNPV (Helicoverpa NPV) spray: 250 LE/ha in evening every 10-15 days",
+        "Trichogramma egg parasitoid release"
+      ],
+      "chemical": [
+        {
+          "pesticide": "Quinalphos 20% EC",
+          "dose": "20 ml per 10L water"
+        },
+        {
+          "pesticide": "Cypermethrin 10% EC",
+          "dose": "10 ml per 10L water"
+        }
+      ],
+      "organic": [
+        "Neem oil 3% spray + neem seed kernel extract (NSKE) 5%",
+        "Hand-pick and destroy larvae and egg masses"
+      ]
+    },
+    "government_recommendation": "Use HaNPV first; intercrop with trap crops; chemical spray only at ETL",
+    "embedding_chunk": "American Bollworm (Helicoverpa armigera) - circular holes in cotton bolls, frass at entry. ETL: 1 larva/plant at flowering. Spray HaNPV 250 LE/ha evening, or Quinalphos 20ml/10L water at ETL.",
+    "source_pdf": "PDF 15",
+    "id": "CDIS003",
+    "name": "American Bollworm / Helicoverpa",
+    "namegu": "lIlI IyaL (American Bollworm)"
+  },
+  {
+    "crop": [
+      "rice (oryza sativa)"
+    ],
+    "crop_gujarati": "DAMgar",
+    "disease_name": {
+      "gujarati": "ZHAD (Blast)",
+      "hindi": "ब्लास्ट",
+      "english": "Rice Blast",
+      "scientific": "Pyricularia oryzae (Magnaporthe oryzae)"
+    },
+    "disease_type": "Fungal",
+    "affected_parts": [
+      "Leaves",
+      "Leaf collar",
+      "Neck",
+      "Panicle",
+      "Seeds"
+    ],
+    "symptoms": {
+      "leaf_blast": {
+        "english": "Diamond/spindle-shaped spots with gray center and brown border on leaves"
+      },
+      "neck_blast": {
+        "english": "Neck rot causing white empty panicles (white ear or deadheart at neck)"
+      },
+      "severity": "Neck blast is most damaging - entire panicle becomes empty"
+    },
+    "favorable_conditions": "High humidity (>90%), temperature 20-28°C, excessive nitrogen fertilizer, susceptible varieties",
+    "management": {
+      "seed_treatment": "Soak seeds in Streptocycline 600g + Emisan-6 (Parachlorophenol) 12g in 24L water for 8-10 hours before planting",
+      "chemical_spray": [
+        {
+          "pesticide": "Tricyclazole 75% WP",
+          "dose": "6g per 10L water",
+          "interval": "Every 15 days"
+        },
+        {
+          "pesticide": "Carbendazim 50% WP",
+          "dose": "10g per 10L water",
+          "interval": "Every 15 days"
+        },
+        {
+          "pesticide": "Hexaconazole 5% EC",
+          "dose": "10 ml per 10L water"
+        }
+      ],
+      "cultural": [
+        "Use blast-resistant varieties",
+        "Reduce nitrogen fertilizer at blast-prone stages",
+        "Drain field temporarily to reduce humidity",
+        "Remove infected tillers immediately"
+      ]
+    },
+    "government_recommendation": "Seed treatment is mandatory; spray Tricyclazole or Carbendazim at 15-day intervals when symptoms appear; avoid excess nitrogen",
+    "embedding_chunk": "Rice Blast (Jhad) - fungal disease by Pyricularia oryzae. Diamond-shaped spots on leaves; neck rot causing empty panicles. Seed treatment: Streptocycline 600g + Emisan-6 12g/24L water, 8-10 hours soak. Spray: Tricyclazole 6g/10L or Carbendazim 10g/10L every 15 days.",
+    "source_pdf": "PDF 17",
+    "id": "RDIS001",
+    "name": "Rice Blast",
+    "namegu": "ZHAD (Blast)"
+  },
+  {
+    "crop": [
+      "rice"
+    ],
+    "disease_name": {
+      "gujarati": "GaMbharo (Gall Midge - Insect)",
+      "hindi": "गाल मिज",
+      "english": "Gall Midge",
+      "scientific": "Orseolia oryzae"
+    },
+    "disease_type": "Insect Pest",
+    "affected_parts": [
+      "Tillers",
+      "Growing points"
+    ],
+    "symptoms": {
+      "visual": {
+        "english": "Silver shoots (silver-colored hollow tubes), onion-leaf shaped tillers - pipelike hollow structure instead of normal tiller"
+      }
+    },
+    "etl": "1 silver shoot per 10 tillers at early stage",
+    "management": {
+      "cultural": [
+        "Clip tips of seedling leaves before transplanting to destroy eggs",
+        "Plant resistant varieties",
+        "Maintain proper water management"
+      ],
+      "chemical": [
+        {
+          "pesticide": "Carbofuran 3% Granules",
+          "dose": "1 kg per 10m x 10m area (100g/plot)",
+          "timing": "15 days after transplanting in gall midge-prone areas"
+        },
+        {
+          "pesticide": "Rhizophos 40 EC",
+          "dose": "12 ml per 10L water"
+        },
+        {
+          "pesticide": "Cartap Hydrochloride 50 SP",
+          "dose": "10g per 10L water"
+        }
+      ]
+    },
+    "government_recommendation": "Carbofuran 3% granules 15 days after transplanting in endemic areas; clip seedling tips before transplanting",
+    "embedding_chunk": "Gall Midge (Gambharo) in rice - silver shoots/onion leaf tillers. ETL: 1 silver shoot/10 tillers. Control: Carbofuran 3% granules 100g/10x10m area at 15 days after transplanting. Or spray Rhizophos 40EC 12ml/10L.",
+    "source_pdf": "PDF 17",
+    "id": "RDIS002",
+    "name": "Gall Midge",
+    "namegu": "GaMbharo (Gall Midge - Insect)"
+  },
+  {
+    "crop": [
+      "rice"
+    ],
+    "disease_name": {
+      "gujarati": "karaTan (Sheath Blight)",
+      "hindi": "शीथ ब्लाइट",
+      "english": "Sheath Blight / Sheath Rot",
+      "scientific": "Rhizoctonia solani"
+    },
+    "disease_type": "Fungal",
+    "affected_parts": [
+      "Leaf sheaths",
+      "Leaves",
+      "Panicles"
+    ],
+    "symptoms": {
+      "visual": {
+        "english": "Oval to irregular water-soaked lesions on leaf sheaths, green-gray center with brown borders, lesions coalesce causing sheath rot and lodging"
+      }
+    },
+    "management": {
+      "chemical_spray": [
+        {
+          "pesticide": "Mancozeb 75% WP",
+          "dose": "30g per 10L water",
+          "interval": "10 days"
+        }
+      ],
+      "cultural": [
+        "Reduce plant density",
+        "Avoid excess nitrogen",
+        "Proper water management"
+      ]
+    },
+    "embedding_chunk": "Rice Sheath Blight (Karatan) - Rhizoctonia solani causes oval lesions on sheaths. Spray Mancozeb 75WP 30g/10L water every 10 days.",
+    "source_pdf": "PDF 17",
+    "id": "RDIS003",
+    "name": "Sheath Blight / Sheath Rot",
+    "namegu": "karaTan (Sheath Blight)"
+  },
+  {
+    "crop": [
+      "wheat (triticum aestivum)"
+    ],
+    "crop_gujarati": "GhauM",
+    "disease_name": {
+      "gujarati": "GerU / ZAL (Rust)",
+      "hindi": "गेरू / रस्ट",
+      "english": "Wheat Rust (Yellow Rust / Brown Rust)",
+      "scientific": "Puccinia striiformis (Yellow) / P. triticina (Brown)"
+    },
+    "disease_type": "Fungal",
+    "affected_parts": [
+      "Leaves",
+      "Leaf sheaths",
+      "Stems"
+    ],
+    "symptoms": {
+      "visual": {
+        "english": "Yellow or orange-yellow powdery pustules in streaks or scattered on leaves and stems; premature leaf drying; yield loss",
+        "gujarati": "pAn ane dAMDI par nArangi-pILo/nArangi chUrNiya phoDa, pAn vhelA sukI jAy"
+      }
+    },
+    "favorable_conditions": "Cool nights (10-15°C) + warm days; high humidity; susceptible varieties",
+    "prevalence": "Saurashtra coastal belt, North Gujarat and Central Gujarat",
+    "etl": "First appearance of symptoms - spray immediately",
+    "management": {
+      "chemical_spray": [
+        {
+          "pesticide": "Zineb 75% WP",
+          "concentration": "0.2%",
+          "timing": "3 sprays from symptom appearance, every 15 days"
+        },
+        {
+          "pesticide": "Mancozeb 75% WP",
+          "concentration": "0.2%",
+          "timing": "3 sprays from symptom appearance, every 15 days"
+        }
+      ],
+      "cultural": [
+        "Plant rust-resistant varieties",
+        "Timely sowing (November 15-25) to avoid rust-favorable weather",
+        "Avoid excess nitrogen fertilizer"
+      ]
+    },
+    "government_recommendation": "Plant resistant varieties; spray Zineb or Mancozeb 0.2% solution 3 times at 15-day intervals from first symptoms",
+    "embedding_chunk": "Wheat Rust (Geru) - Puccinia species causes orange-yellow powdery pustules on leaves. Common in Saurashtra coastal and North/Central Gujarat. Spray Zineb 0.2% or Mancozeb 0.2%, 3 times at 15-day intervals from first symptom.",
+    "source_pdf": "PDF 18",
+    "id": "WDIS001",
+    "name": "Wheat Rust (Yellow Rust / Brown Rust)",
+    "namegu": "GerU / ZAL (Rust)"
+  },
+  {
+    "crop": [
+      "wheat"
+    ],
+    "disease_name": {
+      "gujarati": "TermAIT / UdhI (Termites)",
+      "hindi": "दीमक",
+      "english": "Termites in Wheat",
+      "scientific": "Odontotermes species"
+    },
+    "disease_type": "Insect Pest",
+    "affected_parts": [
+      "Roots",
+      "Stem base",
+      "Underground plant parts"
+    ],
+    "symptoms": {
+      "visual": {
+        "english": "Plants pulled out easily as roots are destroyed; yellowing and death of tillers; white tunnels in soil around plant base"
+      }
+    },
+    "prevalence": "Most severe in North Gujarat in non-irrigated wheat",
+    "management": {
+      "chemical": [
+        {
+          "pesticide": "Chlorpyrifos 20% EC",
+          "dose": "450 ml active ingredient per hectare",
+          "method": "Mix in 5L water, mix with 100 kg sand, sprinkle in field when termites appear and irrigate"
+        }
+      ],
+      "cultural": [
+        "Avoid under-decomposed FYM",
+        "Proper field hygiene",
+        "Seed treatment with Chlorpyrifos before sowing"
+      ]
+    },
+    "embedding_chunk": "Termites (Udhai) in wheat - roots and stems destroyed, plants easily pulled. Common in North Gujarat rainfed wheat. Control: Chlorpyrifos 20EC 450ml/ha mixed with 100kg sand, sprinkle when visible.",
+    "source_pdf": "PDF 18",
+    "id": "WDIS002",
+    "name": "Termites in Wheat",
+    "namegu": "TermAIT / UdhI (Termites)"
+  },
+  {
+    "crop": [
+      "castor (ricinus communis)"
+    ],
+    "crop_gujarati": "dIvelo/eraND",
+    "disease_name": {
+      "gujarati": "sukAro - CoDnI vILave UpeL (Wilt)",
+      "hindi": "उकठा / मुरझाना रोग",
+      "english": "Castor Wilt / Fusarium Wilt",
+      "scientific": "Fusarium oxysporum f.sp. ricini"
+    },
+    "disease_type": "Fungal (Soil-borne)",
+    "affected_parts": [
+      "Roots",
+      "Stem",
+      "Entire plant"
+    ],
+    "symptoms": {
+      "visual": {
+        "english": "Sudden wilting even with moisture, yellowing of leaves, root and stem base shows dark brown discoloration, plant death within days"
+      }
+    },
+    "favorable_conditions": "Waterlogged soil, high temperature, infected seed, continuous castor cropping",
+    "management": {
+      "cultural": [
+        "Minimum 3-year crop rotation (most important)",
+        "Plant resistant varieties GCH-4, GCH-6, GCH-7",
+        "Avoid planting in waterlogged areas",
+        "Remove and destroy infected plants immediately"
+      ],
+      "seed_treatment": [
+        "Thiram 3g per kg seed",
+        "Carbendazim 1g per kg seed"
+      ],
+      "soil_treatment": [
+        "Trichoderma harzianum 5kg mixed with 500kg castor shells, apply in furrows at sowing"
+      ]
+    },
+    "government_recommendation": "Crop rotation 3 years minimum; resistant varieties GCH-4,6,7; Trichoderma in soil; seed treatment with Thiram/Carbendazim",
+    "embedding_chunk": "Castor Wilt (Sukaro) - Fusarium oxysporum causes sudden wilting, yellowing, plant death. Control: 3-year rotation, resistant GCH varieties, seed treat Thiram 3g/kg, Trichoderma harzianum 5kg+500kg castor shells in soil.",
+    "source_pdf": "PDF 20",
+    "id": "CSDIS001",
+    "name": "Castor Wilt / Fusarium Wilt",
+    "namegu": "sukAro - CoDnI vILave UpeL (Wilt)"
+  },
+  {
+    "crop": [
+      "castor"
+    ],
+    "disease_name": {
+      "gujarati": "GhoDiyA Iyad (Castor Semilooper)",
+      "hindi": "सेमीलूपर कैटरपिलर",
+      "english": "Castor Semilooper",
+      "scientific": "Achaea janata"
+    },
+    "disease_type": "Insect Pest",
+    "affected_parts": [
+      "Leaves"
+    ],
+    "symptoms": {
+      "visual": {
+        "english": "Complete defoliation - larvae eat all leaves, characteristic looping movement of larvae, severe damage can kill young plants"
+      }
+    },
+    "etl": "4 larvae per plant",
+    "management": {
+      "cultural": [
+        "Deep plowing after harvest to destroy pupae in soil"
+      ],
+      "manual": [
+        "Hand-pick visible caterpillars and destroy"
+      ],
+      "chemical": [
+        {
+          "pesticide": "Quinalphos 20% EC",
+          "dose": "20 ml per 10L water"
+        },
+        {
+          "pesticide": "Dichlofos (DDVP)",
+          "dose": "5 ml per 10L water"
+        },
+        {
+          "pesticide": "Carbaryl 50% WP",
+          "dose": "40g per 10L water"
+        }
+      ],
+      "severe_infestation": [
+        "Quinalphos 1.5% dust 25 kg/ha",
+        "Methyl Parathion 2% dust 25 kg/ha"
+      ]
+    },
+    "embedding_chunk": "Castor Semilooper (Ghodiya Iyad - Achaea janata) - complete defoliation of castor. ETL: 4 larvae/plant. Chemical: Quinalphos 20ml/10L or DDVP 5ml/10L water. Severe: Quinalphos 1.5% dust 25kg/ha.",
+    "source_pdf": "PDF 20",
+    "id": "CSDIS002",
+    "name": "Castor Semilooper",
+    "namegu": "GhoDiyA Iyad (Castor Semilooper)"
+  },
+  {
+    "crop": [
+      "stored grains (all grain types)"
+    ],
+    "disease_name": {
+      "gujarati": "VanIya ghI - cHal sagrahe JIvAt (Rice Weevil)",
+      "hindi": "चावल का घुन (Rice Weevil)",
+      "english": "Rice Weevil",
+      "scientific": "Sitophilus oryzae"
+    },
+    "disease_type": "Insect Pest (Storage)",
+    "affected_grains": [
+      "Rice",
+      "Wheat",
+      "Maize",
+      "Sorghum"
+    ],
+    "symptoms": {
+      "visual": {
+        "english": "Round holes in grains, hollow grains, grain dust in storage, grain stuck together",
+        "gujarati": "dANA polA thAy, dANA ma gol chHIdra, chhAN (wheat dust)"
+      }
+    },
+    "entry_route": "Field infestation at grain maturity; already infested old storage containers",
+    "prevention": [
+      "Dry grain below 10% moisture",
+      "Clean and disinfect storage bins/bags before use",
+      "Use new or clean sacks",
+      "Store with neem leaves (2 kg per 100 kg grain)",
+      "Apply Malathion 0.1% on sacks before filling"
+    ],
+    "chemical_treatment": [
+      {
+        "method": "Fumigation with Aluminium Phosphide (Sulphas/Celphos)",
+        "dose": "1 tablet per 100 kg grain (3 tablets per tonne)",
+        "procedure": "Place in airtight storage for 7 days; ventilate before opening",
+        "safety_caution": "TOXIC - wear protective equipment; never inhale; phosphine gas is lethal"
+      },
+      {
+        "method": "Malathion spray on storage bags",
+        "dose": "0.1% solution sprayed on sacks before filling"
+      }
+    ],
+    "organic_treatment": [
+      "Neem leaves (Limdo) 2 kg mixed with 100 kg grain - acts as natural repellent",
+      "Castor leaves (Divela) used as natural insect repellent in storage",
+      "Sun drying grain for 2-3 days before storage"
+    ],
+    "government_recommendation": "Dry grains properly; use Aluminium Phosphide fumigation for large storage; neem leaves for small storage",
+    "embedding_chunk": "Rice Weevil in grain storage - hollow grains, circular holes. Prevention: dry to <10% moisture, clean storage bins, neem leaves 2kg/100kg grain. Treatment: Aluminium Phosphide 1 tablet/100kg, airtight 7 days. Malathion 0.1% on sacks.",
+    "source_pdf": "PDF 16",
+    "id": "SGDIS001",
+    "name": "Rice Weevil",
+    "namegu": "VanIya ghI - cHal sagrahe JIvAt (Rice Weevil)"
+  }
+]

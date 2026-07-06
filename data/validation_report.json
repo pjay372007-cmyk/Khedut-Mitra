@@ -1,0 +1,166 @@
+[
+  {
+    "category": "crops",
+    "total_records": 9,
+    "errors": [],
+    "warnings": [],
+    "passed": 9
+  },
+  {
+    "category": "diseases",
+    "total_records": 11,
+    "errors": [
+      {
+        "id": "CDIS001",
+        "message": "Record 'Cotton Wilt / Fusarium Wilt' (CDIS001) is missing fields: ['description']"
+      },
+      {
+        "id": "CDIS002",
+        "message": "Record 'Pink Bollworm' (CDIS002) is missing fields: ['description']"
+      },
+      {
+        "id": "CDIS003",
+        "message": "Record 'American Bollworm / Helicoverpa' (CDIS003) is missing fields: ['description']"
+      },
+      {
+        "id": "RDIS001",
+        "message": "Record 'Rice Blast' (RDIS001) is missing fields: ['description']"
+      },
+      {
+        "id": "RDIS002",
+        "message": "Record 'Gall Midge' (RDIS002) is missing fields: ['description']"
+      },
+      {
+        "id": "RDIS003",
+        "message": "Record 'Sheath Blight / Sheath Rot' (RDIS003) is missing fields: ['description']"
+      },
+      {
+        "id": "WDIS001",
+        "message": "Record 'Wheat Rust (Yellow Rust / Brown Rust)' (WDIS001) is missing fields: ['description']"
+      },
+      {
+        "id": "WDIS002",
+        "message": "Record 'Termites in Wheat' (WDIS002) is missing fields: ['description']"
+      },
+      {
+        "id": "CSDIS001",
+        "message": "Record 'Castor Wilt / Fusarium Wilt' (CSDIS001) is missing fields: ['description']"
+      },
+      {
+        "id": "CSDIS002",
+        "message": "Record 'Castor Semilooper' (CSDIS002) is missing fields: ['description']"
+      },
+      {
+        "id": "SGDIS001",
+        "message": "Record 'Rice Weevil' (SGDIS001) is missing fields: ['description']"
+      }
+    ],
+    "warnings": [],
+    "passed": 0
+  },
+  {
+    "category": "pests",
+    "total_records": 4,
+    "errors": [],
+    "warnings": [
+      {
+        "id": "pests_chana",
+        "message": "Record 'ચણાની જીવાતો' (pests_chana) does not have a Gujarati translation."
+      },
+      {
+        "id": "pests_2",
+        "message": "Record 'રોગ અને જીવાત વ્યવસ્થાપન' (pests_2) does not have a Gujarati translation."
+      },
+      {
+        "id": "pests_3",
+        "message": "Record 'રોગ અને જીવાત વ્યવસ્થાપન' (pests_3) does not have a Gujarati translation."
+      },
+      {
+        "id": "pests_4",
+        "message": "Record 'મિલીબગ' (pests_4) does not have a Gujarati translation."
+      }
+    ],
+    "passed": 4
+  },
+  {
+    "category": "deficiencies",
+    "total_records": 0,
+    "errors": [],
+    "warnings": [],
+    "passed": 0
+  },
+  {
+    "category": "fertilizers",
+    "total_records": 0,
+    "errors": [],
+    "warnings": [],
+    "passed": 0
+  },
+  {
+    "category": "organic",
+    "total_records": 0,
+    "errors": [],
+    "warnings": [],
+    "passed": 0
+  },
+  {
+    "category": "schemes",
+    "total_records": 0,
+    "errors": [],
+    "warnings": [],
+    "passed": 0
+  },
+  {
+    "category": "weather",
+    "total_records": 0,
+    "errors": [],
+    "warnings": [],
+    "passed": 0
+  },
+  {
+    "category": "market",
+    "total_records": 0,
+    "errors": [],
+    "warnings": [],
+    "passed": 0
+  },
+  {
+    "category": "faqs",
+    "total_records": 17,
+    "errors": [],
+    "warnings": [],
+    "passed": 17
+  },
+  {
+    "category": "general",
+    "total_records": 6,
+    "errors": [],
+    "warnings": [
+      {
+        "id": "general_cid_4_cid_4_cid_4_cid_4_cid_9_cid_9_cid_9_cid_9_cid_8_cid_8_cid_8_cid_8_cid_11_cid_11_cid_11_cid_11_cid_9_cid_9_cid_9_cid_9_cid_8_cid_8_cid_8_cid_8_cid_4_cid_4_cid_4_cid_4_cid_20_cid_20_cid_20_cid_20_cid_6_cid_6_cid_6_cid_6_cid_17_cid_17_cid_17_cid_17_cid_21_cid_22_cid_21_cid_22_cid_21_cid_22_cid_21_cid_22_cid_8_cid_8_cid_8_cid_8_cid_23_cid_23_cid_23_cid_23_cid_20_cid_20_cid_20_cid_20_cid_4_cid_4_cid_4_cid_4_cid_24_cid_24_cid_24_cid_24_cid_14_cid_25_cid_14_cid_25_cid_14_cid_25_cid_14_cid_25_cid_6_cid_6_cid_6_cid_6_cid_9_cid_9_cid_9_cid_9_cid_26_cid_26_cid_26_cid_26_cid_27_cid_27_cid_27_cid_27_cid_28_cid_28_cid_28_cid_28_cid_25_cid_25_cid_25_cid_25",
+        "message": "Record '(cid:4)(cid:4)(cid:4)(cid:4)(cid:9)(cid:9)(cid:9)(cid:9)(cid:8)(cid:8)(cid:8)(cid:8)(cid:11)(cid:11)(cid:11)(cid:11) (cid:9)(cid:9)(cid:9)(cid:9)(cid:8)(cid:8)(cid:8)(cid:8)(cid:4)(cid:4)(cid:4)(cid:4)(cid:20)(cid:20)(cid:20)(cid:20)(cid:6)(cid:6)(cid:6)(cid:6) (cid:17)(cid:17)(cid:17)(cid:17)(cid:21)(cid:22)(cid:21)(cid:22)(cid:21)(cid:22)(cid:21)(cid:22)(cid:8)(cid:8)(cid:8)(cid:8)(cid:23)(cid:23)(cid:23)(cid:23)(cid:20)(cid:20)(cid:20)(cid:20)(cid:4)(cid:4)(cid:4)(cid:4) (cid:24)(cid:24)(cid:24)(cid:24)(cid:14)(cid:25)(cid:14)(cid:25)(cid:14)(cid:25)(cid:14)(cid:25)(cid:6)(cid:6)(cid:6)(cid:6) (cid:9)(cid:9)(cid:9)(cid:9)(cid:26)(cid:26)(cid:26)(cid:26)(cid:27)(cid:27)(cid:27)(cid:27)(cid:28)(cid:28)(cid:28)(cid:28)(cid:25)(cid:25)(cid:25)(cid:25)' (general_cid_4_cid_4_cid_4_cid_4_cid_9_cid_9_cid_9_cid_9_cid_8_cid_8_cid_8_cid_8_cid_11_cid_11_cid_11_cid_11_cid_9_cid_9_cid_9_cid_9_cid_8_cid_8_cid_8_cid_8_cid_4_cid_4_cid_4_cid_4_cid_20_cid_20_cid_20_cid_20_cid_6_cid_6_cid_6_cid_6_cid_17_cid_17_cid_17_cid_17_cid_21_cid_22_cid_21_cid_22_cid_21_cid_22_cid_21_cid_22_cid_8_cid_8_cid_8_cid_8_cid_23_cid_23_cid_23_cid_23_cid_20_cid_20_cid_20_cid_20_cid_4_cid_4_cid_4_cid_4_cid_24_cid_24_cid_24_cid_24_cid_14_cid_25_cid_14_cid_25_cid_14_cid_25_cid_14_cid_25_cid_6_cid_6_cid_6_cid_6_cid_9_cid_9_cid_9_cid_9_cid_26_cid_26_cid_26_cid_26_cid_27_cid_27_cid_27_cid_27_cid_28_cid_28_cid_28_cid_28_cid_25_cid_25_cid_25_cid_25) does not have a Gujarati translation."
+      },
+      {
+        "id": "general_cid_2_cid_2_cid_2_cid_2_cid_3_cid_3_cid_3_cid_3_cid_4_cid_4_cid_4_cid_4_cid_5_cid_5_cid_5_cid_5_cid_6_cid_6_cid_6_cid_6_cid_8_cid_8_cid_7_cid_7_cid_8_cid_8_cid_7_cid_7_cid_9_cid_9_cid_9_cid_9_cid_2_cid_2_cid_2_cid_2_cid_3_cid_3_cid_3_cid_3_cid_10_cid_10_cid_10_cid_10_cid_6_cid_6_cid_6_cid_6_cid_4_cid_4_cid_4_cid_4_cid_11_cid_11_cid_11_cid_11_cid_12_cid_12_cid_12_cid_12_cid_13_cid_13_cid_13_cid_13_cid_14_cid_14_cid_14_cid_14",
+        "message": "Record '(cid:2)(cid:2)(cid:2)(cid:2)(cid:3)(cid:3)(cid:3)(cid:3)(cid:4)(cid:4)(cid:4)(cid:4)(cid:5)(cid:5)(cid:5)(cid:5) (cid:6)(cid:6)(cid:6)(cid:6)(cid:8)(cid:8)(cid:7)(cid:7)(cid:8)(cid:8)(cid:7)(cid:7) (cid:9)(cid:9)(cid:9)(cid:9) (cid:2)(cid:2)(cid:2)(cid:2)(cid:3)(cid:3)(cid:3)(cid:3) (cid:10)(cid:10) (cid:10)(cid:10) (cid:6)(cid:6)(cid:6)(cid:6)(cid:4)(cid:4)(cid:4)(cid:4)(cid:11)(cid:11)(cid:11)(cid:11)(cid:12)(cid:12)(cid:12)(cid:12)(cid:13)(cid:13)(cid:13)(cid:13)(cid:14)(cid:14)(cid:14)(cid:14)' (general_cid_2_cid_2_cid_2_cid_2_cid_3_cid_3_cid_3_cid_3_cid_4_cid_4_cid_4_cid_4_cid_5_cid_5_cid_5_cid_5_cid_6_cid_6_cid_6_cid_6_cid_8_cid_8_cid_7_cid_7_cid_8_cid_8_cid_7_cid_7_cid_9_cid_9_cid_9_cid_9_cid_2_cid_2_cid_2_cid_2_cid_3_cid_3_cid_3_cid_3_cid_10_cid_10_cid_10_cid_10_cid_6_cid_6_cid_6_cid_6_cid_4_cid_4_cid_4_cid_4_cid_11_cid_11_cid_11_cid_11_cid_12_cid_12_cid_12_cid_12_cid_13_cid_13_cid_13_cid_13_cid_14_cid_14_cid_14_cid_14) does not have a Gujarati translation."
+      },
+      {
+        "id": "general_cid_5_cid_5_cid_5_cid_5_cid_8_cid_8_cid_8_cid_8_cid_2_cid_2_cid_2_cid_2_cid_9_cid_9_cid_9_cid_9_cid_8_cid_8_cid_8_cid_8_cid_4_cid_4_cid_4_cid_4_cid_20_cid_20_cid_20_cid_20_cid_6_cid_6_cid_6_cid_6_cid_17_cid_17_cid_17_cid_17_cid_21_cid_22_cid_21_cid_22_cid_21_cid_22_cid_21_cid_22_cid_8_cid_8_cid_8_cid_8_cid_23_cid_23_cid_23_cid_23_cid_20_cid_20_cid_20_cid_20_cid_4_cid_4_cid_4_cid_4_cid_24_cid_24_cid_24_cid_24_cid_25_cid_25_cid_14_cid_14_cid_25_cid_25_cid_14_cid_14_cid_6_cid_6_cid_6_cid_6_cid_9_cid_9_cid_9_cid_9_cid_26_cid_26_cid_26_cid_26_cid_27_cid_27_cid_27_cid_27_cid_28_cid_28_cid_28_cid_28_cid_25_cid_25_cid_25_cid_25",
+        "message": "Record '(cid:5)(cid:5)(cid:5)(cid:5)(cid:8)(cid:8)(cid:8)(cid:8)#\"#\"#\"#\"(cid:2)(cid:2)(cid:2)(cid:2) (cid:9)(cid:9)(cid:9)(cid:9)(cid:8)(cid:8)(cid:8)(cid:8)(cid:4)(cid:4)(cid:4)(cid:4)(cid:20)(cid:20)(cid:20)(cid:20)(cid:6)(cid:6)(cid:6)(cid:6) (cid:17)(cid:17)(cid:17)(cid:17)(cid:21)(cid:22)(cid:21)(cid:22)(cid:21)(cid:22)(cid:21)(cid:22)(cid:8)(cid:8)(cid:8)(cid:8)(cid:23)(cid:23)(cid:23)(cid:23)(cid:20)(cid:20)(cid:20)(cid:20)(cid:4)(cid:4)(cid:4)(cid:4) (cid:24)(cid:24)(cid:24)(cid:24)(cid:25)(cid:25)(cid:14)(cid:14)(cid:25)(cid:25)(cid:14)(cid:14) (cid:6)(cid:6)(cid:6)(cid:6) (cid:9)(cid:9)(cid:9)(cid:9)(cid:26)(cid:26)(cid:26)(cid:26)(cid:27)(cid:27)(cid:27)(cid:27)(cid:28)(cid:28)(cid:28)(cid:28)(cid:25)(cid:25)(cid:25)(cid:25)' (general_cid_5_cid_5_cid_5_cid_5_cid_8_cid_8_cid_8_cid_8_cid_2_cid_2_cid_2_cid_2_cid_9_cid_9_cid_9_cid_9_cid_8_cid_8_cid_8_cid_8_cid_4_cid_4_cid_4_cid_4_cid_20_cid_20_cid_20_cid_20_cid_6_cid_6_cid_6_cid_6_cid_17_cid_17_cid_17_cid_17_cid_21_cid_22_cid_21_cid_22_cid_21_cid_22_cid_21_cid_22_cid_8_cid_8_cid_8_cid_8_cid_23_cid_23_cid_23_cid_23_cid_20_cid_20_cid_20_cid_20_cid_4_cid_4_cid_4_cid_4_cid_24_cid_24_cid_24_cid_24_cid_25_cid_25_cid_14_cid_14_cid_25_cid_25_cid_14_cid_14_cid_6_cid_6_cid_6_cid_6_cid_9_cid_9_cid_9_cid_9_cid_26_cid_26_cid_26_cid_26_cid_27_cid_27_cid_27_cid_27_cid_28_cid_28_cid_28_cid_28_cid_25_cid_25_cid_25_cid_25) does not have a Gujarati translation."
+      },
+      {
+        "id": "general_cid_9_cid_9_cid_9_cid_9_cid_8_cid_8_cid_8_cid_8_cid_4_cid_4_cid_4_cid_4_cid_20_cid_20_cid_20_cid_20_cid_6_cid_6_cid_6_cid_6_cid_17_cid_17_cid_17_cid_17_cid_21_cid_22_cid_21_cid_22_cid_21_cid_22_cid_21_cid_22_cid_8_cid_8_cid_8_cid_8_cid_23_cid_23_cid_23_cid_23_cid_20_cid_20_cid_20_cid_20_cid_4_cid_4_cid_4_cid_4_cid_24_cid_24_cid_24_cid_24_cid_14_cid_25_cid_14_cid_25_cid_14_cid_25_cid_14_cid_25_cid_6_cid_6_cid_6_cid_6_cid_9_cid_9_cid_9_cid_9_cid_26_cid_26_cid_26_cid_26_cid_27_cid_27_cid_27_cid_27_cid_28_cid_28_cid_28_cid_28_cid_25_cid_25_cid_25_cid_25",
+        "message": "Record '%%%%&&&& ## ## (cid:9)(cid:9)(cid:9)(cid:9)(cid:8)(cid:8)(cid:8)(cid:8)(cid:4)(cid:4)(cid:4)(cid:4)(cid:20)(cid:20)(cid:20)(cid:20)(cid:6)(cid:6)(cid:6)(cid:6) (cid:17)(cid:17)(cid:17)(cid:17)(cid:21)(cid:22)(cid:21)(cid:22)(cid:21)(cid:22)(cid:21)(cid:22)(cid:8)(cid:8)(cid:8)(cid:8)(cid:23)(cid:23)(cid:23)(cid:23)(cid:20)(cid:20)(cid:20)(cid:20)(cid:4)(cid:4)(cid:4)(cid:4) (cid:24)(cid:24)(cid:24)(cid:24)(cid:14)(cid:25)(cid:14)(cid:25)(cid:14)(cid:25)(cid:14)(cid:25)(cid:6)(cid:6)(cid:6)(cid:6) (cid:9)(cid:9)(cid:9)(cid:9)(cid:26)(cid:26)(cid:26)(cid:26)(cid:27)(cid:27)(cid:27)(cid:27)(cid:28)(cid:28)(cid:28)(cid:28)(cid:25)(cid:25)(cid:25)(cid:25)' (general_cid_9_cid_9_cid_9_cid_9_cid_8_cid_8_cid_8_cid_8_cid_4_cid_4_cid_4_cid_4_cid_20_cid_20_cid_20_cid_20_cid_6_cid_6_cid_6_cid_6_cid_17_cid_17_cid_17_cid_17_cid_21_cid_22_cid_21_cid_22_cid_21_cid_22_cid_21_cid_22_cid_8_cid_8_cid_8_cid_8_cid_23_cid_23_cid_23_cid_23_cid_20_cid_20_cid_20_cid_20_cid_4_cid_4_cid_4_cid_4_cid_24_cid_24_cid_24_cid_24_cid_14_cid_25_cid_14_cid_25_cid_14_cid_25_cid_14_cid_25_cid_6_cid_6_cid_6_cid_6_cid_9_cid_9_cid_9_cid_9_cid_26_cid_26_cid_26_cid_26_cid_27_cid_27_cid_27_cid_27_cid_28_cid_28_cid_28_cid_28_cid_25_cid_25_cid_25_cid_25) does not have a Gujarati translation."
+      },
+      {
+        "id": "general_cid_8_cid_8_cid_8_cid_8_cid_11_cid_11_cid_11_cid_11_cid_30_cid_30_cid_30_cid_30_cid_8_cid_8_cid_8_cid_8_cid_2_cid_2_cid_2_cid_2_cid_8_cid_8_cid_8_cid_8_cid_9_cid_9_cid_9_cid_9_cid_8_cid_8_cid_8_cid_8_cid_4_cid_4_cid_4_cid_4_cid_3_cid_3_cid_3_cid_3_cid_20_cid_20_cid_20_cid_20_cid_6_cid_6_cid_6_cid_6_cid_17_cid_17_cid_17_cid_17_cid_22_cid_22_cid_21_cid_21_cid_22_cid_22_cid_21_cid_21_cid_8_cid_8_cid_8_cid_8_cid_23_cid_23_cid_23_cid_23_cid_20_cid_20_cid_20_cid_20_cid_4_cid_4_cid_4_cid_4_cid_24_cid_24_cid_24_cid_24_cid_25_cid_25_cid_14_cid_14_cid_25_cid_25_cid_14_cid_14_cid_6_cid_6_cid_6_cid_6_cid_9_cid_9_cid_9_cid_9_cid_26_cid_26_cid_26_cid_26_cid_27_cid_27_cid_27_cid_27_cid_28_cid_28_cid_28_cid_28_cid_25_cid_25_cid_25_cid_25",
+        "message": "Record '%%%%(cid:8)(cid:8)(cid:8)(cid:8)(cid:11)(cid:11)(cid:11)(cid:11)(cid:30)(cid:30)(cid:30)(cid:30)(cid:8)(cid:8)(cid:8)(cid:8)(cid:2)(cid:2)(cid:2)(cid:2)(cid:8)(cid:8)(cid:8)(cid:8) (cid:9)(cid:9)(cid:9)(cid:9)(cid:8)(cid:8)(cid:8)(cid:8)(cid:4)(cid:4)(cid:4)(cid:4)(cid:3)(cid:3)(cid:3)(cid:3)(cid:20)(cid:20)(cid:20)(cid:20)(cid:6)(cid:6)(cid:6)(cid:6) (cid:17)(cid:17)(cid:17)(cid:17)(cid:22)(cid:22)(cid:21)(cid:21)(cid:22)(cid:22)(cid:21)(cid:21) (cid:8)(cid:8)(cid:8)(cid:8)(cid:23)(cid:23)(cid:23)(cid:23)(cid:20)(cid:20)(cid:20)(cid:20)(cid:4)(cid:4)(cid:4)(cid:4) (cid:24)(cid:24)(cid:24)(cid:24)(cid:25)(cid:25)(cid:14)(cid:14)(cid:25)(cid:25)(cid:14)(cid:14) (cid:6)(cid:6)(cid:6)(cid:6) (cid:9)(cid:9)(cid:9)(cid:9)(cid:26)(cid:26)(cid:26)(cid:26)(cid:27)(cid:27)(cid:27)(cid:27)(cid:28)(cid:28)(cid:28)(cid:28)(cid:25)(cid:25)(cid:25)(cid:25)' (general_cid_8_cid_8_cid_8_cid_8_cid_11_cid_11_cid_11_cid_11_cid_30_cid_30_cid_30_cid_30_cid_8_cid_8_cid_8_cid_8_cid_2_cid_2_cid_2_cid_2_cid_8_cid_8_cid_8_cid_8_cid_9_cid_9_cid_9_cid_9_cid_8_cid_8_cid_8_cid_8_cid_4_cid_4_cid_4_cid_4_cid_3_cid_3_cid_3_cid_3_cid_20_cid_20_cid_20_cid_20_cid_6_cid_6_cid_6_cid_6_cid_17_cid_17_cid_17_cid_17_cid_22_cid_22_cid_21_cid_21_cid_22_cid_22_cid_21_cid_21_cid_8_cid_8_cid_8_cid_8_cid_23_cid_23_cid_23_cid_23_cid_20_cid_20_cid_20_cid_20_cid_4_cid_4_cid_4_cid_4_cid_24_cid_24_cid_24_cid_24_cid_25_cid_25_cid_14_cid_14_cid_25_cid_25_cid_14_cid_14_cid_6_cid_6_cid_6_cid_6_cid_9_cid_9_cid_9_cid_9_cid_26_cid_26_cid_26_cid_26_cid_27_cid_27_cid_27_cid_27_cid_28_cid_28_cid_28_cid_28_cid_25_cid_25_cid_25_cid_25) does not have a Gujarati translation."
+      },
+      {
+        "id": "general_cid_15_cid_15_cid_15_cid_15_cid_16_cid_16_cid_16_cid_16_cid_17_cid_17_cid_17_cid_17_cid_18_cid_18_cid_14_cid_14_cid_18_cid_18_cid_14_cid_14_cid_8_cid_8_cid_8_cid_8_cid_9_cid_9_cid_9_cid_9_cid_8_cid_8_cid_8_cid_8_cid_4_cid_4_cid_4_cid_4_cid_20_cid_20_cid_20_cid_20_cid_6_cid_6_cid_6_cid_6_cid_17_cid_17_cid_17_cid_17_cid_21_cid_22_cid_21_cid_22_cid_21_cid_22_cid_21_cid_22_cid_8_cid_8_cid_8_cid_8_cid_23_cid_23_cid_23_cid_23_cid_20_cid_20_cid_20_cid_20_cid_4_cid_4_cid_4_cid_4_cid_24_cid_24_cid_24_cid_24_cid_14_cid_25_cid_14_cid_25_cid_14_cid_25_cid_14_cid_25_cid_6_cid_6_cid_6_cid_6_cid_9_cid_9_cid_9_cid_9_cid_26_cid_26_cid_26_cid_26_cid_27_cid_27_cid_27_cid_27_cid_28_cid_28_cid_28_cid_28_cid_25_cid_25_cid_25_cid_25",
+        "message": "Record '(cid:15)(cid:15)(cid:15)(cid:15)(cid:16)(cid:16)(cid:16)(cid:16)(cid:17)(cid:17)(cid:17)(cid:17)(cid:18)(cid:18)(cid:14)(cid:14)(cid:18)(cid:18)(cid:14)(cid:14) (cid:8)(cid:8)(cid:8)(cid:8) (cid:9)(cid:9)(cid:9)(cid:9)(cid:8)(cid:8)(cid:8)(cid:8)(cid:4)(cid:4)(cid:4)(cid:4)(cid:20)(cid:20)(cid:20)(cid:20)(cid:6)(cid:6)(cid:6)(cid:6) (cid:17)(cid:17)(cid:17)(cid:17)(cid:21)(cid:22)(cid:21)(cid:22)(cid:21)(cid:22)(cid:21)(cid:22)(cid:8)(cid:8)(cid:8)(cid:8)(cid:23)(cid:23)(cid:23)(cid:23)(cid:20)(cid:20)(cid:20)(cid:20)(cid:4)(cid:4)(cid:4)(cid:4) (cid:24)(cid:24)(cid:24)(cid:24)(cid:14)(cid:25)(cid:14)(cid:25)(cid:14)(cid:25)(cid:14)(cid:25)(cid:6)(cid:6)(cid:6)(cid:6) (cid:9)(cid:9)(cid:9)(cid:9)(cid:26)(cid:26)(cid:26)(cid:26)(cid:27)(cid:27)(cid:27)(cid:27)(cid:28)(cid:28)(cid:28)(cid:28)(cid:25)(cid:25)(cid:25)(cid:25)' (general_cid_15_cid_15_cid_15_cid_15_cid_16_cid_16_cid_16_cid_16_cid_17_cid_17_cid_17_cid_17_cid_18_cid_18_cid_14_cid_14_cid_18_cid_18_cid_14_cid_14_cid_8_cid_8_cid_8_cid_8_cid_9_cid_9_cid_9_cid_9_cid_8_cid_8_cid_8_cid_8_cid_4_cid_4_cid_4_cid_4_cid_20_cid_20_cid_20_cid_20_cid_6_cid_6_cid_6_cid_6_cid_17_cid_17_cid_17_cid_17_cid_21_cid_22_cid_21_cid_22_cid_21_cid_22_cid_21_cid_22_cid_8_cid_8_cid_8_cid_8_cid_23_cid_23_cid_23_cid_23_cid_20_cid_20_cid_20_cid_20_cid_4_cid_4_cid_4_cid_4_cid_24_cid_24_cid_24_cid_24_cid_14_cid_25_cid_14_cid_25_cid_14_cid_25_cid_14_cid_25_cid_6_cid_6_cid_6_cid_6_cid_9_cid_9_cid_9_cid_9_cid_26_cid_26_cid_26_cid_26_cid_27_cid_27_cid_27_cid_27_cid_28_cid_28_cid_28_cid_28_cid_25_cid_25_cid_25_cid_25) does not have a Gujarati translation."
+      }
+    ],
+    "passed": 6
+  }
+]

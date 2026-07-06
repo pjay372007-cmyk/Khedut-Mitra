@@ -1,0 +1,35 @@
+﻿# Datasets
+15 Crop 45 Disease and Healthy Leaf dataset/
+17 Crop and 67 Disease and Healthy Plant Data Dataset/
+IP102-master/
+KrishiAI_Dataset/
+KrishiAI_Master_Dataset/
+PlantDoc-Dataset/
+PlantVillage-Dataset-master/
+archive/
+raw_data/
+sample_leaf.jpg
+ml_engine/datasets/
+
+# Models & Runs
+models/
+runs/
+
+# Logs
+logs/
+*.log
+nvidia_smi_log.txt
+
+# Virtual Environments
+venv_gpu/
+venv/
+.venv/
+Env/
+env/
+
+# IDE/Cache files
+.agents/
+.vscode/
+__pycache__/
+*.pyc
+.DS_Store
