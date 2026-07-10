@@ -7,10 +7,10 @@ import numpy as np
 os.environ['PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION'] = 'python'
 
 # Apply NumPy compatibility patches for newer environments
-np.object = object
-np.bool = bool
-np.float = float
-np.int = int
+np.object = np.object_ if hasattr(np, 'object_') else object
+np.bool = np.bool_ if hasattr(np, 'bool_') else bool
+np.float = np.float64 if hasattr(np, 'float64') else float
+np.int = np.int_ if hasattr(np, 'int_') else int
 
 # Create a dynamic mock for tensorflow.python.training.tracking
 # to bypass its deprecation/removal in newer TensorFlow versions
@@ -62,24 +62,50 @@ except Exception as e:
 def convert_keras_to_tfjs(keras_path, output_dir):
     """
     Converts a trained TensorFlow Keras model checkpoint (.keras)
-    directly to TensorFlow.js format.
-    """
-    print(f"\nLoading Keras checkpoint: {keras_path}...")
-    try:
-        model = tf.keras.models.load_model(keras_path)
-    except Exception as e:
-        print(f"[ERROR] Failed to load Keras model: {e}")
-        return False
+    to TensorFlow.js Graph Model format using the CLI converter.
 
+    Graph model format (tfjs_graph_model) is required because:
+    - It traces the Keras model into a frozen TF computation graph
+    - All custom activations (e.g. hard_silu) are baked into ops
+    - The resulting model.json has format='graph-model'
+    - This allows loading with tf.loadGraphModel() in the browser
+    - Layers Model format (save_keras_model) fails in TF.js when
+      the model contains activations not in TF.js's built-in registry
+    """
+    import subprocess
+    print(f"\nLoading Keras checkpoint: {keras_path}...")
     print(f"Saving TensorFlow.js model files to: {output_dir}...")
     os.makedirs(output_dir, exist_ok=True)
     try:
-        tfjs.converters.save_keras_model(model, output_dir)
-        print(f"Success! Model files saved to {output_dir}.")
+        result = subprocess.run(
+            [
+                sys.executable, '-m', 'tensorflowjs.converters.converter',
+                '--input_format=keras',
+                '--output_format=tfjs_graph_model',
+                keras_path,
+                output_dir
+            ],
+            capture_output=True,
+            text=True
+        )
+        if result.returncode != 0:
+            print(f"[ERROR] tensorflowjs_converter failed:\n{result.stderr}")
+            # Fallback: try save_keras_model (Layers Model format)
+            print("[FALLBACK] Attempting save_keras_model (Layers Model format)...")
+            try:
+                model = tf.keras.models.load_model(keras_path)
+                tfjs.converters.save_keras_model(model, output_dir)
+                print(f"[FALLBACK OK] Layers Model saved to {output_dir} (note: may not work in browser if custom activations present)")
+                return True
+            except Exception as fe:
+                print(f"[ERROR] Fallback also failed: {fe}")
+                return False
+        print(f"Success! Graph Model files saved to {output_dir}.")
         return True
     except Exception as e:
         print(f"[ERROR] Failed to convert Keras model: {e}")
         return False
+
 
 
 def main():
@@ -106,13 +132,40 @@ def main():
 
     # 1. Convert Crop Model from Keras Checkpoint
     if os.path.exists(crop_keras_path):
-        convert_keras_to_tfjs(crop_keras_path, crop_output_dir)
+        if convert_keras_to_tfjs(crop_keras_path, crop_output_dir):
+            crop_classes_txt = os.path.join(models_dir, 'crop_model_classes.txt')
+            if os.path.exists(crop_classes_txt):
+                import json
+                try:
+                    with open(crop_classes_txt, 'r', encoding='utf-8') as f:
+                        classes = [line.strip() for line in f if line.strip()]
+                    classes_json_path = os.path.join(crop_output_dir, 'classes.json')
+                    with open(classes_json_path, 'w', encoding='utf-8') as f:
+                        json.dump(classes, f, indent=2, ensure_ascii=False)
+                    print(f"[OK] Crop classes exported to {classes_json_path}")
+                except Exception as e:
+                    print(f"[ERROR] Failed to export crop classes: {e}")
+            else:
+                print(f"[WARNING] Crop classes text file not found at: {crop_classes_txt}")
     else:
         print(f"\n[ALERT] Crop Keras checkpoint not found at: {crop_keras_path}")
 
     # 2. Convert Disease Model from Keras Checkpoint
     if os.path.exists(disease_keras_path):
-        convert_keras_to_tfjs(disease_keras_path, disease_output_dir)
+        if convert_keras_to_tfjs(disease_keras_path, disease_output_dir):
+            import shutil
+            disease_classes_json = disease_keras_path.replace('.keras', '_classes.json')
+            if not os.path.exists(disease_classes_json):
+                disease_classes_json = os.path.join(models_dir, 'checkpoints', 'krishi_ai_disease_model_classes.json')
+            if os.path.exists(disease_classes_json):
+                try:
+                    dest_classes_json = os.path.join(disease_output_dir, 'classes.json')
+                    shutil.copy2(disease_classes_json, dest_classes_json)
+                    print(f"[OK] Disease classes copied to {dest_classes_json}")
+                except Exception as e:
+                    print(f"[ERROR] Failed to copy disease classes: {e}")
+            else:
+                print(f"[WARNING] Disease classes JSON file not found!")
     else:
         print(f"\n[ALERT] Disease Keras checkpoint not found at: {disease_keras_path}")
 
