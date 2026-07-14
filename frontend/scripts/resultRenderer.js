@@ -165,7 +165,34 @@ Object.assign(window.cropAI, {
             // Dynamic compilation of the detailed explanation structure
             const detailsContainer = document.getElementById('res-disease-details-container');
             if (detailsContainer) {
-                detailsContainer.innerHTML = `
+                let top3Html = '';
+                if (r.top3Diseases && r.top3Diseases.length > 0) {
+                    top3Html = `
+                        <!-- Top-3 Alternative Matches -->
+                        <div style="background:white; border:1px solid var(--border-color); border-radius:var(--radius-md); padding:16px; text-align:left; margin-bottom:12px;">
+                            <h4 style="font-size:13px; color:var(--text-muted); text-transform:uppercase; margin-bottom:12px; margin-top:0;"><i class="fa-solid fa-square-poll-horizontal" style="color:#2563eb;"></i> ${isGuj ? 'ટોચની વૈકલ્પિક મેચો / Top Predictions' : 'Top Prediction Matches'}</h4>
+                            <div style="display:flex; flex-direction:column; gap:10px;">
+                                ${r.top3Diseases.map((td, index) => {
+                                    const tdName = isGuj ? (td.namegu || td.name) : td.name;
+                                    const barColor = td.confidence >= 90 ? '#16a34a' : td.confidence >= 80 ? '#2563eb' : td.confidence >= 60 ? '#ca8a04' : '#dc2626';
+                                    return `
+                                        <div>
+                                            <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; font-weight:600;">
+                                                <span>${index + 1}. ${tdName}</span>
+                                                <span style="color:${barColor};">${td.confidence}%</span>
+                                            </div>
+                                            <div style="width:100%; height:6px; background:#f1f5f9; border-radius:3px; overflow:hidden;">
+                                                <div style="width:${td.confidence}%; height:100%; background:${barColor}; border-radius:3px;"></div>
+                                            </div>
+                                        </div>
+                                    `;
+                                }).join('')}
+                            </div>
+                        </div>
+                    `;
+                }
+
+                detailsContainer.innerHTML = top3Html + `
                     <!-- 1. Disease Explanation & Symptoms -->
                     <div style="background:white; border:1px solid var(--border-color); border-radius:var(--radius-md); padding:16px; text-align:left;">
                         <h4 style="font-size:13px; color:var(--text-muted); text-transform:uppercase; margin-bottom:10px; margin-top:0;"><i class="fa-solid fa-circle-info" style="color:var(--danger);"></i> ${isGuj ? 'નિદાન અને વિગતવાર લક્ષણો' : 'Diagnosis & Detailed Symptoms'}</h4>

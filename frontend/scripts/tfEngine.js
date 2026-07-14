@@ -203,11 +203,14 @@ Object.assign(window.cropAI, {
                 const cropOut = this.cropModel.predict(batched);
                 const diseaseOut = this.diseaseModel.predict(batched);
                 
+                const cropTopK = tf.topk(cropOut, Math.min(3, cropOut.shape[1]));
+                const diseaseTopK = tf.topk(diseaseOut, Math.min(3, diseaseOut.shape[1]));
+
                 return {
-                    cropIndex: cropOut.argMax(1).dataSync()[0],
-                    cropConf: cropOut.max(1).dataSync()[0],
-                    diseaseIndex: diseaseOut.argMax(1).dataSync()[0],
-                    diseaseConf: diseaseOut.max(1).dataSync()[0],
+                    cropIndices: Array.from(cropTopK.indices.dataSync()),
+                    cropValues: Array.from(cropTopK.values.dataSync()),
+                    diseaseIndices: Array.from(diseaseTopK.indices.dataSync()),
+                    diseaseValues: Array.from(diseaseTopK.values.dataSync()),
                     cropClassesCount: cropOut.shape[1],
                     diseaseClassesCount: diseaseOut.shape[1]
                 };
@@ -226,62 +229,90 @@ Object.assign(window.cropAI, {
             const CROP_CLASSES = this.cropClasses;
             const DISEASE_CLASSES = this.diseaseClasses;
 
-            const cropIdx = prediction.cropIndex;
-            const diseaseIdx = prediction.diseaseIndex;
-            
-            const cropLabel = (cropIdx >= 0 && cropIdx < CROP_CLASSES.length) ? CROP_CLASSES[cropIdx] : 'unknown';
-            const trainedDiseaseLabel = (diseaseIdx >= 0 && diseaseIdx < DISEASE_CLASSES.length) ? DISEASE_CLASSES[diseaseIdx] : 'healthy';
-            const confidence = Math.round(prediction.diseaseConf * 100);
+            // Map Top-3 Crops
+            const top3Crops = prediction.cropIndices.map((idx, i) => {
+                const label = (idx >= 0 && idx < CROP_CLASSES.length) ? CROP_CLASSES[idx] : 'unknown';
+                return {
+                    label,
+                    confidence: Math.round(prediction.cropValues[i] * 100)
+                };
+            });
 
-            console.log(`[KrishiAI Prediction LOG] Crop: ${cropLabel} (${prediction.cropConf.toFixed(4)}), Disease: ${trainedDiseaseLabel} (${prediction.diseaseConf.toFixed(4)}), Confidence: ${confidence}%`);
+            // Map Top-3 Diseases with their respective canonical database mapping
+            const top3Diseases = prediction.diseaseIndices.map((idx, i) => {
+                const label = (idx >= 0 && idx < DISEASE_CLASSES.length) ? DISEASE_CLASSES[idx] : 'healthy';
+                return {
+                    label,
+                    confidence: Math.round(prediction.diseaseValues[i] * 100)
+                };
+            });
 
-            // Map the 49 crop___disease classes to 20 KB disease IDs
-            let diseaseLabel = 'healthy';
-            if (trainedDiseaseLabel.includes('___')) {
-                const parts = trainedDiseaseLabel.toLowerCase().split('___');
-                const crop = parts[0];
-                const disease = parts[1];
-                
-                if (disease.includes('healthy')) {
-                    diseaseLabel = 'healthy';
-                } else if (crop === 'cotton') {
-                    if (disease.includes('blight')) diseaseLabel = 'cotton_bacterial_blight';
-                    else if (disease.includes('rot')) diseaseLabel = 'cotton_boll_rot';
-                    else if (disease.includes('reddening') || disease.includes('red')) diseaseLabel = 'cotton_leaf_reddening';
-                    else if (disease.includes('virus') || disease.includes('curl')) diseaseLabel = 'yellow_vein_mosaic';
-                    else diseaseLabel = 'cotton_parawilt';
-                } else if (crop === 'groundnut') {
-                    if (disease.includes('spot')) diseaseLabel = 'groundnut_tikka';
-                    else if (disease.includes('deficiency') || disease.includes('nutrient')) diseaseLabel = 'nitrogen_deficiency';
-                    else diseaseLabel = 'healthy';
-                } else if (crop === 'wheat') {
-                    if (disease.includes('rust')) diseaseLabel = 'wheat_leaf_rust';
-                    else if (disease.includes('mildew')) diseaseLabel = 'powdery_mildew';
-                    else diseaseLabel = 'healthy';
-                } else if (crop === 'sugarcane') {
-                    diseaseLabel = 'sugarcane_disease_control';
-                } else {
-                    if (disease.includes('wilt')) diseaseLabel = 'bacterial_wilt';
-                    else if (disease.includes('blight') || disease.includes('spot') || disease.includes('mold') || disease.includes('anthracnose')) diseaseLabel = 'blast_disease';
-                    else if (disease.includes('virus') || disease.includes('curl') || disease.includes('mosaic') || disease.includes('ring')) diseaseLabel = 'yellow_vein_mosaic';
-                    else if (disease.includes('deficiency') || disease.includes('nutrient')) diseaseLabel = 'iron_deficiency';
-                    else if (disease.includes('mite') || disease.includes('pest') || disease.includes('aphid') || disease.includes('bug') || disease.includes('borer')) {
-                        diseaseLabel = 'aphids';
-                    } else {
+            const cropLabel = top3Crops[0]?.label || 'unknown';
+            const trainedDiseaseLabel = top3Diseases[0]?.label || 'healthy';
+            const confidence = top3Diseases[0]?.confidence || 0;
+
+            console.log(`[KrishiAI Prediction LOG] Crop: ${cropLabel}, Disease: ${trainedDiseaseLabel}, Confidence: ${confidence}%`);
+
+            // Map the top-3 diseases to canonical KB disease profiles
+            const mappedTop3Diseases = top3Diseases.map(td => {
+                let diseaseLabel = 'healthy';
+                const trainedLabel = td.label;
+                if (trainedLabel.includes('___')) {
+                    const parts = trainedLabel.toLowerCase().split('___');
+                    const crop = parts[0];
+                    const disease = parts[1];
+                    
+                    if (disease.includes('healthy')) {
                         diseaseLabel = 'healthy';
+                    } else if (crop === 'cotton') {
+                        if (disease.includes('blight')) diseaseLabel = 'cotton_bacterial_blight';
+                        else if (disease.includes('rot')) diseaseLabel = 'cotton_boll_rot';
+                        else if (disease.includes('reddening') || disease.includes('red')) diseaseLabel = 'cotton_leaf_reddening';
+                        else if (disease.includes('virus') || disease.includes('curl')) diseaseLabel = 'yellow_vein_mosaic';
+                        else diseaseLabel = 'cotton_parawilt';
+                    } else if (crop === 'groundnut') {
+                        if (disease.includes('spot')) diseaseLabel = 'groundnut_tikka';
+                        else if (disease.includes('deficiency') || disease.includes('nutrient')) diseaseLabel = 'nitrogen_deficiency';
+                        else diseaseLabel = 'healthy';
+                    } else if (crop === 'wheat') {
+                        if (disease.includes('rust')) diseaseLabel = 'wheat_leaf_rust';
+                        else if (disease.includes('mildew')) diseaseLabel = 'powdery_mildew';
+                        else diseaseLabel = 'healthy';
+                    } else if (crop === 'sugarcane') {
+                        diseaseLabel = 'sugarcane_disease_control';
+                    } else {
+                        if (disease.includes('wilt')) diseaseLabel = 'bacterial_wilt';
+                        else if (disease.includes('blight') || disease.includes('spot') || disease.includes('mold') || disease.includes('anthracnose')) diseaseLabel = 'blast_disease';
+                        else if (disease.includes('virus') || disease.includes('curl') || disease.includes('mosaic') || disease.includes('ring')) diseaseLabel = 'yellow_vein_mosaic';
+                        else if (disease.includes('deficiency') || disease.includes('nutrient')) diseaseLabel = 'iron_deficiency';
+                        else if (disease.includes('mite') || disease.includes('pest') || disease.includes('aphid') || disease.includes('bug') || disease.includes('borer')) {
+                            diseaseLabel = 'aphids';
+                        } else {
+                            diseaseLabel = 'healthy';
+                        }
                     }
+                } else {
+                    diseaseLabel = trainedLabel;
                 }
-            } else {
-                diseaseLabel = trainedDiseaseLabel;
-            }
+
+                let kbMatch = window.KB.diseases.find(d => d.id === diseaseLabel);
+                if (!kbMatch) {
+                    kbMatch = window.KB.diseases.find(d => d.id === 'healthy') || window.KB.diseases[0];
+                }
+
+                return {
+                    ...kbMatch,
+                    confidence: td.confidence
+                };
+            });
 
             const apiKey = window.KrishiStorage.getGeminiApiKey();
             if (confidence < window.KrishiConstants.AI_CONFIG.CONF_THRESHOLD && apiKey) {
                 throw new Error(`LOW_CONFIDENCE: Offline prediction confidence (${confidence}%) is below the acceptable threshold (${window.KrishiConstants.AI_CONFIG.CONF_THRESHOLD}%).`);
             }
 
-            // Find match in canonical database
-            let result = window.KB.diseases.find(d => d.id === diseaseLabel);
+            // Primary canonical match details
+            let result = window.KB.diseases.find(d => d.id === mappedTop3Diseases[0].id);
             if (!result) {
                 result = window.KB.diseases.find(d => d.id === 'healthy') || window.KB.diseases[0];
             }
@@ -289,7 +320,9 @@ Object.assign(window.cropAI, {
             const finalResult = {
                 ...result,
                 crop: [cropLabel],
-                confidence: confidence
+                confidence: confidence,
+                top3Crops: top3Crops,
+                top3Diseases: mappedTop3Diseases
             };
 
             // Cache prediction for fast subsequent lookups
