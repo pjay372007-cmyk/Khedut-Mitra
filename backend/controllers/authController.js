@@ -65,7 +65,9 @@ const authController = {
                 };
             }
 
-            console.log(`[SMS Gateway Mock] Sent OTP ${otp} to +91 ${mobile}`);
+            if (config.env !== 'production') {
+                console.log(`[SMS Gateway Mock] Sent OTP ${otp} to +91 ${mobile}`);
+            }
             // NOTE: In production, integrate Twilio/MSG91 here.
             // NEVER return the OTP in the API response.
 
