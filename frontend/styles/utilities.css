@@ -1,0 +1,82 @@
+/**
+ * iKhedut Krushi Mitra — CSS Utility Helpers & Layout Shortcuts
+ */
+
+/* ── Typography & Text alignments ── */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-left { text-align: left; }
+
+.text-danger { color: var(--danger); }
+.text-success { color: var(--success); }
+.text-blue { color: var(--info); }
+.text-warning { color: var(--warning); }
+
+/* ── Spacings & Margins ── */
+.ml-auto { margin-left: auto; }
+.mr-auto { margin-right: auto; }
+.mt-4 { margin-top: 16px; }
+.mb-4 { margin-bottom: 16px; }
+
+/* ── Background Color Tokens & Gradients ── */
+.bg-green {
+  background: linear-gradient(135deg, var(--success), #34D399) !important;
+  color: white !important;
+}
+
+.bg-blue {
+  background: linear-gradient(135deg, var(--info), #60A5FA) !important;
+  color: white !important;
+}
+
+.bg-orange {
+  background: linear-gradient(135deg, var(--warning), #FBBF24) !important;
+  color: white !important;
+}
+
+.bg-purple {
+  background: linear-gradient(135deg, #8B5CF6, #A78BFA) !important;
+  color: white !important;
+}
+
+.bg-danger {
+  background: linear-gradient(135deg, var(--danger), #f87171) !important;
+  color: white !important;
+}
+
+.bg-danger-light {
+  background: #FEE2E2 !important;
+}
+
+.safe-bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #4A8A70 0%, #2B5E4A 100%) !important;
+}
+
+/* ── Tip Icons Custom Background Overrides ── */
+.tip-icon.bg-green {
+  background: linear-gradient(135deg, #059669, #10b981) !important;
+  color: white !important;
+}
+
+.tip-icon.bg-blue {
+  background: linear-gradient(135deg, #2563eb, #3b82f6) !important;
+  color: white !important;
+}
+
+.tip-icon.bg-orange {
+  background: linear-gradient(135deg, #d97706, #f59e0b) !important;
+  color: white !important;
+}
+
+.tip-icon.bg-purple {
+  background: linear-gradient(135deg, #7c3aed, #8b5cf6) !important;
+  color: white !important;
+}
+
+.tip-icon.bg-danger {
+  background: linear-gradient(135deg, #dc2626, #ef4444) !important;
+  color: white !important;
+}

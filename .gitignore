@@ -1,4 +1,30 @@
-﻿# Datasets
+# ─────────────────────────────────────────────
+# KrishiAI .gitignore — v2.0
+# ─────────────────────────────────────────────
+
+# ── Node.js ──────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ── Environment & Secrets ────────────────────
+.env
+.env.local
+.env.*.local
+backend/.env
+
+# ── TensorFlow.js Model Binaries (use Git LFS)
+*.bin
+# Keep model.json and classes.json (text files)
+# Binary weight shards handled by Git LFS:
+# frontend/models/crop_model/*.bin
+# frontend/models/disease_model/*.bin
+
+# ── Legacy Application (separate repo) ───────
+Khedut-mitra/
+
+# ── ML Datasets ──────────────────────────────
 15 Crop 45 Disease and Healthy Leaf dataset/
 17 Crop and 67 Disease and Healthy Plant Data Dataset/
 IP102-master/
@@ -10,26 +36,41 @@ archive/
 raw_data/
 sample_leaf.jpg
 ml_engine/datasets/
+ai/ml_pipeline/datasets/
 
-# Models & Runs
+# ── ML Model Runs & Checkpoints ─────────────
 models/
 runs/
+ai/models/checkpoints/
+ai/models/temp_*_saved_model/
+*.pth
+*.pt
+*.h5
+*.onnx
+*.tflite
 
-# Logs
+# ── Logs ─────────────────────────────────────
 logs/
 *.log
 nvidia_smi_log.txt
+ai/knowledge_engine/extracted_*.txt
 
-# Virtual Environments
+# ── Python ───────────────────────────────────
 venv_gpu/
 venv/
 .venv/
 Env/
 env/
-
-# IDE/Cache files
-.agents/
-.vscode/
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+.Python
+
+# ── IDE & Cache ───────────────────────────────
+.agents/
+.vscode/
 .DS_Store
+Thumbs.db
+*.swp
+*.swo

@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>iKhedut Krushi Mitra — Smart Farming Assistant</title>
+    <meta name="description"
+        content="AI-powered smart farming platform for Gujarat farmers. Crop disease detection, weather updates, APMC rates, and expert guidance.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+Gujarati:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="./styles/style.css?v=4.1.0">
+    <link rel="stylesheet" href="./styles/result_states.css?v=4.1.0">
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#16a34a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+
+<body>
+    <!-- Toast Notification Container -->
+    <div id="toast-container"></div>
+
+    <!-- Confirm Modal Overlay (Premium bottom sheet) -->
+    <div id="modal-overlay" class="hidden">
+        <div id="modal-box">
+            <h4 id="modal-title">Confirm</h4>
+            <p id="modal-body">Are you sure?</p>
+            <div class="modal-actions">
+                <button class="modal-cancel" id="modal-cancel-btn">Cancel</button>
+                <button class="modal-confirm" id="modal-confirm-btn">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Offline Status Indicator -->
+    <div id="offline-banner" class="offline-banner" style="display: none;">
+        <i class="fa-solid fa-cloud-slash"></i> You are currently offline. Running in Offline AI Mode.
+    </div>
+
+    <div class="app-container">
+
+        <!-- SCREEN 0: Splash Screen Loader (NEW) -->
+        <div id="screen-splash" class="screen active" style="position: absolute; inset: 0; background: linear-gradient(135deg, #14532d 0%, #16a34a 100%); display: flex; align-items: center; justify-content: center; z-index: 11000; padding: 24px;">
+            <div style="text-align: center; animation: float 3s ease-in-out infinite;">
+                <div style="width: 96px; height: 96px; background: white; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; box-shadow: var(--shadow-lg);">
+                    <i class="fa-solid fa-leaf" style="font-size: 48px; color: var(--primary);"></i>
+                </div>
+                <h1 style="color: white; font-size: 32px; font-weight: 800; letter-spacing: -0.5px;">KrishiAI</h1>
+                <p style="color: rgba(255, 255, 255, 0.85); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px;">Smart Farmer Companion</p>
+            </div>
+            <div style="position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%); text-align: center;">
+                <div class="ai-pulse-dot" style="margin: 0 auto 12px; background-color: white; box-shadow: 0 0 10px white;"></div>
+                <span style="color: white; font-size: 12px; font-weight: 600; letter-spacing: 0.5px;">Loading AI Engine...</span>
+            </div>
+        </div>
+
+        <!-- SCREEN 0.5: Onboarding Flow (NEW) -->
+        <div id="screen-onboarding" class="screen" style="display: none; padding-bottom: 0;">
+            <div class="onboarding-slider" id="onboardingSlider">
+                <!-- Slide 1 -->
+                <div class="onboarding-slide">
+                    <div class="onboarding-ill"><i class="fa-solid fa-camera" style="color: var(--primary);"></i></div>
+                    <h2>Scan Affected Crops</h2>
+                    <p>Point the camera at any leaf, crop, or pest to detect diseases instantly with 100% offline AI.</p>
+                </div>
+            </div>
+            <div class="onboarding-footer">
+                <div class="onboarding-dots">
+                    <span class="onboard-dot active"></span>
+                    <span class="onboard-dot"></span>
+                    <span class="onboard-dot"></span>
+                </div>
+                <button class="btn btn-primary" style="width: 100%;" onclick="localStorage.setItem('onboarding_done', 'true'); app.navigateTo('screen-login');">Get Started</button>
+            </div>
+        </div>
+
+        <!-- SCREEN 1: Splash / Language / Login -->
+        <div id="screen-login" class="screen active">
+            <div class="auth-wrapper">
+                <div class="logo-container">
+                    <div style="width: 72px; height: 72px; background: white; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-md); margin-bottom: 12px;">
+                        <i class="fa-solid fa-leaf" style="font-size: 36px; color: var(--primary);"></i>
+                    </div>
+                    <h1 class="app-title" data-i18n="app_title">iKhedut</h1>
+                    <p class="app-subtitle" data-i18n="app_subtitle">Government of Gujarat</p>
+                </div>
+
+                <div class="auth-card">
+                    <h2 data-i18n="login_welcome">Welcome to iKhedut</h2>
+                    <p class="auth-hint" data-i18n="login_hint">Enter your mobile number to continue</p>
+
+                    <!-- STEP 1: Mobile + Language -->
+                    <div id="login-step1">
+                        <div class="input-group">
+                            <span class="country-code">+91</span>
+                            <input type="tel" id="mobileInput" data-i18n="mobile_placeholder"
+                                placeholder="Mobile Number" maxlength="10">
+                        </div>
+
+                        <div class="language-selector">
+                            <label data-i18n="lang_label">Preferred Language</label>
+                            <select id="langSelect">
+                                <option value="en">English (English)</option>
+                                <option value="gu">ગુજરાતી (Gujarati)</option>
+                            </select>
+                        </div>
+
+                        <button class="btn btn-primary" style="width: 100%;" onclick="app.requestOtp()" id="btnGetOtp">Get OTP</button>
+                        
+                        <div style="text-align: center; margin-top: 16px;">
+                            <span style="color: var(--text-muted); font-size: 13px;">Or continue as </span>
+                            <span style="color: var(--primary); font-weight: 700; cursor: pointer; text-decoration: underline;" onclick="app.skipRegistration()">Guest</span>
+                        </div>
+                    </div>
+
+                    <!-- OTP Sent Banner -->
+                    <div id="otp-table-wrapper" style="display:none; margin-bottom: 16px;">
+                        <div class="otp-sent-banner"
+                            style="background: rgba(22, 163, 74, 0.08); border: 1px solid rgba(22, 163, 74, 0.2); padding: 12px; border-radius: var(--radius-md); display: flex; align-items: center; gap: 12px;">
+                            <i class="fa-solid fa-circle-check" style="color: var(--primary); font-size: 20px;"></i>
+                            <div style="text-align: left;">
+                                <span style="font-weight: 700; color: var(--text-dark); font-size: 14px; display: block;">OTP Sent Successfully</span>
+                                <span style="font-size: 12px; color: var(--text-muted);" id="otp-display-mobile">to +91 —</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: OTP Entry -->
+                    <div id="login-step2" style="display:none;">
+                        <p class="auth-hint" style="margin-top:12px;">Enter the 6-digit OTP sent to your phone</p>
+                        <div class="otp-input-row">
+                            <input type="password" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*" autocomplete="one-time-code">
+                            <input type="password" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*">
+                            <input type="password" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*">
+                            <input type="password" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*">
+                            <input type="password" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*">
+                            <input type="password" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*">
+                        </div>
+                        <p id="otp-error-msg" style="color:var(--danger); font-size:13px; margin-top:6px; display:none;">❌ Incorrect OTP. Please try again.</p>
+                        <!-- OTP Expiry Timer & Resend Button -->
+                        <div id="otp-timer-container" style="margin-top: 12px; font-size: 14px; color: var(--text-muted); text-align: center;">
+                            OTP expires in: <span id="otp-timer-seconds" style="font-weight: 700; color: var(--primary);">05:00</span>
+                        </div>
+                        <button id="btn-resend-otp" class="btn btn-secondary" onclick="app.resendOtp()" style="margin-top: 8px; display: none; width: 100%;">Resend OTP</button>
+                        <button id="btnVerifyOtp" class="btn btn-primary" onclick="app.verifyOtp()" style="margin-top:12px; width: 100%;">Verify &amp; Login</button>
+                        <button class="btn btn-secondary" onclick="app.resetLogin()" style="margin-top:8px; width: 100%;">← Change Number</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 1.5: First-time User Registration -->
+        <div id="screen-register" class="screen">
+            <div class="auth-wrapper">
+                <div class="register-card">
+                    <div class="register-header" style="text-align: center; margin-bottom: 20px;">
+                        <div class="avatar-lg" style="margin: 0 auto 12px; background: linear-gradient(135deg, var(--primary), var(--primary-light));">
+                            <i class="fa-solid fa-user-plus"></i>
+                        </div>
+                        <h2>Complete Your Profile</h2>
+                        <p class="auth-hint">First time? Tell us about yourself — takes 30 seconds!</p>
+                        <div class="register-mobile-badge" id="reg-mobile-badge" style="background: var(--bg-color); border: 1px solid var(--border-color); padding: 6px 12px; border-radius: var(--radius-full); display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700;">
+                            <i class="fa-solid fa-phone" style="color: var(--primary);"></i>
+                            <span id="reg-display-mobile">+91 98765 43210</span>
+                        </div>
+                    </div>
+
+                    <div class="register-form">
+                        <div class="form-group">
+                            <label class="form-label"><i class="fa-solid fa-user"></i> Full Name <span class="required">*</span></label>
+                            <input type="text" id="regName" placeholder="e.g. Ramesh Patel" maxlength="50" class="form-control" aria-label="Full Name" aria-required="true">
+                        </div>
+
+                        <div class="reg-row-2" style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px;">
+                            <div class="form-group" style="margin-bottom:0;">
+                                <label class="form-label"><i class="fa-solid fa-map-marker-alt"></i> Village</label>
+                                <input type="text" id="regVillage" placeholder="e.g. Gondal" class="form-control" aria-label="Village">
+                            </div>
+                            <div class="form-group" style="margin-bottom:0;">
+                                <label class="form-label"><i class="fa-solid fa-map"></i> Taluka</label>
+                                <input type="text" id="regTaluka" placeholder="e.g. Gondal" class="form-control" aria-label="Taluka">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label"><i class="fa-solid fa-city"></i> District</label>
+                            <select id="regDistrict" class="form-control" aria-label="Select District">
+                                <option value="">Select District</option>
+                                <option value="Ahmedabad">Ahmedabad (અમદાવાદ)</option>
+                                <option value="Amreli">Amreli (અમરેલી)</option>
+                                <option value="Anand">Anand (આણંદ)</option>
+                                <option value="Aravalli">Aravalli (અરવલ્લી)</option>
+                                <option value="Banaskantha">Banaskantha (બનાસકાંઠા)</option>
+                                <option value="Bharuch">Bharuch (ભરૂચ)</option>
+                                <option value="Bhavnagar">Bhavnagar (ભાવનગર)</option>
+                                <option value="Botad">Botad (બોટાદ)</option>
+                                <option value="Chhota Udaipur">Chhota Udaipur (છોટાઉદેપુર)</option>
+                                <option value="Dahod">Dahod (દાહોદ)</option>
+                                <option value="Dang">Dang (ડાંગ)</option>
+                                <option value="Devbhumi Dwarka">Devbhumi Dwarka (દેવભૂમિ દ્વારકા)</option>
+                                <option value="Gandhinagar">Gandhinagar (ગાંધીનગર)</option>
+                                <option value="Gir Somnath">Gir Somnath (ગીર સોમનાથ)</option>
+                                <option value="Jamnagar">Jamnagar (જામનગર)</option>
+                                <option value="Junagadh">Junagadh (જૂનાગઢ)</option>
+                                <option value="Kheda">Kheda (ખેડા)</option>
+                                <option value="Kutch">Kutch (કચ્છ)</option>
+                                <option value="Mahisagar">Mahisagar (મહીસાગર)</option>
+                                <option value="Mehsana">Mehsana (મહેસાણા)</option>
+                                <option value="Morbi">Morbi (મોરબી)</option>
+                                <option value="Narmada">Narmada (નર્મદા)</option>
+                                <option value="Navsari">Navsari (નવસારી)</option>
+                                <option value="Panchmahal">Panchmahal (પંચમહાલ)</option>
+                                <option value="Patan">Patan (પાટણ)</option>
+                                <option value="Porbandar">Porbandar (પોરબંદર)</option>
+                                <option value="Rajkot">Rajkot (રાજકોટ)</option>
+                                <option value="Sabarkantha">Sabarkantha (સાબરકાંઠા)</option>
+                                <option value="Surat">Surat (સુરત)</option>
+                                <option value="Surendranagar">Surendranagar (સુરેન્દ્રનગર)</option>
+                                <option value="Tapi">Tapi (તાપી)</option>
+                                <option value="Vadodara">Vadodara (વડોદરા)</option>
+                                <option value="Valsad">Valsad (વલસાડ)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label"><i class="fa-solid fa-wheat-awn"></i> Total Land (Bigha / Acre)</label>
+                            <input type="number" id="regLandArea" placeholder="e.g. 5" min="0" step="0.5" class="form-control" aria-label="Total Land in Bigha or Acre">
+                        </div>
+
+                        <button class="btn btn-primary" style="width:100%;" onclick="app.completeRegistration()">
+                            <i class="fa-solid fa-check-circle"></i> Save & Continue
+                        </button>
+                        <button class="btn btn-secondary" onclick="app.skipRegistration()" style="margin-top:8px; width:100%;">Skip for Now →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 2: Dashboard -->
+        <div id="screen-dashboard" class="screen">
+            <!-- Premium Greeting Card -->
+            <div class="dashboard-greeting-card" style="margin: 16px 16px 0;">
+                <div class="greeting-row">
+                    <div class="greeting-text">
+                        <div class="greeting-time" id="greeting-time-label">
+                            <i class="fa-solid fa-sun"></i>
+                            <span>Good Morning</span>
+                        </div>
+                        <div class="greeting-name" id="greeting-name-el" data-i18n="dash_hello">Hello, Farmer 👋</div>
+                        <div class="greeting-loc">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span data-i18n="dash_loc">Gujarat, India</span>
+                        </div>
+                    </div>
+                    <div class="greeting-avatar" onclick="app.navigateTo('screen-profile')">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tip of the Day -->
+            <div class="tip-of-day" style="margin: 12px 16px 0;">
+                <div class="tip-day-icon">💡</div>
+                <div>
+                    <div class="tip-day-label">Farming Tip of the Day</div>
+                    <div class="tip-day-text" id="tip-of-day-text">Loading tip...</div>
+                </div>
+            </div>
+
+            <!-- Dashboard Content Container -->
+            <div style="padding: 0 16px;">
+                <!-- Weather Card -->
+                <div class="weather-card" onclick="app.navigateTo('screen-weather')" style="cursor: pointer; margin-top: 16px;">
+                    <div class="weather-card-inner">
+                        <div class="weather-main-info">
+                            <div class="weather-card-title">Today's Forecast · <span id="dash-weather-region">Rajkot</span> <span style="opacity:0.6; font-size:10px;">Tap →</span></div>
+                            <div class="weather-temp-row">
+                                <span class="weather-temp-big" id="dash-weather-temp">--°C</span>
+                            </div>
+                            <div class="weather-condition" id="dash-weather-desc">Loading weather...</div>
+                        </div>
+                        <div class="weather-right-icon">
+                            <i class="fa-solid fa-cloud-sun" id="dash-weather-icon" style="color: #FCD34D;"></i>
+                        </div>
+                    </div>
+                    <div class="weather-stats">
+                        <div class="weather-stat">
+                            <i class="fa-solid fa-droplet"></i>
+                            <span id="dash-weather-humidity">-- Humidity</span>
+                        </div>
+                        <div class="weather-stat">
+                            <i class="fa-solid fa-wind"></i>
+                            <span id="dash-weather-wind">-- Wind</span>
+                        </div>
+                        <div class="weather-stat">
+                            <i class="fa-solid fa-spray-can-sparkles"></i>
+                            <span id="dash-spray-status">Spray: --</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-title">
+                    <h3 data-i18n="dash_quick">Quick Services</h3>
+                </div>
+                <div class="action-grid">
+                    <div class="action-btn" onclick="app.navigateTo('screen-disease')">
+                        <div class="icon-circle bg-green"><i class="fa-solid fa-camera"></i></div>
+                        <span data-i18n="scan_crop">Scan Crop</span>
+                    </div>
+                    <div class="action-btn" onclick="app.navigateTo('screen-weather')">
+                        <div class="icon-circle bg-blue"><i class="fa-solid fa-cloud-sun"></i></div>
+                        <span>Weather</span>
+                    </div>
+                    <div class="action-btn" onclick="app.navigateTo('screen-guide')">
+                        <div class="icon-circle bg-orange"><i class="fa-solid fa-book-open"></i></div>
+                        <span>Farm Guide</span>
+                    </div>
+                    <div class="action-btn" onclick="app.navigateTo('screen-rent')">
+                        <div class="icon-circle bg-purple"><i class="fa-solid fa-tractor"></i></div>
+                        <span data-i18n="rent_tools">Rent Tools</span>
+                    </div>
+                </div>
+
+                <div class="section-title">
+                    <h3>🌾 <span data-i18n="dash_crops">My Crops</span></h3>
+                    <div style="display:flex; gap:12px; align-items:center;">
+                        <span class="see-all" id="btn-toggle-delete" onclick="app.toggleDeleteMode()" style="color: var(--text-muted); font-size: 12px; display: flex; align-items: center; gap: 4px;">
+                            <i class="fa-solid fa-trash-can"></i> Remove
+                        </span>
+                        <span class="see-all" onclick="app.showCropPicker()">+ Add Crop</span>
+                    </div>
+                </div>
+                <div class="crop-list" id="dashboardCropList"></div>
+            </div>
+        </div>
+
+        <!-- SCREEN 3: AI Crop Scanner -->
+        <div id="screen-disease" class="screen" style="background:#020617; padding:0; overflow:hidden;">
+            <!-- PHASE: CAPTURE -->
+            <div id="ai-phase-capture" style="display:flex; flex-direction:column; height:100%; position:relative;">
+                <!-- Header -->
+                <div class="ai-scan-header">
+                    <button class="back-btn" onclick="app.navigateTo('screen-dashboard')" style="color:white;">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <div style="text-align: center;">
+                        <h2 style="color:white; font-size:17px;" id="ai-scanner-title">KrishiAI Scanner</h2>
+                        <p style="color:rgba(255,255,255,0.55); font-size:11px; margin:0;" id="ai-scanner-subtitle">100% Offline AI</p>
+                    </div>
+                    <div style="display:flex; align-items:center; gap:8px;">
+                        <button class="ai-settings-toggle-btn" id="ai-settings-toggle" onclick="cropAI.toggleSettingsPanel()" style="background:none; border:none; color:white; font-size:18px; cursor:pointer;">
+                            <i class="fa-solid fa-gear"></i>
+                        </button>
+                        <div class="ai-badge-offline" id="ai-engine-badge-offline"><i class="fa-solid fa-brain"></i> AI</div>
+                    </div>
+                </div>
+
+                <!-- Engine Settings Panel -->
+                <div id="ai-engine-settings-panel" style="background:#1e293b; border-bottom:1px solid rgba(255,255,255,0.1); padding:16px; display:none; flex-direction:column; gap:12px; z-index:100; position:absolute; top:70px; left:0; right:0;">
+                    <div>
+                        <label style="color:white; font-size:12px; font-weight:700; display:block; margin-bottom:6px;">Select AI Engine</label>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+                            <button id="ai-engine-offline-btn" class="engine-select-btn active" onclick="cropAI.setEngine('offline')" style="padding:10px; border-radius:var(--radius-sm); border:2px solid var(--primary); background:rgba(22, 163, 74, 0.1); color:white; font-weight:700; cursor:pointer;">
+                                📡 Offline Canvas
+                            </button>
+                            <button id="ai-engine-gemini-btn" class="engine-select-btn" onclick="cropAI.setEngine('gemini')" style="padding:10px; border-radius:var(--radius-sm); border:2px solid transparent; background:#334155; color:rgba(255,255,255,0.6); font-weight:700; cursor:pointer;">
+                                ✨ Gemini Vision AI
+                            </button>
+                        </div>
+                    </div>
+                    <div id="gemini-key-container" style="display:none;">
+                        <label style="color:white; font-size:12px; font-weight:700; display:block; margin-bottom:6px;">Gemini API Key</label>
+                        <div style="display:flex; gap:8px;">
+                            <input type="password" id="gemini-api-key-input" placeholder="AIzaSy..." style="flex:1; background:#334155; color:white; border:1px solid rgba(255,255,255,0.1); padding:10px; border-radius:var(--radius-sm); font-size:13px; outline:none;">
+                            <button onclick="cropAI.saveGeminiKey()" style="background:var(--primary); color:white; border:none; border-radius:var(--radius-sm); padding:10px 16px; font-weight:700;">Save</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Crop Selector -->
+                <div class="ai-crop-select-container">
+                    <select id="ai-scan-crop-select" onchange="cropAI.onCropChange()" style="width: 100%; background: rgba(15,23,42,0.8); color: white; border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius-md); padding: 12px; font-family: inherit; font-size: 14px; font-weight: 700; outline: none; cursor: pointer;">
+                        <option value="all">🔍 Detect All Crops</option>
+                    </select>
+                </div>
+
+                <!-- Viewfinder -->
+                <div class="ai-viewfinder" id="ai-viewfinder">
+                    <img id="ai-img-preview" src="" alt="" style="display:none; width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:2;">
+                    
+                    <div id="ai-scan-placeholder" style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; gap:12px; z-index:1; position:relative;">
+                        <div class="ai-pulse-dot" style="background-color: var(--primary-light); width: 12px; height: 12px; box-shadow: 0 0 12px var(--primary-light);"></div>
+                        <i class="fa-solid fa-leaf" style="font-size:56px; color:rgba(255,255,255,0.15);"></i>
+                        <p style="color:rgba(255,255,255,0.4); font-size:13px;">Upload a photo or tap capture</p>
+                    </div>
+
+                    <div class="ai-corner tl"></div>
+                    <div class="ai-corner tr"></div>
+                    <div class="ai-corner bl"></div>
+                    <div class="ai-corner br"></div>
+                    <div class="scan-line"></div>
+
+                    <div class="ai-status-chip">
+                        <span class="ai-pulse-dot"></span>
+                        AI Ready
+                    </div>
+                </div>
+
+                <!-- Analyse button -->
+                <button id="ai-analyse-btn" onclick="cropAI.startAnalysisFromButton()" style="display:none; margin:0 20px 20px; padding:16px; background:linear-gradient(135deg, var(--primary), var(--primary-dark)); color:white; border:none; border-radius:var(--radius-md); font-size:16px; font-weight:700; cursor:pointer;">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i> Analyse with AI
+                </button>
+
+                <!-- Controls -->
+                <div class="ai-controls-bar">
+                    <input type="file" id="ai-file-input" accept="image/*" style="display:none;">
+                    <button id="ai-gallery-btn" class="ai-ctrl-btn" onclick="document.getElementById('ai-file-input').click()">
+                        <i class="fa-solid fa-images" style="font-size:24px;"></i>
+                        <span>Gallery</span>
+                    </button>
+                    <button id="ai-capture-btn" class="ai-capture-main">
+                        <div class="ai-capture-inner"></div>
+                    </button>
+                    <button class="ai-ctrl-btn" onclick="app.navigateTo('screen-guide')">
+                        <i class="fa-solid fa-book-open" style="font-size:24px;"></i>
+                        <span>Guide</span>
+                    </button>
+                </div>
+
+                <div class="ai-tip-strip">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <span>Tip: Close-up of leaf gives best result</span>
+                </div>
+            </div>
+
+            <!-- PHASE: LOADING -->
+            <div id="ai-phase-loading" style="display:none; flex-direction:column; align-items:center; justify-content:center; height:100%; gap:24px; background:#020617; padding:40px;">
+                <div class="ai-brain-loader">
+                    <div class="ai-brain-ring r1"></div>
+                    <div class="ai-brain-ring r2"></div>
+                    <div class="ai-brain-ring r3"></div>
+                    <i class="fa-solid fa-brain ai-brain-icon"></i>
+                </div>
+                <div style="text-align:center;">
+                    <h3 style="color:white; font-size:20px; margin-bottom:8px;">Analysing Your Crop</h3>
+                    <p style="color:rgba(255,255,255,0.55); font-size:14px;">Evaluating image &amp; matching patterns...</p>
+                </div>
+                <div class="ai-loading-steps">
+                    <div class="ai-step active" id="astep1"><i class="fa-solid fa-palette"></i> Extracting colour profile</div>
+                    <div class="ai-step" id="astep2"><i class="fa-solid fa-dna"></i> Matching disease patterns</div>
+                    <div class="ai-step" id="astep3"><i class="fa-solid fa-shield-halved"></i> Generating treatment plan</div>
+                </div>
+            </div>
+
+            <!-- PHASE: RESULT -->
+            <div id="ai-phase-result" style="display:none; flex-direction:column; height:100%; overflow-y:auto; background:var(--bg-color); padding-bottom:100px;">
+                <!-- STATE A: HEALTHY -->
+                <div id="result-state-healthy" style="display:none; flex-direction:column;">
+                    <div style="position:relative; width:100%; height:240px; overflow:hidden; background:linear-gradient(135deg, var(--primary-dark), var(--primary));">
+                        <img id="res-healthy-img" src="" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.3;">
+                        <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;">
+                            <div style="width:72px; height:72px; background:white; border-radius:50%; display:flex; align-items:center; justify-content:center; animation:healthyPop 0.6s cubic-bezier(0.34,1.56,0.64,1) both;">
+                                <i class="fa-solid fa-check" style="font-size:36px; color:var(--primary);"></i>
+                            </div>
+                            <h2 id="res-healthy-crop-name" style="color:white; font-size:24px;"></h2>
+                            <div id="res-healthy-conf-badge" class="badge-premium"></div>
+                        </div>
+                        <button onclick="cropAI.scanAgain()" style="position:absolute; top:16px; left:16px; background:rgba(0,0,0,0.4); border:none; color:white; width:40px; height:40px; border-radius:50%; cursor:pointer;"><i class="fa-solid fa-arrow-left"></i></button>
+                    </div>
+
+                    <div style="padding:16px; display:flex; flex-direction:column; gap:16px;">
+                        <div style="background:#ecfdf5; border:1px solid #a7f3d0; border-radius:var(--radius-md); padding:16px; display:flex; gap:12px; align-items:center;">
+                            <span style="font-size:24px;">🌱</span>
+                            <div>
+                                <h4 id="res-healthy-good-news" style="color:var(--text-dark); font-size:15px;">Your crop is healthy!</h4>
+                                <p id="res-healthy-message" style="font-size:13px; color:var(--text-body); margin:0;">No disease detected. Keep up your good farming practices.</p>
+                            </div>
+                        </div>
+
+                        <div style="background:white; border:1px solid var(--border-color); border-radius:var(--radius-md); padding:16px;">
+                            <h4 style="font-size:14px; margin-bottom:12px;"><i class="fa-solid fa-shield-halved" style="color:var(--primary);"></i> Preventive Care Tips</h4>
+                            <div id="res-healthy-tips" style="display:flex; flex-direction:column; gap:10px;"></div>
+                        </div>
+
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+                            <button onclick="cropAI.scanAgain()" class="btn btn-primary"><i class="fa-solid fa-camera-rotate"></i> Scan Again</button>
+                            <button onclick="cropAI.saveReport()" class="btn btn-secondary"><i class="fa-solid fa-floppy-disk"></i> Save Report</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STATE B: DISEASE -->
+                <div id="result-state-disease" style="display:none; flex-direction:column;">
+                    <div style="position:relative; width:100%; height:250px; background:linear-gradient(135deg, #7f1d1d, #b91c1c);">
+                        <img id="res-disease-img" src="" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.35;">
+                        <div style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; padding:20px; background:linear-gradient(transparent 40%, rgba(0,0,0,0.8));">
+                            <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
+                                <div id="res-disease-emoji" style="font-size:36px;"></div>
+                                <div>
+                                    <div id="res-disease-urgency" class="severity-crit" style="font-size:11px; font-weight:700; display:inline-block; margin-bottom:4px; text-transform:uppercase;"></div>
+                                    <h2 id="res-disease-name" style="color:white; font-size:20px; line-height:1.2;"></h2>
+                                    <div id="res-disease-crop-sub" style="color:rgba(255,255,255,0.7); font-size:12px; margin-top:2px;"></div>
+                                </div>
+                            </div>
+                            <div style="background:rgba(255,255,255,0.1); border-radius:var(--radius-sm); padding:10px; display:flex; justify-content:space-between; align-items:center;">
+                                <span style="font-size:11px; color:rgba(255,255,255,0.7);">Confidence</span>
+                                <span id="res-disease-conf-val" style="font-size:13px; color:white; font-weight:700;"></span>
+                            </div>
+                        </div>
+                        <button onclick="cropAI.scanAgain()" style="position:absolute; top:16px; left:16px; background:rgba(0,0,0,0.4); border:none; color:white; width:40px; height:40px; border-radius:50%; cursor:pointer;"><i class="fa-solid fa-arrow-left"></i></button>
+                    </div>
+
+                    <div style="padding:16px; display:flex; flex-direction:column; gap:12px;">
+                        <div style="background:white; border:1px solid var(--border-color); border-radius:var(--radius-md); padding:16px; display:grid; grid-template-columns:1fr 1fr 1fr; text-align:center;">
+                            <div><span style="font-size:10px; color:var(--text-muted); font-weight:700;">CROP</span><div id="res-disease-crop-name" style="font-weight:700; font-size:14px; margin-top:2px;"></div></div>
+                            <div style="border-left:1px solid var(--border-color); border-right:1px solid var(--border-color);"><span style="font-size:10px; color:var(--text-muted); font-weight:700;">SEVERITY</span><div id="res-disease-severity" style="font-weight:700; font-size:14px; margin-top:2px;"></div></div>
+                            <div><span style="font-size:10px; color:var(--text-muted); font-weight:700;">TYPE</span><div id="res-disease-type" style="font-weight:700; font-size:14px; margin-top:2px; text-transform:capitalize;"></div></div>
+                        </div>
+
+                        <div style="background:white; border:1px solid var(--border-color); border-radius:var(--radius-md); padding:16px;">
+                            <h4 style="font-size:13px; color:var(--text-muted); text-transform:uppercase; margin-bottom:6px;"><i class="fa-solid fa-circle-info" style="color:var(--danger);"></i> Description</h4>
+                            <p id="res-disease-desc" style="font-size:14px; color:var(--text-body); margin:0; line-height:1.6;"></p>
+                        </div>
+
+                        <div style="background:white; border:1px solid var(--border-color); border-radius:var(--radius-md); padding:16px;">
+                            <h4 style="font-size:13px; color:var(--text-muted); text-transform:uppercase; margin-bottom:12px;"><i class="fa-solid fa-kit-medical" style="color:var(--primary);"></i> Recommended Action</h4>
+                            <div id="res-treatment-list" style="display:flex; flex-direction:column; gap:10px;"></div>
+                        </div>
+
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+                            <div style="background:white; border:1px solid var(--border-color); border-radius:var(--radius-md); padding:12px; display:flex; flex-direction:column; gap:4px;">
+                                <span style="font-size:10px; color:var(--text-muted); font-weight:700;">CHEMICAL &amp; DOSE</span>
+                                <span id="res-chemical-dose" style="font-size:12px; font-weight:700;"></span>
+                            </div>
+                            <div style="background:white; border:1px solid var(--border-color); border-radius:var(--radius-md); padding:12px; display:flex; flex-direction:column; gap:4px;">
+                                <span style="font-size:10px; color:var(--text-muted); font-weight:700;">EST. COST</span>
+                                <span id="res-estimated-cost" style="font-size:13px; font-weight:700;"></span>
+                            </div>
+                        </div>
+
+                        <div style="background:#fffbeb; border:1px solid #fde68a; border-radius:var(--radius-md); padding:16px;">
+                            <h4 style="font-size:12px; color:#b45309; text-transform:uppercase; margin-bottom:6px;"><i class="fa-solid fa-shield-halved" style="color:#d97706;"></i> Prevention</h4>
+                            <p id="res-disease-preventive" style="font-size:13px; color:#78350f; margin:0; line-height:1.5;"></p>
+                        </div>
+
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+                            <button onclick="cropAI.scanAgain()" class="btn btn-danger"><i class="fa-solid fa-camera-rotate"></i> Scan Again</button>
+                            <button onclick="cropAI.shareReport()" class="btn btn-secondary"><i class="fa-solid fa-share-nodes"></i> Share</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STATE C: UNKNOWN -->
+                <div id="result-state-unknown" style="display:none; flex-direction:column; align-items:center; padding:24px; text-align:center;">
+                    <div style="width:80px; height:80px; background:rgba(59,130,246,0.1); border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:16px;">
+                        <i class="fa-solid fa-triangle-exclamation" style="font-size:36px; color:var(--info);"></i>
+                    </div>
+                    <h2 id="res-unknown-title" style="font-size:20px; margin-bottom:8px;">Crop Not Recognized</h2>
+                    <p style="color:var(--text-muted); font-size:14px; margin-bottom:20px;">We couldn't diagnose this leaf. Please make sure the leaf is clear and well-lit.</p>
+                    
+                    <button onclick="cropAI.scanAgain()" class="btn btn-primary" style="width:100%;"><i class="fa-solid fa-camera-rotate"></i> Take Another Photo</button>
+                </div>
+            </div>
+
+            <!-- PHASE: ERROR -->
+            <div id="ai-phase-error" style="display:none; flex-direction:column; align-items:center; justify-content:center; height:100%; gap:20px; padding:40px; text-align:center; background:#020617;">
+                <div style="width:80px; height:80px; background:rgba(239,68,68,0.1); border-radius:50%; display:flex; align-items:center; justify-content:center;">
+                    <i class="fa-solid fa-triangle-exclamation" style="font-size:38px; color:var(--danger);"></i>
+                </div>
+                <div>
+                    <h3 style="color:white; font-size:20px; margin-bottom:8px;">Analysis Failed</h3>
+                    <p style="color:rgba(255,255,255,0.6); font-size:14px;">Something went wrong. Please check your connection or retry.</p>
+                </div>
+                <button onclick="cropAI.scanAgain()" class="btn btn-primary">Try Again</button>
+            </div>
+        </div>
+
+        <!-- SCREEN 4: AI Recommendations -->
+        <div id="screen-recommendations" class="screen">
+            <div class="header">
+                <button class="back-btn" onclick="app.navigateTo('screen-disease')">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <h2>Analysis Result</h2>
+            </div>
+            <div class="result-content" style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:70vh; text-align:center; padding:40px; gap:16px;">
+                <i class="fa-solid fa-camera" style="font-size:48px; color:var(--text-muted);"></i>
+                <h3 style="color:var(--text-dark);">No Scan Yet</h3>
+                <p style="color:var(--text-muted); font-size:14px;">Scan a crop image first using the AI scanner to see the analysis result here.</p>
+                <button class="btn btn-primary" onclick="app.navigateTo('screen-disease')">
+                    <i class="fa-solid fa-camera"></i> Open Scanner
+                </button>
+            </div>
+        </div>
+
+        <!-- SCREEN 5: Market Prices -->
+        <div id="screen-market" class="screen">
+            <div class="header">
+                <h2 data-i18n="mkt_title">Market Prices</h2>
+                <p data-i18n="mkt_sub">Latest APMC Rates</p>
+            </div>
+            <div class="market-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="marketSearchInput" placeholder="Search crop or commodity..." aria-label="Search market prices">
+            </div>
+            <div class="market-list" id="marketPriceList"></div>
+        </div>
+
+        <!-- SCREEN 6: Profile -->
+        <div id="screen-profile" class="screen">
+            <div class="header">
+                <button class="back-btn" onclick="app.navigateTo('screen-dashboard')"><i class="fa-solid fa-arrow-left"></i></button>
+                <h2>My Profile</h2>
+                <div style="width:24px"></div>
+            </div>
+            <div class="profile-header-card">
+                <div class="avatar-lg"><i class="fa-solid fa-user"></i></div>
+                <h3 id="profile-user-name">Farmer</h3>
+                <p id="profile-user-mobile">+91 —</p>
+                <span class="badge-premium" data-i18n="profile_premium">Registered Farmer</span>
+            </div>
+            <div class="profile-menu">
+                <div class="menu-item" style="justify-content:space-between;">
+                    <div style="display:flex; align-items:center; gap:16px;">
+                        <div class="menu-icon bg-blue"><i class="fa-solid fa-language"></i></div>
+                        <span data-i18n="lang_label">Language Settings</span>
+                    </div>
+                    <select id="langSelectProfile" style="padding:8px 12px; border-radius:var(--radius-sm); border:1px solid var(--border-color); font-family:inherit; font-weight:600; outline:none;" onchange="app.setLanguage(this.value);">
+                        <option value="en">English</option>
+                        <option value="gu">ગુજરાતી</option>
+                    </select>
+                </div>
+                <div class="menu-item" onclick="app.logout()">
+                    <div class="menu-icon bg-danger"><i class="fa-solid fa-right-from-bracket"></i></div>
+                    <span style="color:var(--danger);" data-i18n="profile_logout">Logout</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 8: Farm Guide -->
+        <div id="screen-guide" class="screen">
+            <div class="header">
+                <button class="back-btn" onclick="app.navigateTo('screen-dashboard')"><i class="fa-solid fa-arrow-left"></i></button>
+                <h2 data-i18n="guide_title">Farm Guide</h2>
+                <div style="width:24px"></div>
+            </div>
+            <div class="tips-list" style="padding:16px;">
+                <div class="tip-card">
+                    <div class="tip-icon bg-green"><i class="fa-solid fa-seedling"></i></div>
+                    <div class="tip-text">
+                        <h4>Wheat Cultivation</h4>
+                        <p>Complete cultivation guide and package of practices.</p>
+                    </div>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon bg-blue"><i class="fa-solid fa-faucet-drip"></i></div>
+                    <div class="tip-text">
+                        <h4>Drip Irrigation</h4>
+                        <p>Learn how to optimize irrigation to boost crop yield.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 9: Rent Tools -->
+        <div id="screen-rent" class="screen">
+            <div class="header">
+                <button class="back-btn" onclick="app.navigateTo('screen-dashboard')"><i class="fa-solid fa-arrow-left"></i></button>
+                <h2 data-i18n="rent_title">Rent Tools</h2>
+                <div style="width:24px"></div>
+            </div>
+            <div class="tips-list" style="padding:16px;">
+                <div class="tip-card" style="justify-content:space-between; align-items:center;">
+                    <div style="display:flex; gap:16px; align-items:center;">
+                        <div class="tip-icon bg-purple"><i class="fa-solid fa-tractor"></i></div>
+                        <div>
+                            <h4 data-i18n="rent_tractor">Tractor</h4>
+                            <p>₹500 / hr</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary" style="padding:10px 16px; font-size:13px;" data-i18n="btn_book">Book</button>
+                </div>
+                <div class="tip-card" style="justify-content:space-between; align-items:center;">
+                    <div style="display:flex; gap:16px; align-items:center;">
+                        <div class="tip-icon bg-purple"><i class="fa-solid fa-spray-can"></i></div>
+                        <div>
+                            <h4 data-i18n="rent_drone">Drone Spray</h4>
+                            <p>₹1200 / hr</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary" style="padding:10px 16px; font-size:13px;" data-i18n="btn_book">Book</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 10: Daily Tips -->
+        <div id="screen-tips" class="screen">
+            <div class="header">
+                <button class="back-btn" onclick="app.navigateTo('screen-dashboard')"><i class="fa-solid fa-arrow-left"></i></button>
+                <h2 data-i18n="tips_title">Daily Tips</h2>
+                <div style="width:24px"></div>
+            </div>
+            <div class="tips-list" style="padding:16px;">
+                <div class="tip-card">
+                    <div class="tip-icon bg-orange"><i class="fa-solid fa-lightbulb"></i></div>
+                    <div class="tip-text">
+                        <h4>Optimal Spray Window</h4>
+                        <p>Spray chemical applications early morning or late evening for highest efficiency.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 11: Services Hub -->
+        <div id="screen-services" class="screen">
+            <div class="header">
+                <h2 data-i18n="title_services">All Services</h2>
+            </div>
+            <div class="profile-menu">
+                <div class="menu-item" onclick="app.navigateTo('screen-disease')">
+                    <div class="menu-icon bg-green"><i class="fa-solid fa-camera"></i></div>
+                    <span data-i18n="scan_crop">Scan Crop</span>
+                    <i class="fa-solid fa-chevron-right ml-auto"></i>
+                </div>
+                <div class="menu-item" onclick="app.navigateTo('screen-farmcost')">
+                    <div class="menu-icon bg-orange"><i class="fa-solid fa-calculator"></i></div>
+                    <span>Cost Calculator</span>
+                    <i class="fa-solid fa-chevron-right ml-auto"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 12: Govt Schemes Directory -->
+        <div id="screen-schemes" class="screen">
+            <div class="header">
+                <button class="back-btn" onclick="app.goBack()"><i class="fa-solid fa-arrow-left"></i></button>
+                <h2 data-i18n="title_schemes">Govt Schemes</h2>
+                <div style="width:24px"></div>
+            </div>
+            <div class="market-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="schemeSearchInput" placeholder="Search schemes..." oninput="app.filterSchemes(this.value)">
+            </div>
+            <div class="scheme-category">
+                <h3 class="scheme-cat-title"><i class="fa-solid fa-landmark"></i> Top Portals</h3>
+                <div class="scheme-icon-grid">
+                    <a href="https://pmkisan.gov.in" target="_blank" class="scheme-icon-btn">
+                        <div class="scheme-icon-circle bg-orange"><i class="fa-solid fa-sack-dollar"></i></div>
+                        <span>PM Kisan</span>
+                    </a>
+                    <a href="https://ikhedut.gujarat.gov.in" target="_blank" class="scheme-icon-btn">
+                        <div class="scheme-icon-circle bg-green"><i class="fa-solid fa-leaf"></i></div>
+                        <span>iKhedut 🌾</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 13: Scheme Details -->
+        <div id="screen-scheme-details" class="screen">
+            <div class="header">
+                <button class="back-btn" onclick="app.goBack()"><i class="fa-solid fa-arrow-left"></i></button>
+                <h2>Scheme Details</h2>
+                <div style="width:24px"></div>
+            </div>
+            <div style="padding:16px;">
+                <div style="background:white; border:1px solid var(--border-color); border-radius:var(--radius-md); padding:20px; box-shadow:var(--shadow-sm); margin-bottom:16px;">
+                    <h3 style="margin-bottom:8px;">PM-KISAN Samman Nidhi</h3>
+                    <p style="font-size:14px; color:var(--text-body); line-height:1.6;">Income support of ₹6,000 per year is provided in three equal installments to all land holding farmer families.</p>
+                </div>
+                <button class="btn btn-primary" style="width:100%;" data-i18n="btn_apply">Apply Now</button>
+            </div>
+        </div>
+
+        <!-- SCREEN 14: Farm Cost Calculator -->
+        <div id="screen-farmcost" class="screen">
+            <div class="fc-header">
+                <h2>🌾 Farm Cost Calculator</h2>
+                <p>Seeds to Harvest — Profit Analysis</p>
+            </div>
+            
+            <div class="fc-body">
+                <div class="fc-crop-bar">
+                    <div class="fc-crop-select-wrap">
+                        <label>Select Crop</label>
+                        <select id="fc-crop-select" onchange="farmCalc.onCropChange()"></select>
+                    </div>
+                    <div class="fc-crop-select-wrap">
+                        <label>Land (Acres)</label>
+                        <input type="number" id="fc-land" placeholder="e.g. 2.5" min="0.1" step="0.1" oninput="farmCalc.calc()">
+                    </div>
+                </div>
+
+                <div class="fc-tabs">
+                    <button class="fc-tab active" onclick="farmCalc.switchTab('costs')" id="fctab-costs">Costs</button>
+                    <button class="fc-tab" onclick="farmCalc.switchTab('labour')" id="fctab-labour">Labour</button>
+                    <button class="fc-tab" onclick="farmCalc.switchTab('profit')" id="fctab-profit">Profit</button>
+                    <button class="fc-tab" onclick="farmCalc.switchTab('calc')" id="fctab-calc">Calc</button>
+                </div>
+
+                <!-- TAB 1: Costs -->
+                <div class="fc-tab-panel active" id="fcpanel-costs">
+                    <div class="fc-section-title">🌱 Seed & Sowing</div>
+                    <div class="fc-row"><label>Seed Cost (₹/acre)</label><input type="number" id="fc-seed" oninput="farmCalc.calc()"></div>
+                    <div class="fc-row"><label>Prep Cost (₹/acre)</label><input type="number" id="fc-prep" oninput="farmCalc.calc()"></div>
+                    <div class="fc-row"><label>Sowing Cost (₹/acre)</label><input type="number" id="fc-sow" oninput="farmCalc.calc()"></div>
+                    
+                    <div class="fc-section-title" style="margin-top:16px;">💧 Fertilizer & Water</div>
+                    <div class="fc-row"><label>Irrigation Cost (₹/acre)</label><input type="number" id="fc-irr" oninput="farmCalc.calc()"></div>
+                    <div class="fc-row"><label>Fertilizer Cost (₹/acre)</label><input type="number" id="fc-fert" oninput="farmCalc.calc()"></div>
+                    <div class="fc-row"><label>Pesticide Cost (₹/acre)</label><input type="number" id="fc-pest" oninput="farmCalc.calc()"></div>
+                    
+                    <div class="fc-section-title" style="margin-top:16px;">🚜 Harvest & Transport</div>
+                    <div class="fc-row"><label>Harvest Cost (₹/acre)</label><input type="number" id="fc-harv" oninput="farmCalc.calc()"></div>
+                    <div class="fc-row"><label>Transport Cost (₹/acre)</label><input type="number" id="fc-trans" oninput="farmCalc.calc()"></div>
+                    <div class="fc-row"><label>Misc Cost (₹/acre)</label><input type="number" id="fc-misc" oninput="farmCalc.calc()"></div>
+
+                    <div class="fc-mini-summary" id="fc-cost-summary">
+                        <div class="fc-mini-row"><span>Cost / Acre</span><strong id="fc-cost-per-acre">₹0</strong></div>
+                        <div class="fc-mini-row"><span>Total Cost (<span id="fc-land-display">0</span> Acres)</span><strong id="fc-total-cost">₹0</strong></div>
+                    </div>
+                </div>
+
+                <!-- TAB 2: Labour -->
+                <div class="fc-tab-panel" id="fcpanel-labour">
+                    <div class="fc-section-title">👷 Labour Tracker</div>
+                    <div class="fc-labour-list" id="fc-labour-list"></div>
+                    <button class="fc-add-btn" onclick="farmCalc.addLabour()"><i class="fa-solid fa-plus"></i> Add Entry</button>
+                    <div class="fc-mini-summary">
+                        <div class="fc-mini-row"><span>Total Labour</span><strong id="fc-labour-total">₹0</strong></div>
+                        <div class="fc-mini-row"><span>Labour / Acre</span><strong id="fc-labour-per-acre">₹0</strong></div>
+                    </div>
+                </div>
+
+                <!-- TAB 3: Profit -->
+                <div class="fc-tab-panel" id="fcpanel-profit">
+                    <div class="fc-section-title">📦 Revenue & Yield</div>
+                    <div class="fc-row"><label>Expected Yield (Q/acre)</label><input type="number" id="fc-yield" oninput="farmCalc.calc()"></div>
+                    <div class="fc-row"><label>Market Price (₹/Q)</label><input type="number" id="fc-price" oninput="farmCalc.calc()"></div>
+                    <div class="fc-row"><label>Other Income (₹)</label><input type="number" id="fc-other-income" oninput="farmCalc.calc()"></div>
+
+                    <div class="fc-mini-summary" id="fc-profit-card">
+                        <div class="fc-mini-row"><span>Total Revenue</span><strong id="fc-revenue">₹0</strong></div>
+                        <div class="fc-mini-row"><span>Total Farming Cost</span><strong id="fc-prof-farming-cost">₹0</strong></div>
+                        <div class="fc-mini-row"><span>Total Labour Cost</span><strong id="fc-prof-labour-cost">₹0</strong></div>
+                        <div class="fc-mini-row"><span>Grand Total Cost</span><strong id="fc-grand-cost">₹0</strong></div>
+                        <div class="fc-mini-row" style="font-size:16px;"><span>Net Profit</span><strong id="fc-net-profit">₹0</strong></div>
+                        <div class="fc-mini-row"><span>ROI</span><strong id="fc-roi">0%</strong></div>
+                    </div>
+                </div>
+
+                <!-- TAB 4: Calc -->
+                <div class="fc-tab-panel" id="fcpanel-calc">
+                    <div class="fc-calc-display">
+                        <div class="fc-calc-expr" id="calc-expr"></div>
+                        <div class="fc-calc-val" id="calc-val">0</div>
+                    </div>
+                    <div class="fc-calc-grid">
+                        <button class="calc-btn calc-fn" onclick="farmCalc.calcPress('C')">C</button>
+                        <button class="calc-btn calc-fn" onclick="farmCalc.calcPress('±')">±</button>
+                        <button class="calc-btn calc-fn" onclick="farmCalc.calcPress('%')">%</button>
+                        <button class="calc-btn calc-op" onclick="farmCalc.calcPress('/')">÷</button>
+                        <button class="calc-btn" onclick="farmCalc.calcPress('7')">7</button>
+                        <button class="calc-btn" onclick="farmCalc.calcPress('8')">8</button>
+                        <button class="calc-btn" onclick="farmCalc.calcPress('9')">9</button>
+                        <button class="calc-btn calc-op" onclick="farmCalc.calcPress('*')">×</button>
+                        <button class="calc-btn" onclick="farmCalc.calcPress('4')">4</button>
+                        <button class="calc-btn" onclick="farmCalc.calcPress('5')">5</button>
+                        <button class="calc-btn" onclick="farmCalc.calcPress('6')">6</button>
+                        <button class="calc-btn calc-op" onclick="farmCalc.calcPress('-')">−</button>
+                        <button class="calc-btn" onclick="farmCalc.calcPress('1')">1</button>
+                        <button class="calc-btn" onclick="farmCalc.calcPress('2')">2</button>
+                        <button class="calc-btn" onclick="farmCalc.calcPress('3')">3</button>
+                        <button class="calc-btn calc-op" onclick="farmCalc.calcPress('+')">+</button>
+                        <button class="calc-btn calc-zero" onclick="farmCalc.calcPress('0')">0</button>
+                        <button class="calc-btn" onclick="farmCalc.calcPress('.')">.</button>
+                        <button class="calc-btn calc-eq" onclick="farmCalc.calcPress('=')">=</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 15: Crop Details -->
+        <div id="screen-crop-details" class="screen">
+            <div class="header">
+                <button class="back-btn" onclick="app.goBack()"><i class="fa-solid fa-arrow-left"></i></button>
+                <h2 id="cd-title">Crop Details</h2>
+                <div style="width:24px"></div>
+            </div>
+            
+            <div style="padding:16px;">
+                <div class="crop-hero-card">
+                    <img id="cd-crop-img" style="width:100%; height:140px; object-fit:cover; border-radius:var(--radius-sm); margin-bottom:16px; display:none;" src="">
+                    <div class="crop-hero-main">
+                        <div class="crop-hero-emoji" id="cd-emoji">🌾</div>
+                        <div>
+                            <h3 id="cd-name-full">Wheat</h3>
+                            <span class="badge-premium" id="cd-season-badge">Rabi</span>
+                        </div>
+                    </div>
+                    <div class="crop-stats-grid">
+                        <div class="c-stat"><span class="label">Duration</span><span class="val" id="cd-duration">120 Days</span></div>
+                        <div class="c-stat"><span class="label">Status</span><span class="val" id="cd-status-val">Healthy</span></div>
+                    </div>
+                </div>
+
+                <!-- AI Diagnosis Card -->
+                <div id="cd-ai-diagnosis-card" style="display:none; background:linear-gradient(135deg, #1e1b4b, #311042); border-radius:var(--radius-md); padding:16px; margin-top:16px;">
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                        <i class="fa-solid fa-user-doctor" style="color:#a855f7;"></i>
+                        <h4 style="color:white; margin:0;">AI Diagnosis</h4>
+                    </div>
+                    <h3 id="cd-ai-disease-name" style="color:white; font-size:16px;"></h3>
+                    <p id="cd-ai-disease-desc" style="color:rgba(255,255,255,0.7); font-size:12px; line-height:1.4; margin:4px 0 12px;"></p>
+                    
+                    <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:12px;">
+                        <h5 style="color:#a855f7; font-size:12px; margin-bottom:8px;"><i class="fa-solid fa-prescription-bottle-medical"></i> Treatment</h5>
+                        <div id="cd-ai-treatment-list" style="display:flex; flex-direction:column; gap:8px;"></div>
+                    </div>
+                    <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:12px; margin-top:12px;">
+                        <h5 style="color:#10b981; font-size:12px; margin-bottom:8px;"><i class="fa-solid fa-building-columns"></i> Gov Advisory</h5>
+                        <div id="cd-ai-gov-sources"></div>
+                    </div>
+                </div>
+
+                <div class="fc-tabs" style="margin-top:20px;">
+                    <button class="fc-tab active" onclick="app.switchCdTab('schedule')" id="cdtab-schedule">Schedule</button>
+                    <button class="fc-tab" onclick="app.switchCdTab('medicine')" id="cdtab-medicine">Medicine</button>
+                    <button class="fc-tab" onclick="app.switchCdTab('fertilizer')" id="cdtab-fertilizer">Fertilizer</button>
+                    <button class="fc-tab" onclick="app.switchCdTab('expenses')" id="cdtab-expenses">Expenses</button>
+                </div>
+
+                <div class="cd-panel active" id="cdpanel-schedule"><div class="timeline" id="cd-schedule-list"></div></div>
+                <div class="cd-panel" id="cdpanel-medicine"><div class="tips-list" id="cd-medicine-list"></div></div>
+                <div class="cd-panel" id="cdpanel-fertilizer"><div class="tips-list" id="cd-fertilizer-list"></div></div>
+                <div class="cd-panel" id="cdpanel-expenses">
+                    <div class="fc-mini-summary" style="margin-top:0; margin-bottom:12px;">
+                        <div class="fc-mini-row"><span>Total Spent</span><strong id="cd-total-expense">₹0</strong></div>
+                    </div>
+                    <div id="cd-expense-list"></div>
+                    <button class="fc-add-btn" onclick="app.addCropExpense()"><i class="fa-solid fa-plus"></i> Add Expense</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 16: Weather Center -->
+        <div id="screen-weather" class="screen">
+            <div class="header">
+                <button class="back-btn" onclick="app.goBack()"><i class="fa-solid fa-arrow-left"></i></button>
+                <h2>Weather Center</h2>
+                <div style="width:24px"></div>
+            </div>
+            
+            <div style="padding:16px;">
+                <div style="position:relative; display:flex; align-items:center; background:white; border-radius:var(--radius-md); border:1px solid var(--border-color); padding:14px; margin-bottom:16px;">
+                    <i class="fa-solid fa-location-dot" style="color:var(--primary); margin-right:12px;"></i>
+                    <select id="weatherRegionSelect" onchange="app.fetchLiveWeather(this.value)" style="width:100%; border:none; background:transparent; font-family:inherit; font-size:16px; outline:none; font-weight:700; color:var(--text-dark);">
+                        <option value="ahmedabad">Ahmedabad (અમદાવાદ)</option>
+                        <option value="rajkot" selected>Rajkot (રાજકોટ)</option>
+                        <option value="surat">Surat (સુરત)</option>
+                        <option value="vadodara">Vadodara (વડોદરા)</option>
+                        <option value="junagadh">Junagadh (જૂનાગઢ)</option>
+                        <option value="bhuj">Bhuj (ભુજ)</option>
+                    </select>
+                </div>
+
+                <div class="weather-hero-card" id="weatherHeroCard">
+                    <div id="weather-loading" style="display:none; position:absolute; inset:0; background:rgba(255,255,255,0.85); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:8px;">
+                        <i class="fa-solid fa-spinner fa-spin" style="font-size:24px; color:var(--primary);"></i>
+                        <span style="font-weight:600; color:var(--text-dark);">Loading weather...</span>
+                    </div>
+
+                    <div class="w-hero-main">
+                        <i class="fa-solid fa-cloud-sun" id="weather-icon"></i>
+                        <div class="w-hero-temp">
+                            <span class="val" id="weather-temp">--°</span>
+                            <span class="unit">C</span>
+                        </div>
+                        <p class="w-hero-cond" id="weather-cond">Cloudy</p>
+                    </div>
+                    <div class="w-hero-details">
+                        <div class="w-det"><i class="fa-solid fa-droplet"></i><span id="weather-humidity">--%</span></div>
+                        <div class="w-det"><i class="fa-solid fa-wind"></i><span id="weather-wind">-- km/h</span></div>
+                    </div>
+                </div>
+
+                <div class="section-title">
+                    <h3>7-Day Forecast</h3>
+                </div>
+                <div class="forecast-list" id="weather-forecast-list"></div>
+
+                <div class="tip-card" id="weather-tips-card" style="margin-top:20px;">
+                    <div class="tip-icon bg-orange"><i class="fa-solid fa-lightbulb"></i></div>
+                    <div class="tip-text">
+                        <h4>💡 Farming Advice</h4>
+                        <p id="weather-advice" style="margin:0;"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 17: Crop Picker -->
+        <div id="screen-crop-picker" class="screen">
+            <div class="header">
+                <button class="back-btn" onclick="app.goBack()"><i class="fa-solid fa-arrow-left"></i></button>
+                <h2>Choose Crop</h2>
+                <div style="width:24px"></div>
+            </div>
+            
+            <div style="padding:16px;">
+                <div class="market-search" style="margin:0 0 16px 0;">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="cropSearchInput" placeholder="Search crop (e.g. Wheat, Cumin...)" oninput="app.filterCrops(this.value)">
+                </div>
+                <div class="crop-selection-list" id="cropPickerList"></div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav" id="bottomNav" style="display: none;" role="navigation" aria-label="Main Navigation">
+            <div class="nav-item active" onclick="app.navigateTo('screen-dashboard')" id="nav-home" role="button" aria-label="Home" tabindex="0">
+                <i class="fa-solid fa-house" aria-hidden="true"></i>
+                <span data-i18n="nav_home">Home</span>
+            </div>
+            <div class="nav-item" onclick="app.navigateTo('screen-market')" id="nav-market" role="button" aria-label="Mandi Prices" tabindex="0">
+                <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+                <span data-i18n="nav_market">Mandi</span>
+            </div>
+            <div class="nav-item center-btn" onclick="app.navigateTo('screen-disease')" id="nav-scan" role="button" aria-label="Scan Crop" tabindex="0">
+                <i class="fa-solid fa-camera" aria-hidden="true"></i>
+                <span data-i18n="nav_scan">Scan</span>
+            </div>
+            <div class="nav-item" onclick="app.navigateTo('screen-farmcost')" id="nav-farmcost" role="button" aria-label="Farm Cost Calculator" tabindex="0">
+                <i class="fa-solid fa-calculator" aria-hidden="true"></i>
+                <span>Farm Cost</span>
+            </div>
+            <div class="nav-item" onclick="app.navigateTo('screen-profile')" id="nav-profile" role="button" aria-label="My Profile" tabindex="0">
+                <i class="fa-solid fa-user" aria-hidden="true"></i>
+                <span data-i18n="nav_profile">Profile</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Unified Knowledge Base (window.KB) -->
+    <script src="./scripts/knowledge_base.js?v=4.1.0"></script>
+    <!-- Application Constants -->
+    <script src="./scripts/constants.js?v=4.1.0"></script>
+    <!-- Fuzzy & BM25 Search Engine -->
+    <script src="./scripts/searchEngine.js?v=4.1.0"></script>
+    <!-- Modular UI Services -->
+    <script src="./scripts/services/uiRouter.js?v=4.1.0"></script>
+    <script src="./scripts/services/i18n.js?v=4.1.0"></script>
+    <script src="./scripts/services/authService.js?v=4.1.0"></script>
+    <script src="./scripts/services/weatherService.js?v=4.1.0"></script>
+    <script src="./scripts/services/mandiService.js?v=4.1.0"></script>
+    <script src="./scripts/services/calculatorService.js?v=4.1.0"></script>
+
+    <!-- Modular JS App Parts -->
+    <script src="./scripts/utilities.js?v=4.1.0"></script>
+    <script src="./scripts/navigation.js?v=4.1.0"></script>
+    <script src="./scripts/dashboard.js?v=4.1.0"></script>
+    <script src="./scripts/market.js?v=4.1.0"></script>
+    <script src="./scripts/weather.js?v=4.1.0"></script>
+    <script src="./scripts/profile.js?v=4.1.0"></script>
+
+    <!-- Modular JS AI Agent Parts -->
+    <script src="./scripts/tfEngine.js?v=4.1.0"></script>
+    <script src="./scripts/geminiClient.js?v=4.1.0"></script>
+    <script src="./scripts/kbResolver.js?v=4.1.0"></script>
+    <script src="./scripts/chatEngine.js?v=4.1.0"></script>
+    <script src="./scripts/resultRenderer.js?v=4.1.0"></script>
+    <script src="./scripts/imageProcessor.js?v=4.1.0"></script>
+
+    <!-- AI Agent Core coordinator -->
+    <script src="./scripts/aiAgent.js?v=4.1.0"></script>
+    <!-- App Logic facade -->
+    <script src="./scripts/app.js?v=4.1.0"></script>
+
+    <!-- Custom Splash timeout script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                const splash = document.getElementById("screen-splash");
+                if (splash) {
+                    splash.style.transition = "opacity 0.5s ease";
+                    splash.style.opacity = 0;
+                    setTimeout(() => {
+                        splash.style.display = "none";
+                        splash.classList.remove("active");
+                    }, 500);
+                }
+            }, 2500);
+        });
+
+        // Register PWA Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service-worker.js')
+                    .then(reg => console.log('Service Worker registered successfully:', reg.scope))
+                    .catch(err => console.error('Service Worker registration failed:', err));
+            });
+        }
+    </script>
+</body>
+
+</html>

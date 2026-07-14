@@ -1,0 +1,2683 @@
+{
+  "cropDefaults": {
+    "wheat": {
+      "seed": 1200,
+      "prep": 1800,
+      "sow": 600,
+      "irr": 2000,
+      "fert": 3500,
+      "pest": 1200,
+      "harv": 2500,
+      "trans": 500,
+      "misc": 400,
+      "yieldQ": 20,
+      "price": 2275
+    },
+    "cotton": {
+      "seed": 2500,
+      "prep": 2000,
+      "sow": 800,
+      "irr": 3500,
+      "fert": 5000,
+      "pest": 3500,
+      "harv": 4000,
+      "trans": 800,
+      "misc": 600,
+      "yieldQ": 12,
+      "price": 7020
+    },
+    "groundnut": {
+      "seed": 3500,
+      "prep": 1800,
+      "sow": 700,
+      "irr": 2500,
+      "fert": 3000,
+      "pest": 2000,
+      "harv": 3500,
+      "trans": 700,
+      "misc": 500,
+      "yieldQ": 10,
+      "price": 6377
+    },
+    "castor": {
+      "seed": 1500,
+      "prep": 2000,
+      "sow": 600,
+      "irr": 2500,
+      "fert": 3500,
+      "pest": 2000,
+      "harv": 3000,
+      "trans": 700,
+      "misc": 500,
+      "yieldQ": 18,
+      "price": 6500
+    },
+    "sesame": {
+      "seed": 600,
+      "prep": 1500,
+      "sow": 500,
+      "irr": 1000,
+      "fert": 2000,
+      "pest": 1000,
+      "harv": 2000,
+      "trans": 400,
+      "misc": 300,
+      "yieldQ": 4,
+      "price": 12000
+    },
+    "sugarcane": {
+      "seed": 15000,
+      "prep": 5000,
+      "sow": 3000,
+      "irr": 10000,
+      "fert": 12000,
+      "pest": 5000,
+      "harv": 8000,
+      "trans": 5000,
+      "misc": 2000,
+      "yieldQ": 400,
+      "price": 350
+    },
+    "paddy": {
+      "seed": 1500,
+      "prep": 2200,
+      "sow": 700,
+      "irr": 4000,
+      "fert": 4000,
+      "pest": 1500,
+      "harv": 3000,
+      "trans": 600,
+      "misc": 500,
+      "yieldQ": 25,
+      "price": 2183
+    },
+    "rice": {
+      "seed": 1500,
+      "prep": 2200,
+      "sow": 700,
+      "irr": 4000,
+      "fert": 4000,
+      "pest": 1500,
+      "harv": 3000,
+      "trans": 600,
+      "misc": 500,
+      "yieldQ": 25,
+      "price": 2183
+    },
+    "bajra": {
+      "seed": 800,
+      "prep": 1500,
+      "sow": 500,
+      "irr": 1500,
+      "fert": 2500,
+      "pest": 800,
+      "harv": 2000,
+      "trans": 400,
+      "misc": 300,
+      "yieldQ": 15,
+      "price": 2350
+    },
+    "jowar": {
+      "seed": 700,
+      "prep": 1500,
+      "sow": 500,
+      "irr": 1200,
+      "fert": 2000,
+      "pest": 1000,
+      "harv": 2000,
+      "trans": 400,
+      "misc": 300,
+      "yieldQ": 12,
+      "price": 2900
+    },
+    "maize": {
+      "seed": 1200,
+      "prep": 1800,
+      "sow": 600,
+      "irr": 2500,
+      "fert": 3500,
+      "pest": 1500,
+      "harv": 2500,
+      "trans": 500,
+      "misc": 400,
+      "yieldQ": 20,
+      "price": 1962
+    },
+    "tur": {
+      "seed": 1000,
+      "prep": 1800,
+      "sow": 600,
+      "irr": 1000,
+      "fert": 2000,
+      "pest": 2000,
+      "harv": 3000,
+      "trans": 500,
+      "misc": 400,
+      "yieldQ": 8,
+      "price": 7000
+    },
+    "moong": {
+      "seed": 800,
+      "prep": 1500,
+      "sow": 500,
+      "irr": 800,
+      "fert": 1500,
+      "pest": 1500,
+      "harv": 2000,
+      "trans": 400,
+      "misc": 300,
+      "yieldQ": 6,
+      "price": 8558
+    },
+    "gram": {
+      "seed": 1800,
+      "prep": 1500,
+      "sow": 600,
+      "irr": 1200,
+      "fert": 2000,
+      "pest": 1500,
+      "harv": 2500,
+      "trans": 500,
+      "misc": 400,
+      "yieldQ": 10,
+      "price": 5335
+    },
+    "urad": {
+      "seed": 800,
+      "prep": 1500,
+      "sow": 500,
+      "irr": 800,
+      "fert": 1500,
+      "pest": 1500,
+      "harv": 2000,
+      "trans": 400,
+      "misc": 300,
+      "yieldQ": 6,
+      "price": 6950
+    },
+    "cowpea": {
+      "seed": 900,
+      "prep": 1600,
+      "sow": 550,
+      "irr": 1000,
+      "fert": 1800,
+      "pest": 1200,
+      "harv": 2200,
+      "trans": 400,
+      "misc": 300,
+      "yieldQ": 8,
+      "price": 6500
+    },
+    "moth": {
+      "seed": 600,
+      "prep": 1200,
+      "sow": 400,
+      "irr": 600,
+      "fert": 1200,
+      "pest": 800,
+      "harv": 1800,
+      "trans": 300,
+      "misc": 200,
+      "yieldQ": 5,
+      "price": 7000
+    },
+    "soybean": {
+      "seed": 1200,
+      "prep": 1800,
+      "sow": 600,
+      "irr": 1500,
+      "fert": 2500,
+      "pest": 1500,
+      "harv": 2500,
+      "trans": 500,
+      "misc": 400,
+      "yieldQ": 10,
+      "price": 4600
+    },
+    "sunflower": {
+      "seed": 1500,
+      "prep": 1800,
+      "sow": 600,
+      "irr": 2000,
+      "fert": 3000,
+      "pest": 1200,
+      "harv": 2500,
+      "trans": 500,
+      "misc": 400,
+      "yieldQ": 8,
+      "price": 6400
+    },
+    "linseed": {
+      "seed": 1000,
+      "prep": 1500,
+      "sow": 500,
+      "irr": 1200,
+      "fert": 2000,
+      "pest": 1000,
+      "harv": 2000,
+      "trans": 400,
+      "misc": 300,
+      "yieldQ": 6,
+      "price": 5400
+    },
+    "cumin": {
+      "seed": 4000,
+      "prep": 2500,
+      "sow": 1000,
+      "irr": 3000,
+      "fert": 4000,
+      "pest": 3000,
+      "harv": 5000,
+      "trans": 1000,
+      "misc": 800,
+      "yieldQ": 5,
+      "price": 28000
+    },
+    "coriander": {
+      "seed": 1200,
+      "prep": 1500,
+      "sow": 600,
+      "irr": 1500,
+      "fert": 2000,
+      "pest": 1000,
+      "harv": 2000,
+      "trans": 500,
+      "misc": 400,
+      "yieldQ": 10,
+      "price": 8000
+    },
+    "fennel": {
+      "seed": 1500,
+      "prep": 2000,
+      "sow": 800,
+      "irr": 2500,
+      "fert": 3000,
+      "pest": 2000,
+      "harv": 3000,
+      "trans": 700,
+      "misc": 500,
+      "yieldQ": 15,
+      "price": 18000
+    },
+    "fenugreek": {
+      "seed": 1000,
+      "prep": 1500,
+      "sow": 500,
+      "irr": 1200,
+      "fert": 2000,
+      "pest": 1000,
+      "harv": 2000,
+      "trans": 400,
+      "misc": 300,
+      "yieldQ": 10,
+      "price": 6000
+    },
+    "ajwain": {
+      "seed": 1200,
+      "prep": 1800,
+      "sow": 600,
+      "irr": 1500,
+      "fert": 2500,
+      "pest": 1500,
+      "harv": 2500,
+      "trans": 500,
+      "misc": 400,
+      "yieldQ": 8,
+      "price": 12000
+    },
+    "dill": {
+      "seed": 1000,
+      "prep": 1500,
+      "sow": 500,
+      "irr": 1200,
+      "fert": 2000,
+      "pest": 1000,
+      "harv": 2000,
+      "trans": 400,
+      "misc": 300,
+      "yieldQ": 8,
+      "price": 9000
+    },
+    "mustard": {
+      "seed": 1000,
+      "prep": 1800,
+      "sow": 600,
+      "irr": 2000,
+      "fert": 3000,
+      "pest": 1500,
+      "harv": 2500,
+      "trans": 500,
+      "misc": 400,
+      "yieldQ": 12,
+      "price": 5450
+    },
+    "turmeric": {
+      "seed": 12000,
+      "prep": 4000,
+      "sow": 2500,
+      "irr": 6000,
+      "fert": 8000,
+      "pest": 3000,
+      "harv": 4000,
+      "trans": 1500,
+      "misc": 1000,
+      "yieldQ": 30,
+      "price": 7500
+    },
+    "ginger": {
+      "seed": 15000,
+      "prep": 4000,
+      "sow": 3000,
+      "irr": 8000,
+      "fert": 10000,
+      "pest": 4000,
+      "harv": 5000,
+      "trans": 2000,
+      "misc": 1000,
+      "yieldQ": 40,
+      "price": 8000
+    },
+    "garlic": {
+      "seed": 15000,
+      "prep": 3000,
+      "sow": 2000,
+      "irr": 5000,
+      "fert": 6000,
+      "pest": 3000,
+      "harv": 4000,
+      "trans": 1000,
+      "misc": 1000,
+      "yieldQ": 40,
+      "price": 8000
+    },
+    "chili": {
+      "seed": 3000,
+      "prep": 3000,
+      "sow": 1500,
+      "irr": 6000,
+      "fert": 8000,
+      "pest": 6000,
+      "harv": 5000,
+      "trans": 1000,
+      "misc": 1000,
+      "yieldQ": 20,
+      "price": 22000
+    },
+    "tomato": {
+      "seed": 4000,
+      "prep": 3000,
+      "sow": 1500,
+      "irr": 6000,
+      "fert": 7000,
+      "pest": 5000,
+      "harv": 4000,
+      "trans": 1000,
+      "misc": 1000,
+      "yieldQ": 100,
+      "price": 1000
+    },
+    "potato": {
+      "seed": 25000,
+      "prep": 4000,
+      "sow": 3000,
+      "irr": 8000,
+      "fert": 10000,
+      "pest": 4000,
+      "harv": 5000,
+      "trans": 2000,
+      "misc": 1000,
+      "yieldQ": 120,
+      "price": 1200
+    },
+    "onion": {
+      "seed": 4000,
+      "prep": 3000,
+      "sow": 2000,
+      "irr": 5000,
+      "fert": 5000,
+      "pest": 3000,
+      "harv": 4000,
+      "trans": 1000,
+      "misc": 1000,
+      "yieldQ": 150,
+      "price": 1500
+    },
+    "brinjal": {
+      "seed": 2000,
+      "prep": 2500,
+      "sow": 1000,
+      "irr": 5000,
+      "fert": 6000,
+      "pest": 4000,
+      "harv": 4000,
+      "trans": 800,
+      "misc": 800,
+      "yieldQ": 100,
+      "price": 1200
+    },
+    "okra": {
+      "seed": 3000,
+      "prep": 2000,
+      "sow": 1000,
+      "irr": 4000,
+      "fert": 4000,
+      "pest": 4000,
+      "harv": 3000,
+      "trans": 600,
+      "misc": 600,
+      "yieldQ": 40,
+      "price": 2500
+    },
+    "cabbage": {
+      "seed": 2500,
+      "prep": 2000,
+      "sow": 1000,
+      "irr": 4000,
+      "fert": 5000,
+      "pest": 3000,
+      "harv": 3000,
+      "trans": 600,
+      "misc": 500,
+      "yieldQ": 120,
+      "price": 800
+    },
+    "cauliflower": {
+      "seed": 3000,
+      "prep": 2200,
+      "sow": 1000,
+      "irr": 4500,
+      "fert": 5500,
+      "pest": 3500,
+      "harv": 3000,
+      "trans": 600,
+      "misc": 500,
+      "yieldQ": 100,
+      "price": 1200
+    },
+    "spinach": {
+      "seed": 1200,
+      "prep": 1500,
+      "sow": 500,
+      "irr": 2000,
+      "fert": 2500,
+      "pest": 1000,
+      "harv": 1500,
+      "trans": 400,
+      "misc": 300,
+      "yieldQ": 60,
+      "price": 1000
+    },
+    "bottlegourd": {
+      "seed": 1500,
+      "prep": 1800,
+      "sow": 600,
+      "irr": 3000,
+      "fert": 3500,
+      "pest": 2000,
+      "harv": 2500,
+      "trans": 500,
+      "misc": 400,
+      "yieldQ": 120,
+      "price": 1000
+    },
+    "bittergourd": {
+      "seed": 2000,
+      "prep": 2000,
+      "sow": 800,
+      "irr": 3500,
+      "fert": 4000,
+      "pest": 2500,
+      "harv": 3000,
+      "trans": 600,
+      "misc": 400,
+      "yieldQ": 80,
+      "price": 2000
+    },
+    "ridgegourd": {
+      "seed": 1800,
+      "prep": 1800,
+      "sow": 700,
+      "irr": 3000,
+      "fert": 3500,
+      "pest": 2000,
+      "harv": 2500,
+      "trans": 500,
+      "misc": 400,
+      "yieldQ": 90,
+      "price": 1500
+    },
+    "spongegourd": {
+      "seed": 1500,
+      "prep": 1800,
+      "sow": 600,
+      "irr": 3000,
+      "fert": 3500,
+      "pest": 2000,
+      "harv": 2500,
+      "trans": 500,
+      "misc": 400,
+      "yieldQ": 90,
+      "price": 1200
+    },
+    "pumpkin": {
+      "seed": 1200,
+      "prep": 1500,
+      "sow": 500,
+      "irr": 2500,
+      "fert": 3000,
+      "pest": 1500,
+      "harv": 2000,
+      "trans": 600,
+      "misc": 400,
+      "yieldQ": 150,
+      "price": 600
+    },
+    "cucumber": {
+      "seed": 2500,
+      "prep": 1800,
+      "sow": 600,
+      "irr": 3000,
+      "fert": 3500,
+      "pest": 2000,
+      "harv": 2500,
+      "trans": 500,
+      "misc": 400,
+      "yieldQ": 80,
+      "price": 1000
+    },
+    "capsicum": {
+      "seed": 4000,
+      "prep": 2500,
+      "sow": 1000,
+      "irr": 5000,
+      "fert": 6000,
+      "pest": 4000,
+      "harv": 4000,
+      "trans": 800,
+      "misc": 600,
+      "yieldQ": 80,
+      "price": 3000
+    },
+    "greenpeas": {
+      "seed": 3000,
+      "prep": 1800,
+      "sow": 800,
+      "irr": 2000,
+      "fert": 3000,
+      "pest": 1500,
+      "harv": 2000,
+      "trans": 500,
+      "misc": 400,
+      "yieldQ": 40,
+      "price": 3500
+    },
+    "radish": {
+      "seed": 1000,
+      "prep": 1500,
+      "sow": 500,
+      "irr": 2000,
+      "fert": 2500,
+      "pest": 1000,
+      "harv": 2000,
+      "trans": 400,
+      "misc": 300,
+      "yieldQ": 100,
+      "price": 800
+    },
+    "carrot": {
+      "seed": 1500,
+      "prep": 1800,
+      "sow": 600,
+      "irr": 2500,
+      "fert": 3000,
+      "pest": 1500,
+      "harv": 2500,
+      "trans": 500,
+      "misc": 400,
+      "yieldQ": 110,
+      "price": 1000
+    },
+    "beetroot": {
+      "seed": 1500,
+      "prep": 1800,
+      "sow": 600,
+      "irr": 2500,
+      "fert": 3000,
+      "pest": 1200,
+      "harv": 2000,
+      "trans": 500,
+      "misc": 400,
+      "yieldQ": 100,
+      "price": 1200
+    },
+    "mango": {
+      "seed": 20000,
+      "prep": 10000,
+      "sow": 5000,
+      "irr": 12000,
+      "fert": 8000,
+      "pest": 6000,
+      "harv": 10000,
+      "trans": 5000,
+      "misc": 2000,
+      "yieldQ": 80,
+      "price": 5000
+    },
+    "banana": {
+      "seed": 8000,
+      "prep": 4000,
+      "sow": 2000,
+      "irr": 6000,
+      "fert": 8000,
+      "pest": 3000,
+      "harv": 4000,
+      "trans": 1500,
+      "misc": 1000,
+      "yieldQ": 150,
+      "price": 1500
+    },
+    "papaya": {
+      "seed": 6000,
+      "prep": 3500,
+      "sow": 1500,
+      "irr": 5000,
+      "fert": 6000,
+      "pest": 3000,
+      "harv": 4000,
+      "trans": 1200,
+      "misc": 800,
+      "yieldQ": 180,
+      "price": 1200
+    },
+    "guava": {
+      "seed": 12000,
+      "prep": 6000,
+      "sow": 3000,
+      "irr": 8000,
+      "fert": 5000,
+      "pest": 3000,
+      "harv": 6000,
+      "trans": 3000,
+      "misc": 1000,
+      "yieldQ": 100,
+      "price": 2500
+    },
+    "pomegranate": {
+      "seed": 18000,
+      "prep": 8000,
+      "sow": 4000,
+      "irr": 10000,
+      "fert": 7000,
+      "pest": 5000,
+      "harv": 8000,
+      "trans": 4000,
+      "misc": 1500,
+      "yieldQ": 70,
+      "price": 6000
+    },
+    "lemon": {
+      "seed": 15000,
+      "prep": 7000,
+      "sow": 3000,
+      "irr": 8000,
+      "fert": 6000,
+      "pest": 4000,
+      "harv": 7000,
+      "trans": 3000,
+      "misc": 1000,
+      "yieldQ": 60,
+      "price": 4000
+    },
+    "citrus": {
+      "seed": 18000,
+      "prep": 9000,
+      "sow": 4000,
+      "irr": 10000,
+      "fert": 7000,
+      "pest": 5000,
+      "harv": 9000,
+      "trans": 4000,
+      "misc": 1500,
+      "yieldQ": 70,
+      "price": 4000
+    },
+    "sweetorange": {
+      "seed": 16000,
+      "prep": 8000,
+      "sow": 3500,
+      "irr": 9000,
+      "fert": 6500,
+      "pest": 4500,
+      "harv": 8000,
+      "trans": 3500,
+      "misc": 1200,
+      "yieldQ": 80,
+      "price": 3500
+    },
+    "mosambi": {
+      "seed": 15000,
+      "prep": 8000,
+      "sow": 3000,
+      "irr": 8000,
+      "fert": 6000,
+      "pest": 4000,
+      "harv": 7000,
+      "trans": 3000,
+      "misc": 1000,
+      "yieldQ": 90,
+      "price": 3000
+    },
+    "sapota": {
+      "seed": 15000,
+      "prep": 8000,
+      "sow": 4000,
+      "irr": 10000,
+      "fert": 6000,
+      "pest": 4000,
+      "harv": 8000,
+      "trans": 4000,
+      "misc": 1000,
+      "yieldQ": 60,
+      "price": 3000
+    },
+    "coconut": {
+      "seed": 25000,
+      "prep": 12000,
+      "sow": 5000,
+      "irr": 15000,
+      "fert": 10000,
+      "pest": 5000,
+      "harv": 10000,
+      "trans": 5000,
+      "misc": 2000,
+      "yieldQ": 80,
+      "price": 2500
+    },
+    "watermelon": {
+      "seed": 4000,
+      "prep": 2500,
+      "sow": 1000,
+      "irr": 4000,
+      "fert": 5000,
+      "pest": 3000,
+      "harv": 3000,
+      "trans": 1500,
+      "misc": 800,
+      "yieldQ": 180,
+      "price": 600
+    },
+    "muskmelon": {
+      "seed": 3500,
+      "prep": 2200,
+      "sow": 800,
+      "irr": 3500,
+      "fert": 4500,
+      "pest": 2500,
+      "harv": 3000,
+      "trans": 1200,
+      "misc": 800,
+      "yieldQ": 120,
+      "price": 1000
+    },
+    "grapes": {
+      "seed": 35000,
+      "prep": 15000,
+      "sow": 8000,
+      "irr": 18000,
+      "fert": 15000,
+      "pest": 8000,
+      "harv": 10000,
+      "trans": 6000,
+      "misc": 3000,
+      "yieldQ": 100,
+      "price": 4000
+    },
+    "tobacco": {
+      "seed": 3000,
+      "prep": 3000,
+      "sow": 1500,
+      "irr": 5000,
+      "fert": 6000,
+      "pest": 4000,
+      "harv": 4000,
+      "trans": 1000,
+      "misc": 1000,
+      "yieldQ": 15,
+      "price": 15000
+    },
+    "lucerne": {
+      "seed": 2000,
+      "prep": 1800,
+      "sow": 600,
+      "irr": 4000,
+      "fert": 3000,
+      "pest": 1000,
+      "harv": 3000,
+      "trans": 1000,
+      "misc": 500,
+      "yieldQ": 300,
+      "price": 500
+    },
+    "isabgol": {
+      "seed": 1500,
+      "prep": 1800,
+      "sow": 600,
+      "irr": 1500,
+      "fert": 2500,
+      "pest": 1200,
+      "harv": 2000,
+      "trans": 500,
+      "misc": 400,
+      "yieldQ": 8,
+      "price": 15000
+    },
+    "custom": {
+      "seed": 0,
+      "prep": 0,
+      "sow": 0,
+      "irr": 0,
+      "fert": 0,
+      "pest": 0,
+      "harv": 0,
+      "trans": 0,
+      "misc": 0,
+      "yieldQ": 0,
+      "price": 0
+    }
+  },
+  "detailedCropsData": {
+    "wheat": {
+      "name": "Wheat (ઘઉં)",
+      "emoji": "🌾",
+      "season": "Rabi Season",
+      "duration": "120-130 Days",
+      "image": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 1-15",
+          "task": "Field Preparation",
+          "details": "Deep plowing and soil leveling."
+        },
+        {
+          "day": "Day 21",
+          "task": "First Irrigation (CRI Stage)",
+          "details": "Most critical stage for water."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Tilt",
+          "desc": "For Yellow Rust."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "DAP",
+          "desc": "Base dose at sowing."
+        }
+      ]
+    },
+    "cotton": {
+      "name": "Cotton (કપાસ)",
+      "emoji": "☁️",
+      "season": "Kharif Season",
+      "duration": "160-180 Days",
+      "image": "https://images.unsplash.com/photo-1594901369791-a13f05b357be?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 1",
+          "task": "Sowing",
+          "details": "Bt Cotton 90x60cm spacing."
+        },
+        {
+          "day": "Day 60",
+          "task": "Flowering",
+          "details": "Avoid water stress."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Imidacloprid",
+          "desc": "For sucking pests."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "NPK 12:32:16",
+          "desc": "Primary nutrition."
+        }
+      ]
+    },
+    "groundnut": {
+      "name": "Groundnut (મગફળી)",
+      "emoji": "🥜",
+      "season": "Kharif/Summer",
+      "duration": "100-110 Days",
+      "image": "https://images.unsplash.com/photo-1569396116180-210c182bedb8?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 1",
+          "task": "Sowing",
+          "details": "Treat seeds with Rhizobium."
+        },
+        {
+          "day": "Day 45",
+          "task": "Pegging Stage",
+          "details": "Do not disturb soil."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Carbendazim",
+          "desc": "For Tikka disease."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Gypsum",
+          "desc": "For pod development."
+        }
+      ]
+    },
+    "castor": {
+      "name": "Castor (દિવેલા)",
+      "emoji": "🌿",
+      "season": "Kharif (Long)",
+      "duration": "150-180 Days",
+      "image": "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 1",
+          "task": "Sowing",
+          "details": "Spacing 90x60cm."
+        },
+        {
+          "day": "Day 90",
+          "task": "Harvesting",
+          "details": "Start picking first spikes."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Quinalphos",
+          "desc": "For Semilooper."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Urea",
+          "desc": "Split doses after picks."
+        }
+      ]
+    },
+    "sesame": {
+      "name": "Sesame (તલ)",
+      "emoji": "🌾",
+      "season": "Kharif/Summer",
+      "duration": "85-95 Days",
+      "image": "https://images.unsplash.com/photo-1597848212624-a19eb35e2651?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 1",
+          "task": "Sowing",
+          "details": "Mix seed with sand for uniform sowing."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Sulphur",
+          "desc": "For disease protection."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Urea",
+          "desc": "Moderate dosage."
+        }
+      ]
+    },
+    "sugarcane": {
+      "name": "Sugarcane (શેરડી)",
+      "emoji": "🎋",
+      "season": "Annual",
+      "duration": "360-400 Days",
+      "image": "https://images.unsplash.com/photo-1593113630400-ea4288922497?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 1",
+          "task": "Planting",
+          "details": "Use healthy two-budded setts."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Chlorpyrifos",
+          "desc": "For Termites."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "NPK",
+          "desc": "High nutrient requirement."
+        }
+      ]
+    },
+    "paddy": {
+      "name": "Paddy (ડાંગર)",
+      "emoji": "🍚",
+      "season": "Kharif Season",
+      "duration": "120-140 Days",
+      "image": "https://images.unsplash.com/photo-1536304997881-a372c179924b?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 25",
+          "task": "Transplanting",
+          "details": "Puddle field well."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Zinc Sulphate",
+          "desc": "For Khaira disease."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Urea",
+          "desc": "Top dressing in standing water."
+        }
+      ]
+    },
+    "rice": {
+      "name": "Rice (ચોખા / ડાંગર)",
+      "emoji": "🍚",
+      "season": "Kharif Season",
+      "duration": "120-140 Days",
+      "image": "https://images.unsplash.com/photo-1536304997881-a372c179924b?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 25",
+          "task": "Transplanting",
+          "details": "Puddle field well."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Zinc Sulphate",
+          "desc": "For Khaira disease."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Urea",
+          "desc": "Top dressing in standing water."
+        }
+      ]
+    },
+    "bajra": {
+      "name": "Bajra (બાજરી)",
+      "emoji": "🌾",
+      "season": "Kharif/Summer",
+      "duration": "85-95 Days",
+      "image": "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 20",
+          "task": "Thinning",
+          "details": "Maintain proper spacing."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Metalaxyl",
+          "desc": "For Downy Mildew."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "NPK",
+          "desc": "Balanced nutrition."
+        }
+      ]
+    },
+    "jowar": {
+      "name": "Jowar (જુવાર)",
+      "emoji": "🌾",
+      "season": "Kharif/Rabi",
+      "duration": "100-110 Days",
+      "image": "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 1",
+          "task": "Sowing",
+          "details": "Drilling at 45cm spacing."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Carbofuran",
+          "desc": "For Shoot fly control."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "FYM",
+          "desc": "Organic manure is preferred."
+        }
+      ]
+    },
+    "maize": {
+      "name": "Maize (મકાઈ)",
+      "emoji": "🌽",
+      "season": "Kharif/Rabi",
+      "duration": "90-110 Days",
+      "image": "https://images.unsplash.com/photo-1551754626-7ed702cd4adb?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 30",
+          "task": "Earthing up",
+          "details": "Protect roots and stems."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Atrazine",
+          "desc": "For weed control."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Potash",
+          "desc": "For grain strength."
+        }
+      ]
+    },
+    "tur": {
+      "name": "Tur (તુવેર)",
+      "emoji": "🌱",
+      "season": "Kharif (Long)",
+      "duration": "150-180 Days",
+      "image": "https://images.unsplash.com/photo-1594756202469-9ff9799b2e4e?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 1",
+          "task": "Sowing",
+          "details": "Intercropping with Bajra/Maize."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Indoxacarb",
+          "desc": "For Pod borer."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "DAP",
+          "desc": "Phosphate is key for pulses."
+        }
+      ]
+    },
+    "moong": {
+      "name": "Moong (મગ)",
+      "emoji": "🍲",
+      "season": "Summer/Kharif",
+      "duration": "65-75 Days",
+      "image": "https://images.unsplash.com/photo-1594756202469-9ff9799b2e4e?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 1",
+          "task": "Sowing",
+          "details": "Short duration crop."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Dimethoate",
+          "desc": "For Whitefly."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Rhizobium",
+          "desc": "Seed inoculation."
+        }
+      ]
+    },
+    "gram": {
+      "name": "Gram (ચણા)",
+      "emoji": "🥘",
+      "season": "Rabi Season",
+      "duration": "100-110 Days",
+      "image": "https://images.unsplash.com/photo-1594756202469-9ff9799b2e4e?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 30",
+          "task": "Nipping",
+          "details": "Pinch top shoots for more branches."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Monocrotophos",
+          "desc": "For Pod borer."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "SSP",
+          "desc": "Single Super Phosphate."
+        }
+      ]
+    },
+    "urad": {
+      "name": "Urad (અડદ)",
+      "emoji": "🍲",
+      "season": "Kharif/Summer",
+      "duration": "70-80 Days",
+      "image": "https://images.unsplash.com/photo-1594756202469-9ff9799b2e4e?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 15",
+          "task": "Weeding",
+          "details": "First manual weeding."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Neem Oil",
+          "desc": "For sucking pests."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "DAP",
+          "desc": "Base fertilization."
+        }
+      ]
+    },
+    "cowpea": {
+      "name": "Cowpea (ચોળી)",
+      "emoji": "🌿",
+      "season": "Kharif/Summer",
+      "duration": "75-85 Days",
+      "image": "https://images.unsplash.com/photo-1594756202469-9ff9799b2e4e?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 20",
+          "task": "Interculturing",
+          "details": "Loosen soil around roots."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Dimethoate",
+          "desc": "For Aphids."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Single Super Phosphate",
+          "desc": "For root growth."
+        }
+      ]
+    },
+    "moth": {
+      "name": "Moth Bean (મઠ)",
+      "emoji": "🌾",
+      "season": "Kharif",
+      "duration": "80-90 Days",
+      "image": "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 1",
+          "task": "Sowing",
+          "details": "Drought resistant crop sowing."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Mancozeb",
+          "desc": "Preventive fungal control."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "FYM",
+          "desc": "Apply 5 tons organic compost."
+        }
+      ]
+    },
+    "soybean": {
+      "name": "Soybean (સોયાબીન)",
+      "emoji": "🫘",
+      "season": "Kharif Season",
+      "duration": "90-100 Days",
+      "image": "https://images.unsplash.com/photo-1594756202469-9ff9799b2e4e?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 30",
+          "task": "Weeding",
+          "details": "Ensure weed-free environment."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Imidacloprid",
+          "desc": "For Girdle beetle."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Rhizobium",
+          "desc": "Seed treatment at sowing."
+        }
+      ]
+    },
+    "sunflower": {
+      "name": "Sunflower (સૂર્યમુખી)",
+      "emoji": "🌻",
+      "season": "Rabi/Summer",
+      "duration": "90-100 Days",
+      "image": "https://images.unsplash.com/photo-1597848212624-a19eb35e2651?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 45",
+          "task": "Irrigation",
+          "details": "Most critical stage - flowering."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Mancozeb",
+          "desc": "For Alternaria leaf blight."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Boron",
+          "desc": "Improves seed setting."
+        }
+      ]
+    },
+    "linseed": {
+      "name": "Linseed (અળસી)",
+      "emoji": "🌾",
+      "season": "Rabi Season",
+      "duration": "110-120 Days",
+      "image": "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 1",
+          "task": "Sowing",
+          "details": "Sow seeds at 30cm line spacing."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Sulphur",
+          "desc": "For Rust prevention."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Urea",
+          "desc": "Split dose application."
+        }
+      ]
+    },
+    "cumin": {
+      "name": "Cumin (જીરું)",
+      "emoji": "🌱",
+      "season": "Rabi Season",
+      "duration": "110-120 Days",
+      "image": "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 1",
+          "task": "Sowing",
+          "details": "Line sowing for better aeration."
+        },
+        {
+          "day": "Day 50",
+          "task": "Flowering",
+          "details": "Monitor for Blight."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Mancozeb",
+          "desc": "For Blight control."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Castor Cake",
+          "desc": "Organic base."
+        }
+      ]
+    },
+    "coriander": {
+      "name": "Coriander (ધાણા)",
+      "emoji": "🌿",
+      "season": "Rabi/Kharif",
+      "duration": "90-100 Days",
+      "image": "https://images.unsplash.com/photo-1614735241165-6756e1df61ab?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 1",
+          "task": "Sowing",
+          "details": "Split seeds into two before sowing."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Sulphur",
+          "desc": "For Mildew."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "FYM",
+          "desc": "Basic organic manure."
+        }
+      ]
+    },
+    "fennel": {
+      "name": "Fennel (વરિયાળી)",
+      "emoji": "🌿",
+      "season": "Rabi Season",
+      "duration": "140-160 Days",
+      "image": "https://images.unsplash.com/photo-1614735241165-6756e1df61ab?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 1",
+          "task": "Sowing",
+          "details": "Direct sowing or transplanting."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Sulphur",
+          "desc": "For Mildew control."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Urea",
+          "desc": "Top dressing."
+        }
+      ]
+    },
+    "fenugreek": {
+      "name": "Fenugreek (મેથી)",
+      "emoji": "🌿",
+      "season": "Rabi Season",
+      "duration": "80-90 Days",
+      "image": "https://images.unsplash.com/photo-1614735241165-6756e1df61ab?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 1",
+          "task": "Sowing",
+          "details": "Line sowing with 20cm row spacing."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Carbendazim",
+          "desc": "For root rot control."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "SSP",
+          "desc": "Phosphatic fertilizer."
+        }
+      ]
+    },
+    "ajwain": {
+      "name": "Ajwain (અજમો)",
+      "emoji": "🌿",
+      "season": "Rabi Season",
+      "duration": "130-140 Days",
+      "image": "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 30",
+          "task": "Thinning",
+          "details": "Remove excess plants for proper spacing."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Neem spray",
+          "desc": "Organic insect repellent."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Organic manure",
+          "desc": "Apply rich compost."
+        }
+      ]
+    },
+    "dill": {
+      "name": "Dill (સુવા)",
+      "emoji": "🌿",
+      "season": "Rabi Season",
+      "duration": "110-120 Days",
+      "image": "https://images.unsplash.com/photo-1614735241165-6756e1df61ab?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 1",
+          "task": "Sowing",
+          "details": "Sow seeds at shallow depth."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Sulphur",
+          "desc": "For powdery mildew."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Urea",
+          "desc": "Apply in split dose."
+        }
+      ]
+    },
+    "mustard": {
+      "name": "Mustard (રાઈ)",
+      "emoji": "🌼",
+      "season": "Rabi Season",
+      "duration": "100-110 Days",
+      "image": "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 40",
+          "task": "Flowering",
+          "details": "Monitor for Aphids."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Thiamethoxam",
+          "desc": "For Aphids."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Sulphur",
+          "desc": "Increases oil content."
+        }
+      ]
+    },
+    "turmeric": {
+      "name": "Turmeric (હળદર)",
+      "emoji": "🫚",
+      "season": "Kharif/Rabi",
+      "duration": "240-270 Days",
+      "image": "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 1",
+          "task": "Planting",
+          "details": "Plant healthy rhizomes on ridges."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Mancozeb",
+          "desc": "For leaf spot control."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "NPK 12:32:16",
+          "desc": "Balanced mineral support."
+        }
+      ]
+    },
+    "ginger": {
+      "name": "Ginger (આદુ)",
+      "emoji": "🫚",
+      "season": "Kharif/Rabi",
+      "duration": "240-270 Days",
+      "image": "https://images.unsplash.com/photo-1599940824399-b87987ceb72a?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 60",
+          "task": "Mulching",
+          "details": "Apply green leaf mulch."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Trichoderma",
+          "desc": "For rhizome rot."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Neem Cake",
+          "desc": "Apply organic neem cake."
+        }
+      ]
+    },
+    "garlic": {
+      "name": "Garlic (લસણ)",
+      "emoji": "🧄",
+      "season": "Rabi Season",
+      "duration": "130-150 Days",
+      "image": "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 1",
+          "task": "Planting",
+          "details": "Plant cloves with pointed end up."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Mancozeb",
+          "desc": "For Blight."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Urea",
+          "desc": "Nitrogen is key for bulb size."
+        }
+      ]
+    },
+    "chili": {
+      "name": "Chili (મરચાં)",
+      "emoji": "🌶️",
+      "season": "Kharif/Rabi",
+      "duration": "150-180 Days",
+      "image": "https://images.unsplash.com/photo-1588252303782-cb80119cb665?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 45",
+          "task": "Transplanting",
+          "details": "Maintain 60x45cm spacing."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Spinosad",
+          "desc": "For Thrips control."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "NPK",
+          "desc": "Balanced application."
+        }
+      ]
+    },
+    "tomato": {
+      "name": "Tomato (ટમેટા)",
+      "emoji": "🍅",
+      "season": "Rabi/Kharif",
+      "duration": "100-120 Days",
+      "image": "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 1",
+          "task": "Transplanting",
+          "details": "Use stakes for supporting branches."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Imidacloprid",
+          "desc": "For Leaf curl virus (Whitefly)."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Calcium Nitrate",
+          "desc": "Prevents blossom end rot."
+        }
+      ]
+    },
+    "potato": {
+      "name": "Potato (બટાટા)",
+      "emoji": "🥔",
+      "season": "Rabi Season",
+      "duration": "90-100 Days",
+      "image": "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 30",
+          "task": "Earthing up",
+          "details": "Cover tubers from sunlight."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Mancozeb",
+          "desc": "For Late Blight."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "NPK",
+          "desc": "Potassium is essential."
+        }
+      ]
+    },
+    "onion": {
+      "name": "Onion (ડુંગળી)",
+      "emoji": "🧅",
+      "season": "Rabi/Kharif",
+      "duration": "120-140 Days",
+      "image": "https://images.unsplash.com/photo-1618519764620-7403abdbfee9?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 45",
+          "task": "Transplanting",
+          "details": "Use 8-week old seedlings."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Copper Oxychloride",
+          "desc": "For Purple blotch."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Potash",
+          "desc": "Improves shelf life."
+        }
+      ]
+    },
+    "brinjal": {
+      "name": "Brinjal (રીંગણ)",
+      "emoji": "🍆",
+      "season": "Rabi/Kharif",
+      "duration": "120-150 Days",
+      "image": "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 1",
+          "task": "Transplanting",
+          "details": "Use healthy 30-day old seedlings."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Cypermethrin",
+          "desc": "For Fruit borer."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "DAP",
+          "desc": "Strong root establishment."
+        }
+      ]
+    },
+    "okra": {
+      "name": "Okra (ભીંડા)",
+      "emoji": "🥒",
+      "season": "Kharif/Summer",
+      "duration": "90-110 Days",
+      "image": "https://images.unsplash.com/photo-1625938146369-adc83368bda7?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 1",
+          "task": "Sowing",
+          "details": "Soak seeds in water for 24 hours."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Imidacloprid",
+          "desc": "For Jassids."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Urea",
+          "desc": "Frequent nitrogen application."
+        }
+      ]
+    },
+    "cabbage": {
+      "name": "Cabbage (કોબીજ)",
+      "emoji": "🥬",
+      "season": "Rabi Season",
+      "duration": "100-110 Days",
+      "image": "https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 45",
+          "task": "Interculturing",
+          "details": "Keep rows clean and aerated."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Spinosad",
+          "desc": "For Diamondback moth."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Urea",
+          "desc": "High nitrogen base."
+        }
+      ]
+    },
+    "cauliflower": {
+      "name": "Cauliflower (ફુલાવર)",
+      "emoji": "🥦",
+      "season": "Rabi Season",
+      "duration": "110-120 Days",
+      "image": "https://images.unsplash.com/photo-1568584711271-6c929fb49b60?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 50",
+          "task": "Blanching",
+          "details": "Cover curd with inner leaves for white color."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Malathion",
+          "desc": "For aphids and leaf eaters."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Boron",
+          "desc": "Prevents browning of curd."
+        }
+      ]
+    },
+    "spinach": {
+      "name": "Spinach (પાલક)",
+      "emoji": "🥬",
+      "season": "Annual",
+      "duration": "50-60 Days",
+      "image": "https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 15",
+          "task": "Harvesting Start",
+          "details": "Begin cutting outer leaves."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Neem oil",
+          "desc": "For leaf spot prevention."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Urea",
+          "desc": "Apply after each cutting."
+        }
+      ]
+    },
+    "bottlegourd": {
+      "name": "Bottle Gourd (દૂધી)",
+      "emoji": "🥒",
+      "season": "Kharif/Summer",
+      "duration": "110-120 Days",
+      "image": "https://images.unsplash.com/photo-1604975516086-fb22e9641219?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 30",
+          "task": "Trellis",
+          "details": "Provide support system for vines."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Mancozeb",
+          "desc": "For downy mildew control."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "FYM",
+          "desc": "Heavy organic base dose."
+        }
+      ]
+    },
+    "bittergourd": {
+      "name": "Bitter Gourd (કારેલા)",
+      "emoji": "🥒",
+      "season": "Kharif/Summer",
+      "duration": "100-110 Days",
+      "image": "https://images.unsplash.com/photo-1604975516086-fb22e9641219?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 35",
+          "task": "Pruning",
+          "details": "Remove side shoots up to 10 nodes."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Neem Spray",
+          "desc": "For fruit fly control."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "NPK",
+          "desc": "Balanced growth fertilizer."
+        }
+      ]
+    },
+    "ridgegourd": {
+      "name": "Ridge Gourd (તુરીયા)",
+      "emoji": "🥒",
+      "season": "Kharif/Summer",
+      "duration": "100-110 Days",
+      "image": "https://images.unsplash.com/photo-1604975516086-fb22e9641219?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 25",
+          "task": "Sowing support",
+          "details": "Train crop onto wires."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Carbendazim",
+          "desc": "For powdery mildew."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Potash",
+          "desc": "Improves fruit size."
+        }
+      ]
+    },
+    "spongegourd": {
+      "name": "Sponge Gourd (ગલકા)",
+      "emoji": "🥒",
+      "season": "Kharif/Summer",
+      "duration": "100-110 Days",
+      "image": "https://images.unsplash.com/photo-1604975516086-fb22e9641219?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 1",
+          "task": "Sowing",
+          "details": "Sow 2-3 seeds per hill."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Mancozeb",
+          "desc": "For Leaf spot."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "DAP",
+          "desc": "Apply in root zone."
+        }
+      ]
+    },
+    "pumpkin": {
+      "name": "Pumpkin (કોળું)",
+      "emoji": "🎃",
+      "season": "Kharif/Summer",
+      "duration": "120-130 Days",
+      "image": "https://images.unsplash.com/photo-1506976785307-8732e854ad03?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 60",
+          "task": "Fruit Setting",
+          "details": "Place straw under developing fruits."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Sulphur Dust",
+          "desc": "For Powdery mildew."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Organic compost",
+          "desc": "Heavy application around roots."
+        }
+      ]
+    },
+    "cucumber": {
+      "name": "Cucumber (કાકડી)",
+      "emoji": "🥒",
+      "season": "Summer/Kharif",
+      "duration": "80-90 Days",
+      "image": "https://images.unsplash.com/photo-1604975516086-fb22e9641219?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 30",
+          "task": "Staking",
+          "details": "Tie vines to stakes."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Imidacloprid",
+          "desc": "For red pumpkin beetle."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Urea",
+          "desc": "Apply every 15 days."
+        }
+      ]
+    },
+    "capsicum": {
+      "name": "Capsicum (કેપ્સીકમ)",
+      "emoji": "🫑",
+      "season": "Rabi/Summer",
+      "duration": "120-130 Days",
+      "image": "https://images.unsplash.com/photo-1588252303782-cb80119cb665?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 45",
+          "task": "Pruning",
+          "details": "Keep 2-3 strong branches."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Spinosad",
+          "desc": "For Thrips."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Calcium Nitrate",
+          "desc": "Prevents blossom rot."
+        }
+      ]
+    },
+    "greenpeas": {
+      "name": "Green Peas (વટાણા)",
+      "emoji": "🫛",
+      "season": "Rabi Season",
+      "duration": "90-100 Days",
+      "image": "https://images.unsplash.com/photo-1594756202469-9ff9799b2e4e?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 30",
+          "task": "Staking",
+          "details": "Provide twiggy support."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Sulphur",
+          "desc": "For powdery mildew control."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Rhizobium",
+          "desc": "Seed treatment at sowing."
+        }
+      ]
+    },
+    "radish": {
+      "name": "Radish (મૂળો)",
+      "emoji": "🥕",
+      "season": "Rabi Season",
+      "duration": "50-60 Days",
+      "image": "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 25",
+          "task": "Thinning",
+          "details": "Maintain 10cm space between radishes."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Malathion",
+          "desc": "For flea beetle control."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "NPK 19:19:19",
+          "desc": "Balanced foliage spray."
+        }
+      ]
+    },
+    "carrot": {
+      "name": "Carrot (ગાજર)",
+      "emoji": "🥕",
+      "season": "Rabi Season",
+      "duration": "90-100 Days",
+      "image": "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 30",
+          "task": "Earthing up",
+          "details": "Cover carrot tops to prevent greening."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Neem oil",
+          "desc": "For root aphids."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "MOP (Potash)",
+          "desc": "Essential for root development."
+        }
+      ]
+    },
+    "beetroot": {
+      "name": "Beetroot (બીટ)",
+      "emoji": "🧅",
+      "season": "Rabi Season",
+      "duration": "80-90 Days",
+      "image": "https://images.unsplash.com/photo-1600850756799-7576a88b5ade?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 1",
+          "task": "Sowing",
+          "details": "Direct sowing 2cm deep."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Copper",
+          "desc": "Prevent leaf spot."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Borax",
+          "desc": "Prevents internal black spot."
+        }
+      ]
+    },
+    "mango": {
+      "name": "Mango (કેરી)",
+      "emoji": "🥭",
+      "season": "Summer",
+      "duration": "Years",
+      "image": "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Jan-Feb",
+          "task": "Flowering",
+          "details": "Monitor for Hopper pests."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Wettable Sulphur",
+          "desc": "For Powdery Mildew."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Organic Compost",
+          "desc": "Apply in ring method."
+        }
+      ]
+    },
+    "banana": {
+      "name": "Banana (કેળા)",
+      "emoji": "🍌",
+      "season": "Annual",
+      "duration": "12-14 Months",
+      "image": "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 1",
+          "task": "Planting",
+          "details": "Use tissue culture plants for better yield."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Propiconazole",
+          "desc": "For Sigatoka Leaf Spot."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Potash",
+          "desc": "High requirement for fruit quality."
+        }
+      ]
+    },
+    "papaya": {
+      "name": "Papaya (પપૈયા)",
+      "emoji": "🍈",
+      "season": "Annual",
+      "duration": "10-12 Months",
+      "image": "https://images.unsplash.com/photo-1526318896980-cf78c088247c?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 1",
+          "task": "Transplanting",
+          "details": "Ensure good drainage to avoid root rot."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Neem Oil",
+          "desc": "For Whitefly protection."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Urea",
+          "desc": "Apply in small, frequent doses."
+        }
+      ]
+    },
+    "guava": {
+      "name": "Guava (જામફળ)",
+      "emoji": "🍏",
+      "season": "Annual",
+      "duration": "Years",
+      "image": "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "May-Jun",
+          "task": "Pruning",
+          "details": "Prune side shoots to induce lateral growth."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Copper spray",
+          "desc": "For Anthracnose."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "NPK + FYM",
+          "desc": "Apply 20kg compost per tree."
+        }
+      ]
+    },
+    "pomegranate": {
+      "name": "Pomegranate (દાડમ)",
+      "emoji": "🍎",
+      "season": "Annual",
+      "duration": "Years",
+      "image": "https://images.unsplash.com/photo-1582979512210-99b6a53386f9?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Bahar",
+          "task": "Bahar Treatment",
+          "details": "Water stress followed by heavy manuring."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Streptocycline",
+          "desc": "For Oily Spot protection."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Boron",
+          "desc": "Prevents fruit cracking."
+        }
+      ]
+    },
+    "lemon": {
+      "name": "Lemon (લીંબુ)",
+      "emoji": "🍋",
+      "season": "Annual",
+      "duration": "Years",
+      "image": "https://images.unsplash.com/photo-1590502593747-42a996133562?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Jun-Jul",
+          "task": "Pruning",
+          "details": "Remove suckers and water shoots."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Streptomycin",
+          "desc": "For Citrus Canker."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Zinc Sulphate",
+          "desc": "Corrects leaf mottling."
+        }
+      ]
+    },
+    "citrus": {
+      "name": "Citrus (લીંબુ / નારંગી)",
+      "emoji": "🍊",
+      "season": "Annual",
+      "duration": "Years",
+      "image": "https://images.unsplash.com/photo-1590502593747-42a996133562?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Jun-Jul",
+          "task": "Pruning",
+          "details": "Remove dry branches."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Streptomycin",
+          "desc": "For Citrus Canker."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Zinc",
+          "desc": "Corrects leaf chlorosis."
+        }
+      ]
+    },
+    "sweetorange": {
+      "name": "Sweet Orange (સંતરા)",
+      "emoji": "🍊",
+      "season": "Annual",
+      "duration": "Years",
+      "image": "https://images.unsplash.com/photo-1590502593747-42a996133562?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Bahar",
+          "task": "Treatment",
+          "details": "Stress management for winter crop."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Copper",
+          "desc": "For twig dieback."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "FYM",
+          "desc": "Compost application."
+        }
+      ]
+    },
+    "mosambi": {
+      "name": "Mosambi (મોસંબી)",
+      "emoji": "🍊",
+      "season": "Annual",
+      "duration": "Years",
+      "image": "https://images.unsplash.com/photo-1590502593747-42a996133562?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Bahar",
+          "task": "Treatment",
+          "details": "Flower induction watering."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Neem oil",
+          "desc": "For leaf miner control."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Potassium",
+          "desc": "Improves fruit size and juice."
+        }
+      ]
+    },
+    "sapota": {
+      "name": "Sapota (ચીકુ)",
+      "emoji": "🥔",
+      "season": "Annual",
+      "duration": "Years",
+      "image": "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Aug-Sep",
+          "task": "Pruning",
+          "details": "Remove dry and diseased branches."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Neem Oil",
+          "desc": "General protection."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Organic",
+          "desc": "Apply 50kg compost per tree."
+        }
+      ]
+    },
+    "coconut": {
+      "name": "Coconut (નારિયેળ)",
+      "emoji": "🥥",
+      "season": "Annual",
+      "duration": "Years",
+      "image": "https://images.unsplash.com/photo-1525287010471-bdc24f605cfc?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 1",
+          "task": "Planting",
+          "details": "Plant in pits 1x1x1m with compost."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Metarhizium",
+          "desc": "For Rhinoceros beetle."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Salt + Potash",
+          "desc": "Apply common salt to improve palm yield."
+        }
+      ]
+    },
+    "watermelon": {
+      "name": "Watermelon (તરબૂચ)",
+      "emoji": "🍉",
+      "season": "Summer Season",
+      "duration": "90-100 Days",
+      "image": "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 40",
+          "task": "Mulching",
+          "details": "Place straw under melons to prevent rot."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Carbendazim",
+          "desc": "For Fusarium wilt."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "NPK",
+          "desc": "Apply high potassium at fruit swell."
+        }
+      ]
+    },
+    "muskmelon": {
+      "name": "Muskmelon (શક્કરટેટી)",
+      "emoji": "🍈",
+      "season": "Summer Season",
+      "duration": "80-90 Days",
+      "image": "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 30",
+          "task": "Pinching",
+          "details": "Pinch terminal shoots to encourage branching."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Sulphur",
+          "desc": "For powdery mildew."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Urea",
+          "desc": "Apply nitrogen splits."
+        }
+      ]
+    },
+    "grapes": {
+      "name": "Grapes (દ્રાક્ષ)",
+      "emoji": "🍇",
+      "season": "Annual",
+      "duration": "Years",
+      "image": "https://images.unsplash.com/photo-1537640538966-79f369143f8f?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Oct",
+          "task": "Forward Pruning",
+          "details": "Perform main winter pruning."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Bordeaux mixture",
+          "desc": "For downy mildew."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "SOP",
+          "desc": "Sulphate of potash for sweet berries."
+        }
+      ]
+    },
+    "tobacco": {
+      "name": "Tobacco (તમાકુ)",
+      "emoji": "🍂",
+      "season": "Rabi Season",
+      "duration": "120-140 Days",
+      "image": "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 45",
+          "task": "Topping",
+          "details": "Remove flower heads to expand leaf size."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Mancozeb",
+          "desc": "For frog eye leaf spot."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "Ammonium Sulphate",
+          "desc": "Nitrogen for large leaves."
+        }
+      ]
+    },
+    "lucerne": {
+      "name": "Lucerne (રજકો)",
+      "emoji": "🌿",
+      "season": "Rabi/Annual",
+      "duration": "Cut crop",
+      "image": "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 40",
+          "task": "First Cutting",
+          "details": "Cut at 10% flowering stage."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Neem oil",
+          "desc": "For aphid control."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "SSP",
+          "desc": "Apply heavy phosphorus after cuts."
+        }
+      ]
+    },
+    "isabgol": {
+      "name": "Isabgol (ઇસબગુલ)",
+      "emoji": "🌾",
+      "season": "Rabi Season",
+      "duration": "110-120 Days",
+      "image": "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 90",
+          "task": "Harvesting",
+          "details": "Harvest early morning when spikes turn brown."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Metalaxyl",
+          "desc": "For downy mildew control."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "FYM",
+          "desc": "Apply basic organic manure."
+        }
+      ]
+    },
+    "rajgara": {
+      "name": "Amaranth / Rajgara (રાજગરો)",
+      "emoji": "🌾",
+      "season": "Rabi Season",
+      "duration": "100-110 Days",
+      "image": "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=600&q=80",
+      "schedule": [
+        {
+          "day": "Day 1",
+          "task": "Sowing",
+          "details": "Mix seed with sand for uniform sowing at 45cm row spacing."
+        }
+      ],
+      "medicine": [
+        {
+          "title": "Neem Oil",
+          "desc": "For sucking pests."
+        }
+      ],
+      "fertilizer": [
+        {
+          "title": "FYM",
+          "desc": "Apply 10 tonnes FYM/ha."
+        }
+      ]
+    }
+  }
+}
