@@ -31,4 +31,12 @@ const config = {
     }
 };
 
+if (config.env === 'production' && (!process.env.JWT_SECRET || process.env.JWT_SECRET === 'fallback_development_secret_key_change_in_production')) {
+    throw new Error("FATAL: JWT_SECRET environment variable must be explicitly configured in production mode.");
+}
+
+if (config.env === 'production' && (!process.env.SESSION_SECRET || process.env.SESSION_SECRET === 'fallback_session_secret_key')) {
+    throw new Error("FATAL: SESSION_SECRET environment variable must be explicitly configured in production mode.");
+}
+
 module.exports = config;
