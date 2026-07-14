@@ -27,6 +27,10 @@ Object.assign(window.cropAI, {
     _lastAnalyzedImage: null,
     _lastResult: null,
 
+    _sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    },
+
     async init() {
         this.loadEngineSettings();
     },
