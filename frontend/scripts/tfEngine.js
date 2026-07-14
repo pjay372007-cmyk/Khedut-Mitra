@@ -154,7 +154,7 @@ Object.assign(window.cropAI, {
             }
             if (!this.diseaseModel) {
                 this._updateLoadStatus("Loading Disease Classifier...");
-                this.diseaseModel = await tf.loadGraphModel('./models/disease_model/model.json');
+                this.diseaseModel = await tf.loadLayersModel('./models/disease_model/model.json');
                 this._updateLoadStatus("Warming up Disease Model...");
                 try {
                     tf.tidy(() => {
