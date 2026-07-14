@@ -25,7 +25,10 @@ window.KrishiConstants = {
 
     // Application default parameters
     APP_CONFIG: {
-        DEFAULT_MOBILE: '9876543210'
+        DEFAULT_MOBILE: '9876543210',
+        BACKEND_URL: (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:') 
+            ? 'http://localhost:5000/api' 
+            : `${window.location.origin}/api`
     },
 
     // UI crop localized translation mapping table
