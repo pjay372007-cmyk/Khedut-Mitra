@@ -41,10 +41,22 @@ Object.assign(window.cropAI, {
             ? (isGuj ? cropNameObj.gu : cropNameObj.en)
             : (cropKey || '');
 
-        const confColour = conf >= 95 ? '#059669' : conf >= 90 ? '#2563eb' : '#f59e0b';
+        let confColour = '#dc2626'; // Default red below 60%
+        let confQuality = 'low';
+        if (conf > 90) {
+            confColour = '#16a34a'; // Green above 90%
+            confQuality = 'high';
+        } else if (conf >= 80) {
+            confColour = '#2563eb'; // Blue 80-90%
+            confQuality = 'good';
+        } else if (conf >= 60) {
+            confColour = '#ca8a04'; // Yellow 60-80%
+            confQuality = 'acceptable';
+        }
+
         const confLabel = isGuj
-            ? `${conf}% ${conf >= 95 ? 'ઉચ્ચ આત્મવિશ્વાસ' : conf >= 90 ? 'સારો આત્મવિશ્વાસ' : 'સ્વીકાર્ય'}`
-            : `${conf}% ${conf >= 95 ? 'High Confidence' : conf >= 90 ? 'Good Confidence' : 'Acceptable'}`;
+            ? `${conf}% ${confQuality === 'high' ? 'ઉચ્ચ આત્મવિશ્વાસ' : confQuality === 'good' ? 'સારો આત્મવિશ્વાસ' : confQuality === 'acceptable' ? 'સ્વીકાર્ય' : 'ઓછો આત્મવિશ્વાસ'}`
+            : `${conf}% ${confQuality === 'high' ? 'High Confidence' : confQuality === 'good' ? 'Good Confidence' : confQuality === 'acceptable' ? 'Acceptable' : 'Low Confidence'}`;
 
         const capturedImg = this.capturedImageSrc || '';
 
@@ -150,30 +162,73 @@ Object.assign(window.cropAI, {
             const typeEl = document.getElementById('res-disease-type');
             if (typeEl) typeEl.textContent = r.type || 'disease';
 
-            const descEl = document.getElementById('res-disease-desc');
-            if (descEl) descEl.textContent = r.description || '';
-
-            const treatListEl = document.getElementById('res-treatment-list');
-            if (treatListEl) {
-                treatListEl.innerHTML = (r.treatment || []).map((t, i) => `
-                    <div class="ai-treat-card" style="animation-delay:${i * 0.12}s">
-                        <div class="ai-treat-icon"><i class="fa-solid ${t.icon || 'fa-circle-info'}"></i></div>
-                        <div class="ai-treat-text">
-                            <h4>${t.title}</h4>
-                            <p>${t.desc}</p>
+            // Dynamic compilation of the detailed explanation structure
+            const detailsContainer = document.getElementById('res-disease-details-container');
+            if (detailsContainer) {
+                detailsContainer.innerHTML = `
+                    <!-- 1. Disease Explanation & Symptoms -->
+                    <div style="background:white; border:1px solid var(--border-color); border-radius:var(--radius-md); padding:16px; text-align:left;">
+                        <h4 style="font-size:13px; color:var(--text-muted); text-transform:uppercase; margin-bottom:10px; margin-top:0;"><i class="fa-solid fa-circle-info" style="color:var(--danger);"></i> ${isGuj ? 'નિદાન અને વિગતવાર લક્ષણો' : 'Diagnosis & Detailed Symptoms'}</h4>
+                        <p style="font-size:14px; color:var(--text-body); line-height:1.6; margin-bottom:12px; margin-top:0;">${r.description || ''}</p>
+                        
+                        <div style="background:var(--bg-color); border-left:3px solid ${confColour}; padding:10px; border-radius:var(--radius-sm); font-size:13px; margin-bottom:12px; text-align:left;">
+                            <strong>${isGuj ? 'મોડેલ આગાહી વિશ્લેષણ:' : 'Model Prediction Analysis:'}</strong><br>
+                            ${isGuj 
+                                ? `TensorFlow.js એઆઈ મોડેલે પાંદડાની સપાટી પરથી દ્રશ્ય ગુણધર્મોનું વિશ્લેષણ કરીને ${conf}% આત્મવિશ્વાસ સાથે **${diseaseName}** રોગની ઓળખ કરી છે.`
+                                : `The TensorFlow.js offline engine analyzed leaf surface visual features to identify **${diseaseName}** with ${conf}% confidence.`}
                         </div>
+
+                        ${r.symptoms ? `
+                            <div style="font-size:13px; color:var(--text-body); border-top:1px solid var(--border-color); padding-top:10px; text-align:left;">
+                                <strong>${isGuj ? 'રોગના પ્રાથમિક લક્ષણો:' : 'Primary Disease Symptoms:'}</strong>
+                                <ul style="margin:6px 0 0; padding-left:20px; line-height:1.5;">
+                                    ${r.symptoms.early ? `<li><strong>${isGuj ? 'શરૂઆતના લક્ષણો:' : 'Early stage:'}</strong> ${isGuj ? (r.symptoms.early.gujarati || r.symptoms.early.english) : r.symptoms.early.english}</li>` : ''}
+                                    ${r.symptoms.late ? `<li><strong>${isGuj ? 'પાછળના લક્ષણો:' : 'Late stage:'}</strong> ${isGuj ? (r.symptoms.late.gujarati || r.symptoms.late.english) : r.symptoms.late.english}</li>` : ''}
+                                    ${r.symptoms.visual ? `<li><strong>${isGuj ? 'દ્રશ્ય લક્ષણો:' : 'Visual cues:'}</strong> ${r.symptoms.visual}</li>` : ''}
+                                </ul>
+                            </div>
+                        ` : ''}
                     </div>
-                `).join('');
+
+                    <!-- 2. Organic Treatment -->
+                    <div style="background:white; border:1px solid var(--border-color); border-radius:var(--radius-md); padding:16px; text-align:left;">
+                        <h4 style="font-size:13px; color:var(--text-muted); text-transform:uppercase; margin-bottom:10px; margin-top:0;"><i class="fa-solid fa-leaf" style="color:#16a34a;"></i> ${isGuj ? 'સેન્દ્રિય અને જૈવિક સારવાર' : 'Organic & Biological Treatment'}</h4>
+                        ${r.organic_treatment && r.organic_treatment.length > 0 ? `
+                            <ul style="margin:0; padding-left:20px; font-size:13px; color:var(--text-body); line-height:1.6;">
+                                ${r.organic_treatment.map(item => `<li>${item}</li>`).join('')}
+                            </ul>
+                        ` : `
+                            <p style="font-size:13px; color:var(--text-muted); margin:0;">${isGuj ? 'જૈવિક દવા ઉપલબ્ધ નથી. સાફ-સફાઈ રાખો.' : 'No specific biological treatment logged. Maintain field hygiene.'}</p>
+                        `}
+                    </div>
+
+                    <!-- 3. Chemical Treatment -->
+                    <div style="background:white; border:1px solid var(--border-color); border-radius:var(--radius-md); padding:16px; text-align:left;">
+                        <h4 style="font-size:13px; color:var(--text-muted); text-transform:uppercase; margin-bottom:10px; margin-top:0;"><i class="fa-solid fa-flask" style="color:#2563eb;"></i> ${isGuj ? 'રાસાયણિક સારવાર અને માત્રા' : 'Chemical Treatment & Dosage'}</h4>
+                        ${r.chemical_treatment ? `
+                            <div style="font-size:13px; color:var(--text-body); line-height:1.6;">
+                                ${r.chemical_treatment.note ? `<p style="margin:0 0 8px; color:#dc2626; font-weight:600;">⚠️ ${r.chemical_treatment.note}</p>` : ''}
+                                ${r.chemical_treatment.spray ? `<p style="margin:0 0 4px;"><strong>${isGuj ? 'છંટકાવ:' : 'Spray:'}</strong> ${r.chemical_treatment.spray}</p>` : ''}
+                                ${r.chemical_treatment.soil_treatment ? `<p style="margin:0;"><strong>${isGuj ? 'જમીન સારવાર:' : 'Soil Treatment:'}</strong> ${r.chemical_treatment.soil_treatment}</p>` : ''}
+                            </div>
+                        ` : `
+                            <p style="font-size:13px; color:var(--text-muted); margin:0;">${isGuj ? 'રાસાયણિક સારવારની ભલામણ નથી.' : 'No chemical treatment recommended for this stage.'}</p>
+                        `}
+                    </div>
+
+                    <!-- 4. Preventive Actions -->
+                    <div style="background:white; border:1px solid var(--border-color); border-radius:var(--radius-md); padding:16px; text-align:left;">
+                        <h4 style="font-size:13px; color:var(--text-muted); text-transform:uppercase; margin-bottom:10px; margin-top:0;"><i class="fa-solid fa-shield-halved" style="color:#ca8a04;"></i> ${isGuj ? 'નિવારક પગલાં (પૂર્વ કાળજી)' : 'Preventive Care Guidelines'}</h4>
+                        ${r.prevention && r.prevention.cultural && r.prevention.cultural.length > 0 ? `
+                            <ul style="margin:0; padding-left:20px; font-size:13px; color:var(--text-body); line-height:1.6;">
+                                ${r.prevention.cultural.map(item => `<li>${item}</li>`).join('')}
+                            </ul>
+                        ` : `
+                            <p style="font-size:13px; color:var(--text-body); margin:0;">${r.preventive || (isGuj ? 'પાકની ફેરબદલી અને જમીન ખેડ સૂર્ય પ્રકાશમાં કરો.' : 'Maintain rotation and ensure soil drainage.')}</p>
+                        `}
+                    </div>
+                `;
             }
-
-            const doseEl = document.getElementById('res-chemical-dose');
-            if (doseEl) doseEl.textContent = r.chemicalDose && r.chemicalDose !== '—' ? r.chemicalDose : (isGuj ? 'મળી જશે' : 'See treatment above');
-
-            const costEl = document.getElementById('res-estimated-cost');
-            if (costEl) costEl.textContent = r.estimatedCost && r.estimatedCost !== '—' ? r.estimatedCost : (isGuj ? 'દુકાન પર પૂછો' : 'Ask at local agri shop');
-
-            const prevEl = document.getElementById('res-disease-preventive');
-            if (prevEl) prevEl.textContent = r.preventive || (isGuj ? 'સાફ-સફાઈ રાખો.' : 'After treatment, maintain field hygiene.');
 
             const chatArea = document.getElementById('ai-chat-messages');
             if (chatArea) {
@@ -191,11 +246,28 @@ Object.assign(window.cropAI, {
             const el = document.getElementById('result-state-unknown');
             if (!el) return;
 
-            const titleEl = document.getElementById('res-unknown-title');
-            if (titleEl) titleEl.textContent = isGuj ? 'ઓળખ થઈ શકી નથી' : 'Could not identify crop';
-
-            const confValEl = document.getElementById('res-unk-conf-val');
-            if (confValEl) { confValEl.textContent = conf + '%'; }
+            el.innerHTML = `
+                <div style="width:80px; height:80px; background:rgba(239,68,68,0.1); border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:16px;">
+                    <i class="fa-solid fa-triangle-exclamation" style="font-size:36px; color:#dc2626;"></i>
+                </div>
+                <h2 id="res-unknown-title" style="font-size:20px; margin-bottom:8px; color:white;">
+                    ${isGuj ? 'ઓળખ થઈ શકી નથી (ઓછો આત્મવિશ્વાસ)' : 'Crop Not Recognized (Low Confidence)'}
+                </h2>
+                <p style="color:rgba(255,255,255,0.6); font-size:14px; margin-bottom:20px;">
+                    ${isGuj 
+                        ? `રોગ ઓળખવામાં આત્મવિશ્વાસ ઓછો છે (${conf}%). કૃપા કરીને નવો સ્પષ્ટ ફોટો લો અથવા ક્લાઉડ જેમિની એઆઈનો ઉપયોગ કરો.` 
+                        : `Confidence is too low (${conf}%). Please take another clear photo or analyze with Gemini Cloud AI.`}
+                </p>
+                
+                <div style="display:flex; flex-direction:column; gap:12px; width:100%;">
+                    <button onclick="cropAI.scanAgain()" class="btn btn-primary" style="width:100%;">
+                        <i class="fa-solid fa-camera-rotate"></i> ${isGuj ? 'ફરીથી ફોટો લો' : 'Take Another Photo'}
+                    </button>
+                    <button onclick="cropAI.runGeminiFallbackDirectly()" class="btn btn-secondary" style="width:100%; background:#2563eb; color:white; border:none; display:flex; align-items:center; justify-content:center; gap:8px;">
+                        <i class="fa-solid fa-cloud"></i> ${isGuj ? 'જેમિની વિઝન વાપરો' : 'Use Gemini Vision'}
+                    </button>
+                </div>
+            `;
 
             el.style.display = 'flex';
         }

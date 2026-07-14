@@ -27,6 +27,11 @@ const UIRouter = {
 
         if (this.currentScreen === screenId) return;
 
+        // Clean up active camera stream if navigating away from the scanner screen
+        if (this.currentScreen === 'screen-disease' && typeof window.cropAI !== 'undefined' && typeof window.cropAI.stopCamera === 'function') {
+            window.cropAI.stopCamera();
+        }
+
         // Handle history stack
         if (addToHistory && this.currentScreen !== 'screen-login') {
             if (this.navigationHistory[this.navigationHistory.length - 1] !== this.currentScreen) {

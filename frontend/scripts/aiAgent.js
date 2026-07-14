@@ -185,6 +185,24 @@ Object.assign(window.cropAI, {
 
   startAnalysisFromButton() {
     this._startAnalysis();
+  },
+
+  async runGeminiFallbackDirectly() {
+    const apiKey = window.KrishiStorage.getGeminiApiKey();
+    if (!apiKey) {
+      if (typeof Toast !== 'undefined') {
+        Toast.error('Please configure your Gemini API Key in the settings panel');
+      }
+      this.toggleSettingsPanel();
+      return;
+    }
+    const oldEngineMode = window.KrishiStorage.getEngineMode();
+    window.KrishiStorage.setEngineMode('gemini');
+    try {
+      await this._startAnalysis();
+    } finally {
+      window.KrishiStorage.setEngineMode(oldEngineMode);
+    }
   }
 });
 

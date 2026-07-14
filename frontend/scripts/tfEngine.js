@@ -68,6 +68,7 @@ Object.assign(window.cropAI, {
             const imgData = ctx.getImageData(0, 0, 32, 32).data;
             let sum = 0;
             let sqSum = 0;
+            let greenCount = 0;
             const count = imgData.length / 4;
             
             for (let i = 0; i < imgData.length; i += 4) {
@@ -77,22 +78,33 @@ Object.assign(window.cropAI, {
                 const v = 0.299*r + 0.587*g + 0.114*b; // Gray luminance
                 sum += v;
                 sqSum += v * v;
+                
+                // Color checks for green/yellow/brown leaf elements
+                if (g > r && g > b && g > 30) {
+                    greenCount++;
+                } else if (r > g && r > b && r > 45 && g > 30) {
+                    greenCount++;
+                }
             }
             
             const mean = sum / count;
             const variance = (sqSum / count) - (mean * mean);
             const stdDev = Math.sqrt(variance);
+            const leafRatio = greenCount / count;
             
-            console.log(`[ImageAudit] StdDev Contrast: ${stdDev.toFixed(2)}, Mean Luminance: ${mean.toFixed(2)}`);
+            console.log(`[ImageAudit] StdDev Contrast: ${stdDev.toFixed(2)}, Mean: ${mean.toFixed(2)}, Leaf Ratio: ${leafRatio.toFixed(2)}`);
             
             if (stdDev < 12) {
-                return { valid: false, reason: "The uploaded image has very low contrast or is a solid color. Please capture a clear, well-lit crop leaf." };
+                return { valid: false, reason: "ફોટો સ્પષ્ટ નથી. કૃપા કરીને ફોકસ સુધારીને ફરી પ્રયાસ કરો." };
             }
             if (mean < 15) {
-                return { valid: false, reason: "The image is too dark. Please take a photo with better lighting conditions." };
+                return { valid: false, reason: "વધારે પ્રકાશમાં ફોટો લો. છબી ખૂબ અંધારી છે." };
             }
             if (mean > 240) {
-                return { valid: false, reason: "The image is overexposed or completely white. Please capture a clearer photo." };
+                return { valid: false, reason: "પ્રકાશ ઓછો રાખીને અથવા સામાન્ય પ્રકાશમાં ફોટો લો." };
+            }
+            if (leafRatio < 0.05) {
+                return { valid: false, reason: "પાન સંપૂર્ણ દેખાતું નથી. કૃપા કરીને પર્ણને કેન્દ્રિત કરીને ફરી ફોટો લો." };
             }
             
             return { valid: true };
@@ -130,10 +142,28 @@ Object.assign(window.cropAI, {
             if (!this.cropModel) {
                 this._updateLoadStatus("Loading Crop Classifier...");
                 this.cropModel = await tf.loadGraphModel('./models/crop_model/model.json');
+                this._updateLoadStatus("Warming up Crop Model...");
+                try {
+                    tf.tidy(() => {
+                        const dummy = tf.zeros([1, 224, 224, 3]);
+                        this.cropModel.predict(dummy);
+                    });
+                } catch (we) {
+                    console.warn("Crop model warm-up error:", we.message);
+                }
             }
             if (!this.diseaseModel) {
                 this._updateLoadStatus("Loading Disease Classifier...");
                 this.diseaseModel = await tf.loadGraphModel('./models/disease_model/model.json');
+                this._updateLoadStatus("Warming up Disease Model...");
+                try {
+                    tf.tidy(() => {
+                        const dummy = tf.zeros([1, 224, 224, 3]);
+                        this.diseaseModel.predict(dummy);
+                    });
+                } catch (de) {
+                    console.warn("Disease model warm-up error:", de.message);
+                }
             }
             if (!this.cropClasses) {
                 this._updateLoadStatus("Loading Crop Mapping Metadata...");
