@@ -89,33 +89,31 @@ Object.assign(window.cropAI, {
     this._showPhase('loading');
     this._updateLoadingSteps();
 
+    if (!this.capturedImageSrc) {
+      throw new Error('NO_IMAGE: Please upload or capture a crop image before running AI analysis.');
+    }
+
+    let base64Data = '';
+    let mimeType = 'image/jpeg';
+    if (this.capturedImageSrc.startsWith('data:')) {
+      const parts = this.capturedImageSrc.split(';base64,');
+      if (parts.length === 2) {
+        mimeType = parts[0].replace('data:', '');
+        base64Data = parts[1];
+      }
+    }
+
     let result;
     try {
       if (engineMode === 'gemini') {
-        if (this.capturedImageSrc) {
-          let base64Data = '';
-          let mimeType = 'image/jpeg';
-          if (this.capturedImageSrc.startsWith('data:')) {
-            const parts = this.capturedImageSrc.split(';base64,');
-            if (parts.length === 2) {
-              mimeType = parts[0].replace('data:', '');
-              base64Data = parts[1];
-            }
-          }
-          const cropSelect = document.getElementById('ai-scan-crop-select')?.value || 'all';
-          const geminiResult = await this.callGeminiVision(base64Data, mimeType, cropSelect);
+        const cropSelect = document.getElementById('ai-scan-crop-select')?.value || 'all';
+        const geminiResult = await this.callGeminiVision(base64Data, mimeType, cropSelect);
 
-          if (geminiResult.error === 'BLURRY_OR_INVALID') {
-            throw new Error(`IMAGE_BLURRY_OR_INVALID: ${geminiResult.explanation_gu || geminiResult.explanation}`);
-          }
-          result = _parseGeminiResultToRecord(geminiResult);
-        } else {
-          throw new Error('NO_IMAGE: Please upload or capture a crop image before running AI analysis.');
+        if (geminiResult.error === 'BLURRY_OR_INVALID') {
+          throw new Error(`IMAGE_BLURRY_OR_INVALID: ${geminiResult.explanation_gu || geminiResult.explanation}`);
         }
+        result = _parseGeminiResultToRecord(geminiResult);
       } else {
-        if (!this.capturedImageSrc) {
-          throw new Error('NO_IMAGE: Please upload or capture a crop image before running AI analysis.');
-        }
         await this._sleep(1500);
         try {
           result = await this._analyseWithImage();
@@ -127,15 +125,6 @@ Object.assign(window.cropAI, {
             }
             engineMode = 'gemini';
 
-            let base64Data = '';
-            let mimeType = 'image/jpeg';
-            if (this.capturedImageSrc.startsWith('data:')) {
-              const parts = this.capturedImageSrc.split(';base64,');
-              if (parts.length === 2) {
-                mimeType = parts[0].replace('data:', '');
-                base64Data = parts[1];
-              }
-            }
             const cropSelect = document.getElementById('ai-scan-crop-select')?.value || 'all';
             const geminiResult = await this.callGeminiVision(base64Data, mimeType, cropSelect);
 
