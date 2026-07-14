@@ -471,3 +471,40 @@ Object.assign(window.app, {
         this.resetLogin();
     }
 });
+
+// Centralized production error handling system
+window.KrishiErrorHandler = {
+    ERROR_TRANSLATIONS: {
+        "LOCAL_MODEL_NOT_FOUND": "સ્થાનિક એઆઈ મોડેલ ફાઇલો મળી નથી. કૃપા કરીને ઇન્ટરનેટ કનેક્શન તપાસો.",
+        "IMAGE_BLURRY_OR_INVALID": "ફોટો અસ્પષ્ટ અથવા અમાન્ય છે. કૃપા કરીને પૂરતો પ્રકાશ રાખીને પાનનો સ્પષ્ટ ફોટો લો.",
+        "LOW_CONFIDENCE": "એઆઈ ખાતરી આપવા માટે પૂરતી માહિતી મેળવી શક્યું નથી. કૃપા કરીને ફરીથી ફોટો લો.",
+        "Failed to fetch": "સર્વર સાથે જોડાણ થઈ શક્યું નથી. કૃપા કરીને તમારું ઇન્ટરનેટ કનેક્શન તપાસો.",
+        "NetworkError": "નેટવર્ક ભૂલ આવી છે. કૃપા કરીને ફરી પ્રયાસ કરો.",
+        "Access denied": "પ્રવેશ નામંજૂર કરવામાં આવ્યો છે. કૃપા કરીને ફરીથી લોગિન કરો.",
+        "Verification code has expired": "ચકાસણી કોડની સમયસીમા સમાપ્ત થઈ ગઈ છે. નવો કોડ મેળવો.",
+        "Incorrect verification code": "ખોટો ચકાસણી કોડ દાખલ કર્યો છે."
+    },
+
+    translate(errMessage) {
+        if (!errMessage) return "અજ્ઞાત ક્ષતિ આવી છે. કૃપા કરીને ફરી પ્રયાસ કરો.";
+        const match = Object.keys(this.ERROR_TRANSLATIONS).find(k => errMessage.includes(k));
+        if (match) return this.ERROR_TRANSLATIONS[match];
+        
+        // Return friendly message fallback if not matched
+        return "ક્ષતિ આવી છે: " + errMessage;
+    },
+
+    handle(error, context = {}) {
+        console.error("[KrishiAI Central Error Logger]", error);
+        const errMsg = error.message || String(error);
+        const localizedMsg = this.translate(errMsg);
+        
+        if (typeof Toast !== 'undefined') {
+            Toast.error(localizedMsg, context.duration || 5000);
+        }
+
+        if (context.retryCallback && typeof context.retryCallback === 'function') {
+            console.log("Registered context callback triggers retry hook.");
+        }
+    }
+};

@@ -157,20 +157,24 @@ Object.assign(window.cropAI, {
       this._showPhase('result');
     } catch (error) {
       console.error('Analysis failed:', error);
+      
+      if (window.KrishiErrorHandler) {
+        window.KrishiErrorHandler.handle(error);
+      }
+
       const errorMsgEl = document.querySelector('#ai-phase-error p');
       if (errorMsgEl) {
         if (error.message.startsWith('IMAGE_BLURRY_OR_INVALID:')) {
           errorMsgEl.textContent = error.message.replace('IMAGE_BLURRY_OR_INVALID: ', '');
+        } else if (error.message.startsWith('LOW_CONFIDENCE:')) {
+          errorMsgEl.textContent = 'ઓછી ખાતરી: ચિત્ર પૂરતું સ્પષ્ટ નથી અથવા અસમર્થિત પાક પર્ણ છે. કૃપા કરીને ફરીથી સ્પષ્ટ ફોટો લો.';
         } else if (error.message.startsWith('NO_IMAGE:')) {
-          errorMsgEl.textContent = 'Please upload or capture a crop photo first, then tap Analyse.';
+          errorMsgEl.textContent = 'મહેરબાની કરીને પ્રથમ પાકનો ફોટો અપલોડ કરો અથવા લો, પછી વિશ્લેષણ કરો.';
         } else if (error.message.startsWith('LOCAL_MODEL_NOT_FOUND:')) {
-          errorMsgEl.innerHTML = `<strong>Local AI Models Not Trained</strong><br><br>
-            Please train and export your models to the <code>/models</code> directory using the Python ML pipeline under <code>ml_engine</code>.
-            <br><br>
-            Run:<br>
-            <code>python ml_engine/export/convert_to_tfjs.py</code>`;
+          errorMsgEl.innerHTML = `<strong>એઆઈ મોડેલ મળ્યું નથી / Local AI Models Not Loaded</strong><br><br>
+            સ્થાનિક ઓફલાઇન એઆઈ ચલાવવા માટે <code>/models</code> ડિરેક્ટરીમાં ફાઇલો હોવી જરૂરી છે. કૃપા કરીને સેટિંગ્સમાં જેમિની કી ગોઠવો અથવા મોડેલ લોડ કરો.`;
         } else {
-          errorMsgEl.textContent = 'Analysis failed. Make sure your local models are trained, or if using Gemini, check your API Key and internet connection.';
+          errorMsgEl.textContent = window.KrishiErrorHandler ? window.KrishiErrorHandler.translate(error.message) : 'વિશ્લેષણ અસફળ રહ્યું. સેટિંગ્સમાં જેમિની કી તપાસો અને જોડાણ ચકાસો.';
         }
       }
       this._showPhase('error');

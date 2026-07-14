@@ -24,27 +24,124 @@ Object.assign(window.cropAI, {
     diseaseModel: null,
     cropClasses: null,
     diseaseClasses: null,
+    _lastAnalyzedImage: null,
+    _lastResult: null,
 
     async init() {
-        // Init settings
         this.loadEngineSettings();
     },
 
-    async _analyseWithImage() {
-        // 1. Try to load models and classes dynamically from metadata files
+    /**
+     * Reports loading status to the splash and scanning overlay indicators.
+     */
+    _updateLoadStatus(msg) {
+        const splashLabel = document.querySelector("#screen-splash span");
+        const scanLabel = document.querySelector("#scanningOverlay span");
+        if (splashLabel) splashLabel.textContent = msg;
+        if (scanLabel) scanLabel.textContent = msg;
+    },
+
+    /**
+     * Assesses WebGL availability in the host context.
+     */
+    _isWebGLAvailable() {
         try {
+            const canvas = document.createElement('canvas');
+            return !!(window.WebGLRenderingContext && (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')));
+        } catch (e) {
+            return false;
+        }
+    },
+
+    /**
+     * Conducts a fast visual contrast audit using a canvas element to detect
+     * solid colors, completely blurry, or invalid dark/white capture assets.
+     */
+    _validateImageContrast(img) {
+        try {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = 32;
+            canvas.height = 32;
+            ctx.drawImage(img, 0, 0, 32, 32);
+            
+            const imgData = ctx.getImageData(0, 0, 32, 32).data;
+            let sum = 0;
+            let sqSum = 0;
+            const count = imgData.length / 4;
+            
+            for (let i = 0; i < imgData.length; i += 4) {
+                const r = imgData[i];
+                const g = imgData[i+1];
+                const b = imgData[i+2];
+                const v = 0.299*r + 0.587*g + 0.114*b; // Gray luminance
+                sum += v;
+                sqSum += v * v;
+            }
+            
+            const mean = sum / count;
+            const variance = (sqSum / count) - (mean * mean);
+            const stdDev = Math.sqrt(variance);
+            
+            console.log(`[ImageAudit] StdDev Contrast: ${stdDev.toFixed(2)}, Mean Luminance: ${mean.toFixed(2)}`);
+            
+            if (stdDev < 12) {
+                return { valid: false, reason: "The uploaded image has very low contrast or is a solid color. Please capture a clear, well-lit crop leaf." };
+            }
+            if (mean < 15) {
+                return { valid: false, reason: "The image is too dark. Please take a photo with better lighting conditions." };
+            }
+            if (mean > 240) {
+                return { valid: false, reason: "The image is overexposed or completely white. Please capture a clearer photo." };
+            }
+            
+            return { valid: true };
+        } catch (e) {
+            console.warn("Image contrast audit skipped:", e.message);
+            return { valid: true };
+        }
+    },
+
+    async _analyseWithImage() {
+        // Prevent duplicate predictions on identical capture assets
+        if (this.capturedImageSrc && this._lastAnalyzedImage === this.capturedImageSrc && this._lastResult) {
+            console.log("[KrishiAI] Returning cached prediction result.");
+            return this._lastResult;
+        }
+
+        // 1. Try to load models and classes dynamically with status reports
+        try {
+            this._updateLoadStatus("Initializing TensorFlow Engine...");
             await loadTensorFlow();
+
+            // Set TFJS backend dynamically based on WebGL support
+            if (!this._backendSet) {
+                const hasWebGL = this._isWebGLAvailable();
+                if (hasWebGL) {
+                    console.log("[TFJS] WebGL backend initialized.");
+                    await tf.setBackend('webgl').catch(() => tf.setBackend('cpu'));
+                } else {
+                    console.warn("[TFJS] WebGL unavailable. Falling back to CPU backend.");
+                    await tf.setBackend('cpu');
+                }
+                this._backendSet = true;
+            }
+
             if (!this.cropModel) {
+                this._updateLoadStatus("Loading Crop Classifier...");
                 this.cropModel = await tf.loadGraphModel('./models/crop_model/model.json');
             }
             if (!this.diseaseModel) {
+                this._updateLoadStatus("Loading Disease Classifier...");
                 this.diseaseModel = await tf.loadGraphModel('./models/disease_model/model.json');
             }
             if (!this.cropClasses) {
+                this._updateLoadStatus("Loading Crop Mapping Metadata...");
                 const cropRes = await fetch('./models/crop_model/classes.json');
                 this.cropClasses = await cropRes.json();
             }
             if (!this.diseaseClasses) {
+                this._updateLoadStatus("Loading Disease Mapping Metadata...");
                 const diseaseRes = await fetch('./models/disease_model/classes.json');
                 this.diseaseClasses = await diseaseRes.json();
             }
@@ -53,20 +150,26 @@ Object.assign(window.cropAI, {
             throw new Error('LOCAL_MODEL_NOT_FOUND: Custom TensorFlow.js models or class metadata files were not found under the /models directory. Run the conversion script under ml_engine first.');
         }
 
+        this._updateLoadStatus("Analyzing Image Contrast...");
+
         // 2. Perform image preprocessing & prediction
         try {
             const img = await this._loadImageElement(this.capturedImageSrc);
+            
+            // Validate contrast, exposure, and blur limits
+            const audit = this._validateImageContrast(img);
+            if (!audit.valid) {
+                throw new Error(`IMAGE_BLURRY_OR_INVALID: ${audit.reason}`);
+            }
+
+            this._updateLoadStatus("Computing Crop Health Predictions...");
+
             const prediction = tf.tidy(() => {
-                // Convert pixels to tensor
                 const tensor = tf.browser.fromPixels(img);
-                // Resize to 224x224 (standard input size)
                 const resized = tf.image.resizeBilinear(tensor, [224, 224]);
-                
-                // Normalization [0, 1]
                 const normalized = resized.toFloat().div(255.0);
                 const batched = normalized.expandDims(0);
 
-                // Predict
                 const cropOut = this.cropModel.predict(batched);
                 const diseaseOut = this.diseaseModel.predict(batched);
                 
@@ -153,14 +256,20 @@ Object.assign(window.cropAI, {
                 result = window.KB.diseases.find(d => d.id === 'healthy') || window.KB.diseases[0];
             }
 
-            return {
+            const finalResult = {
                 ...result,
                 crop: [cropLabel],
                 confidence: confidence
             };
+
+            // Cache prediction for fast subsequent lookups
+            this._lastAnalyzedImage = this.capturedImageSrc;
+            this._lastResult = finalResult;
+
+            return finalResult;
         } catch (err) {
             console.error("Local inference error:", err);
-            if (err.message.startsWith('LOW_CONFIDENCE:')) {
+            if (err.message.startsWith('LOW_CONFIDENCE:') || err.message.startsWith('IMAGE_BLURRY_OR_INVALID:')) {
                 throw err;
             }
             throw new Error('LOCAL_INFERENCE_FAILED: Inference failed during model prediction. Check browser console.');
