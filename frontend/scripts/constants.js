@@ -74,5 +74,8 @@ window.KrishiStorage = {
     },
     getEngineMode() {
         return localStorage.getItem(window.KrishiConstants.STORAGE_KEYS.ENGINE_MODE) || 'offline';
+    },
+    setEngineMode(mode) {
+        localStorage.setItem(window.KrishiConstants.STORAGE_KEYS.ENGINE_MODE, mode);
     }
 };
